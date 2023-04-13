@@ -1,28 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
-import { firebaseApp } from "./libs/firebase/firebase.config";
+import { registerService } from './services/auth.services'
 
-function App() {
-    console.log('firebaseApp', firebaseApp)
+function App () {
 
-    return (
-            <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"/>
-                    <p>
-                        Edit <code>src/App.js</code> and save to reload.
-                    </p>
-                    <a
-                            className="App-link"
-                            href="https://reactjs.org"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                    >
-                        Learn React
-                    </a>
-                </header>
-            </div>
-    );
+  const handleClick = () => {
+    registerService({ email: 'albertbarsegyan6@gmail.com', password: 'itismypassword94368' }).then(console.log)
+  }
+
+  return (
+    <div className="App">
+      <header className="App-header">
+
+
+        <button onClick={handleClick}>Auth</button>
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
+  )
 }
 
-export default App;
+export default App
