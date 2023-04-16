@@ -1,0 +1,20 @@
+input{
+    display: block;
+    padding: 10px 150px 15px 10px;
+    margin-bottom: 25px;
+}
+.but{
+    padding: 10px 40px;
+    background-color: black;
+    color: white;
+}
+.subbt{
+    width: 330px;
+}
+.main{
+    display: flex;
+    justify-content: space-around;
+    padding: 100px 0;
+}
+
+
