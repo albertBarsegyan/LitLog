@@ -8,22 +8,21 @@ export function Registration() {
     return (
         <div className={style.main}>
             <div>
-                <img src={Rbook} alt="" />
+                <h2 className={style.regheading}> This is  Register page </h2>
+                <img className={style.imgbook} src={Rbook} alt="" />
             </div>
             <form action="" >
+
                 <button className={style.googleBtn}><img src={google} alt="" className={style.googleImg} /> Sing up with Google</button>
 
-                <div className="border">
+                <div className={style.border}>
                     <div className={style.spBor}></div>
                         <span>or</span>
                     <div className={style.spBor}></div>
                 </div>
 
-                    
-                
-
-                <input type="text" placeholder="Name" />
-                <input type="text" placeholder="SurName" />
+                <input type="text" placeholder="First name" />
+                <input type="text" placeholder="Last Name" />
                 <input type="email" placeholder="Email" />
                 <input type="password" placeholder="Password" />
                 <input type="password" placeholder="Password" />
