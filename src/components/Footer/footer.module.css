@@ -1,0 +1,19 @@
+footer{
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer p{
+    font-size: 20px;
+    padding: 25px;
+    color: white;
+    font-family: "Poppins";
+}
+
+footer .link{
+    font-size: 18px;
+    color: white;
+    margin-right: 25px;
+    font-family: "Poppins";
+}
