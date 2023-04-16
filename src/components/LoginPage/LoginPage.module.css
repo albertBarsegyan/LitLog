@@ -1,9 +1,19 @@
 .form {
-    background-color: hsl(0deg 0% 85.49%);
+    background-color: white;
     display: inline-block;
     padding: 25px;
     border-radius: 15px;
     width: 330px;
+}
+
+body {
+    background-color: hsl(0deg 0% 85.49%);
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    margin-top: 15%;
 }
 
 .userImg {
@@ -16,21 +26,29 @@
 }
 
 .formInput {
-    background-color: hsl(0deg 0% 85.49%);
     width: 100%;
     height: 30px;
     border-radius: 10px;
     margin-bottom: 15px;
 }
 
-.remember {
-    display: flex;
-    justify-content: space-between;
-    font-size: 20px;
-}
-
-.remember a {
+.link {
     text-decoration: none;
     color: black;
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.loginButton {
+    padding: 10px 20px;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.span {
     font-size: 20px;
 }
