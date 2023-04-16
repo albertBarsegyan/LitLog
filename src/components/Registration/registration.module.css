@@ -1,20 +1,42 @@
-input{
+input {
     display: block;
     padding: 10px 150px 15px 10px;
     margin-bottom: 25px;
 }
-.but{
+
+.but {
     padding: 10px 40px;
     background-color: black;
     color: white;
 }
-.subbt{
-    width: 330px;
+
+.googleBtn {
+    display: flex;
+    align-items: center;
+    padding: 10px 179px 15px 10px;
+    margin-bottom: 25px;
 }
-.main{
+
+.googleImg {
+    width: 20px;
+    height: 20px;
+    background: transparent;
+}
+
+.main {
     display: flex;
     justify-content: space-around;
     padding: 100px 0;
 }
 
+.border{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+.spBor{
+    border-bottom: 1px solid black;
+    width: 50px;
+    height: 1px;
+}
