@@ -14,8 +14,6 @@ export function Registration() {
         },
         handleSubmit,
         watch,
-        setError,
-        clearErrors,
         reset
     } = useForm()
 
@@ -137,20 +135,17 @@ export function Registration() {
                         pattern: {
                             value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
                             message: errorMes.Password
-                        },
-                        // validate: value => value === pass1Ref.current?.value || "Error"
+                        }
 
 
                     })
                     }
                     type="password" placeholder="Repeat password"
-
                 />
                 <div>
-                    {errors?.repeatPassword && <p style={{ color: "red" }}>{errors?.repeatPassword?.errorMes.passReap}</p>}
+                    {errors?.password && <p style={{ color: "red" }}>{errors?.password?.message || "Error!"}</p>}
                 </div>
-
-
+                {password !== repeatPassword && <p style={{ color: "red" }}>{errorMes.passReap}</p>}
                 <button
                     className={style.but} type="submit">Submit</button>
             </form >
