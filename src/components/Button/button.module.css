@@ -1,9 +1,8 @@
 button {
     font-size: 20px;
-    padding: 3px 20px;
+    padding: 7px 20px;
     margin-right: 35px;
-    background:  white;
-    border-radius: 20px;
+    background: #fff;
 }
 
 button:hover {
@@ -11,6 +10,6 @@ button:hover {
     color: #fff;
 }
 
-button i{
+button i {
     padding-left: 10px;
 }

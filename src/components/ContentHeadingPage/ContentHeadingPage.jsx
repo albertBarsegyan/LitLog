@@ -1,6 +1,4 @@
 import style from "./headingPage.module.css"
-import backImg from "../FirstPage/images/bkimg.jpg"
-
 function HeadingPage() {
     return (
         <div className={style.wrapper}>

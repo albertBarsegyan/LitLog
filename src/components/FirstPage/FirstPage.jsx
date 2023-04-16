@@ -10,7 +10,7 @@ export function FirstPage() {
             <div>
                 <HeadingPage />
             </div>
-            <Footer/>
+            <Footer />
         </div>
     )
 }

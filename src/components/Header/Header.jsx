@@ -17,7 +17,7 @@ function Header() {
                 <Login />
                 <RegIn />
             </div>
-            
+
         </header>
     )
 }
