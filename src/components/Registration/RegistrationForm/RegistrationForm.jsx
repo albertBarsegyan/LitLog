@@ -14,7 +14,10 @@ const RegistrationForm = () => {
         handleSubmit,
         watch,
         reset
-    } = useForm()
+    } = useForm({
+        mode:"all"
+    }
+    )
 
 
     const password = watch("password", "");
@@ -31,7 +34,6 @@ const RegistrationForm = () => {
     }
 
 
-
     return (
         <form onSubmit={handleSubmit(onSubmit)} >
 
@@ -42,8 +44,9 @@ const RegistrationForm = () => {
                 <span>or</span>
                 <div className={style.spBor}></div>
             </div>
-
+        
             <input
+                
                 {...register("firstName", {
                     required: requeridMes.reqMes,
                     minLength: {
@@ -65,6 +68,7 @@ const RegistrationForm = () => {
             </div>
 
             <input
+
                 {...register("lastName", {
                     required: requeridMes.reqMes,
                     minLength: {
@@ -132,7 +136,7 @@ const RegistrationForm = () => {
                 type="password" placeholder="Repeat password"
             />
             <div>
-                {errors?.password && <p style={{ color: "red" }}>{errors?.password?.message || "Error!"}</p>}
+                {errors?.repeatPassword && <p style={{ color: "red" }}>{errors?.repeatPassword?.message || "Error!"}</p>}
             </div>
             {password !== repeatPassword && <p style={{ color: "red" }}>{errorMes.passReap}</p>}
             <button
