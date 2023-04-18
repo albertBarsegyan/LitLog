@@ -1,36 +1,27 @@
-import { createUserWithEmailAndPassword, sendSignInLinkToEmail } from '@firebase/auth'
-import { firebaseAuth } from '../libs/firebase/firebase.config'
+import { createUserWithEmailAndPassword, sendEmailVerification } from '@firebase/auth'
+import { firebaseAuth, firestoreApp } from '../libs/firebase/firebase.config'
+import { doc, setDoc } from '@firebase/firestore'
+import { FirebaseDocument } from '../constants/firebase.constants'
 import { UrlConstants } from '../constants/url.constants'
-import { LocalStorageConstants } from '../constants/localStorage.constants'
 
-const actionCodeSettings = {
-  url: UrlConstants.FirebaseRedirect,
-  handleCodeInApp: true,
-}
+export const registerService = async ({ email, password }) => {
+  try {
+    const newUserCredential = await createUserWithEmailAndPassword(firebaseAuth, email, password)
 
-export const registerService = ({ email, password }) => {
-  return createUserWithEmailAndPassword(firebaseAuth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user
-      if (user) {
-        sendSignInLinkToEmail(firebaseAuth, email, actionCodeSettings)
-          .then(() => {
-            window.localStorage.setItem(LocalStorageConstants.E, email)
-          })
-          .catch((error) => {
-            const errorCode = error.code
-            const errorMessage = error.message
+    const userDocumentReference = doc(firestoreApp, FirebaseDocument.Users, newUserCredential.user.uid)
 
-            return { data: null, errorCode, errorMessage }
-          })
-      }
+    await setDoc(userDocumentReference, { email })
 
-      return { data: user, errorMessage: null, errorCode: null }
+    await sendEmailVerification(newUserCredential.user, {
+      url: UrlConstants.FirebaseRedirect,
+      handleCodeInApp: true,
     })
-    .catch((error) => {
-      const errorCode = error.code
-      const errorMessage = error.message
-      return { data: null, errorCode, errorMessage }
 
-    })
+    return newUserCredential
+  } catch (error) {
+    const errorCode = error.code
+    const errorMessage = error.message
+    return { data: null, errorCode, errorMessage }
+  }
+
 }
