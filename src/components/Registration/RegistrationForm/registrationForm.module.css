@@ -1,0 +1,73 @@
+body{
+    background-color: rgb(191, 191, 191);
+}
+
+form {
+    border: 1px solid gray;
+    background: white;
+    padding: 35px;
+}
+
+input {
+    display: block;
+    padding: 10px 150px 15px 10px;
+    margin-bottom: 25px;
+    border: 1px solid ;
+}
+
+.but {
+    padding: 10px 40px;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+}
+
+.googleBtn {
+    display: flex;
+    align-items: center;
+    padding: 10px 110px 15px 10px;
+    margin-bottom: 25px;
+    background: #fff;
+    font-size: 20px;
+}
+
+.googleImg {
+    width: 30px;
+    height: 30px;
+    background: transparent;
+}
+
+.main {
+    display: flex;
+    justify-content: space-around;
+    padding: 100px 0;
+}
+
+form .border {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.spBor {
+    border-bottom: 3px solid black;
+    width: 46%;
+    height: 1px;
+}
+
+form .border span {
+    font-size: 20px;
+}
+
+
+.errormess{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.erorrInp{
+    border: 1px solid red
+}
+
+
