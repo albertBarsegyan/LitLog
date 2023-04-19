@@ -20,6 +20,7 @@ input {
     background-color: black;
     color: white;
     border: 1px solid white;
+    cursor: pointer;
 }
 
 .googleBtn {
@@ -59,3 +60,14 @@ form .border {
 form .border span {
     font-size: 20px;
 }
+
+
+.errormess{
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.erorrInp{
+    border: 1px solid red
+}
+
+
