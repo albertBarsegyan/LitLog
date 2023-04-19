@@ -7,7 +7,7 @@ function Login() {
     const navigation = useNavigate();
 
 
-    return <button onClick={() => navigation(RouteConstant.LoginPage)}>Sing In <i class="fa-solid fa-user"></i>  </button>
+    return <button className={style.fBtn} onClick={() => navigation(RouteConstant.LoginPage)}>Sing In <i class="fa-solid fa-user"></i>  </button>
 
 }
 

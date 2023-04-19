@@ -5,7 +5,7 @@ import style from './button.module.css'
 function RegIn() {
     const navigation = useNavigate();
 
-    return <button onClick={() => navigation(RouteConstant.RegPage)}>Sing Up <i class="fa-solid fa-user-plus"></i></button>
+    return <button className={style.fBtn} onClick={() => navigation(RouteConstant.RegPage)}>Sing Up <i class="fa-solid fa-user-plus"></i></button>
 
 }
 
