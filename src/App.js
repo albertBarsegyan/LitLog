@@ -1,4 +1,4 @@
-import { Registration } from './components/Registration/Registration'
+import LoginPage from './components/LoginPage/LoginPage'
 import { signInWithGoogle } from './services/auth.services'
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="App">
-    <Registration />
+      <LoginPage />
     </div>
   )
 }
