@@ -58,7 +58,6 @@ function LoginPage() {
                     </form>
                     <span className={style.span}>Not registred?</span>
                     <NavLink to={RouterConst.RegPage} className={style.link}>Create an account! </NavLink>
-                    {/* <a href="#" className={style.link}>Create an account!</a> */}
                 </div>
             </div>
             <Footer />
