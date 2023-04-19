@@ -5,7 +5,8 @@ import { errorMes } from "../../constants/loginErrMess"
 import google from "./LoginPageImages/google.png"
 import Footer from "./Footer/Footer"
 import Header from "./Header/Header"
-
+import { NavLink } from "react-router-dom"
+import { RouterConst } from "../../constants/RouterConstant"
 function LoginPage() {
 
     const {
@@ -40,7 +41,6 @@ function LoginPage() {
 
                             type="email" className={style.formInput} placeholder="Email" /><br />
                         <input
-
                             {
                             ...register("password", {
                                 pattern: {
@@ -57,7 +57,8 @@ function LoginPage() {
                         </div>
                     </form>
                     <span className={style.span}>Not registred?</span>
-                    <a href="#" className={style.link}>Create an account!</a>
+                    <NavLink to={RouterConst.RegPage} className={style.link}>Create an account! </NavLink>
+                    {/* <a href="#" className={style.link}>Create an account!</a> */}
                 </div>
             </div>
             <Footer />
