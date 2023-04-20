@@ -8,8 +8,7 @@ const Login = () => {
 
   return (
     <button onClick={() => navigation(RouterConstant.LoginPage)} className={style.button}>
-      {' '}
-      Sign In <i class="fa-solid fa-user"></i>
+      Sign In <i className="fa-solid fa-user"></i>
     </button>
   );
 };

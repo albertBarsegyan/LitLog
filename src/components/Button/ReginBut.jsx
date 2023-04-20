@@ -8,7 +8,7 @@ function RegIn() {
 
   return (
     <button onClick={() => navigation(RouteConstant.RegPage)}>
-      Sing Up <i class="fa-solid fa-user-plus"></i>
+      Sing Up <i className="fa-solid fa-user-plus"></i>
     </button>
   );
 }
