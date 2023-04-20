@@ -1,18 +1,17 @@
-import LoginPage from './components/LoginPage/LoginPage'
-import { signInWithGoogle } from './services/auth.services'
+import { useAuth } from './context/auth.context';
+import { Registration } from './components/Registration/Registration';
 
 function App() {
-
-  const handleClick = () => {
-    signInWithGoogle().then(console.log)
-  }
-
-
+  const { googleAuth, isLoading, user } = useAuth();
+  const handleGoogleAuth = () => googleAuth();
   return (
     <div className="App">
-      <LoginPage />
+      <p> {JSON.stringify(user)}</p>
+      <span>{isLoading ? 'loading' : 'not loading'}</span>
+      <button onClick={handleGoogleAuth}>Google</button>
+      <Registration />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
