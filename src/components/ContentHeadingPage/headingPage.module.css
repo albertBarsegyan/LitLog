@@ -1,5 +1,5 @@
 .imgBack {
-    background-image: url("../FirstPage/images/bkimg.jpg");
+    background-image: url("../../assets/images/bkimg.jpg");
     height: 100vh;
     background-size: cover;
     filter: grayscale(100%);
@@ -16,20 +16,20 @@
     font-weight: bold;
     font-family: "Poppins";
     padding-bottom: 30px;
-    color: white;
+    color: var(--white);
 }
 
 .content h1 span{
-    color: black;
+    color: var(--black);
 }
 
 .content p{
-    background-color: gray;
+    background-color: var(--gray);
     padding: 25px;
     border-radius: 25px;
     font-size: 20px;
     line-height: 30px;
     font-family: "Poppins";
-    color: white;
+    color: var(--white);
 
 }

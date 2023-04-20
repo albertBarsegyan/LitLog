@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import logo from "../FirstPage/images/logo.jpg"
+import logo from "../../assets/images/logo.jpg"
 import style from "./header.module.css"
 import Login from "../Button/LoginBut";
 import RegIn from "../Button/ReginBut";

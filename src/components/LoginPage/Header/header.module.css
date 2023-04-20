@@ -6,7 +6,7 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #fff;
+    background: var(--white);
 }
 .logoDiv{
     margin-left: 30px;

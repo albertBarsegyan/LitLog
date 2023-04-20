@@ -1,5 +1,5 @@
 footer {
-    background-color: black;
+    background-color: var(--black);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,14 +8,14 @@ footer {
 footer p {
     font-size: 20px;
     padding: 25px;
-    color: white;
+    color: var(--white);
     font-family: "Poppins";
 }
 
 footer .link {
     text-decoration: none;
     font-size: 18px;
-    color: white;
+    color: var(--white);
     margin-right: 25px;
     font-family: "Poppins";
 }

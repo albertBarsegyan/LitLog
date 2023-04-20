@@ -1,7 +1,8 @@
-import ReginBut from "./Navigation/ReginBut";
-import logo from "./images/logo.jpg"
+// import ReginBut from "./Navigation/ReginBut";
+import logo from "../../../assets/images/logo.jpg"
 import style from "./header.module.css"
 import { NavLink } from "react-router-dom";
+import RegIn from "../../Button/ReginBut";
 
 const Header = () => {
     return (
@@ -12,7 +13,7 @@ const Header = () => {
                 </NavLink>
             </div>
             <div>
-                <ReginBut />
+                <RegIn />
             </div>
         </header>
     );

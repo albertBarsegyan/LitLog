@@ -1,6 +1,6 @@
 import style from './heade.module.css'
-import Logo from './images/photo_2023-04-18_20-18-05.jpg';
-import Login from '../btn/btn';
+import Logo from '../../../assets/images/logo.jpg';
+import Login from "../../Button/LoginBut"
 import { NavLink } from 'react-router-dom';
 const Header = () => {
     return (
@@ -10,7 +10,7 @@ const Header = () => {
                 
             </div>
             <div className={style.hrefs}>
-                <Login />
+                <Login/>
             </div>
         </header>
     );

@@ -1,4 +1,4 @@
-import google from "../../images/google.png"
+import google from "../../../assets/images/google.png"
 import { useForm } from "react-hook-form"
 import { errorMes, minMaxLengtMes, requeridMes } from "../../../constants/errorMessage"
 import style from "./registrationForm.module.css"
@@ -15,7 +15,7 @@ const RegistrationForm = () => {
         watch,
         reset
     } = useForm({
-        mode: "all"
+        mode: "onBlur"
     }
     )
 
@@ -49,10 +49,10 @@ const RegistrationForm = () => {
 
             <label htmlFor="">
                 <div>
-                    {errors?.firstName && <p className={style.errormess} style={{ color: "red" }}>{errors?.firstName?.message || "Error!"}</p>}
+                    {errors?.firstName && <p className={style.errormess} >{errors?.firstName?.message || "Error!"}</p>}
                 </div>
                 <input
-                    className={errors.firstName ? style.erorrInp : null}
+                    className={errors.firstName ? style.erorrInp : style.inp}
 
                     {...register("firstName", {
                         required: requeridMes.reqMes,
@@ -75,11 +75,11 @@ const RegistrationForm = () => {
 
             <label htmlFor="">
                 <div>
-                    {errors?.lastName && <p className={style.errormess} style={{ color: "red" }}>{errors?.lastName?.message || "Error!"}</p>}
+                    {errors?.lastName && <p className={style.errormess} >{errors?.lastName?.message || "Error!"}</p>}
                 </div>
                 <input
 
-                    className={errors.lastName ? style.erorrInp : null}
+                    className={errors.lastName ? style.erorrInp : style.inp}
 
                     {...register("lastName", {
                         required: requeridMes.reqMes,
@@ -101,12 +101,12 @@ const RegistrationForm = () => {
 
             <label htmlFor="">
                 <div>
-                    {errors?.email && <p className={style.errormess} style={{ color: "red" }}>{errors?.email?.message || "Error!"}</p>}
+                    {errors?.email && <p className={style.errormess} >{errors?.email?.message || "Error!"}</p>}
                 </div>
 
                 <input
 
-                    className={errors.email ? style.erorrInp : null}
+                    className={errors.email ? style.erorrInp : style.inp}
 
                     {
                     ...register("email", {
@@ -124,14 +124,14 @@ const RegistrationForm = () => {
             </label>
 
             <div>
-                {errors?.password && <p className={style.errormess} style={{ color: "red" }}>{errors?.password?.message || "Error!"}</p>}
+                {errors?.password && <p className={style.errormess} >{errors?.password?.message || "Error!"}</p>}
             </div>
             <label htmlFor="">
 
 
                 <input
 
-                    className={errors.password ? style.erorrInp : null}
+                    className={errors.password ? style.erorrInp : style.inp}
                     {
                     ...register("password", {
                         required: requeridMes.reqMes,
@@ -148,12 +148,12 @@ const RegistrationForm = () => {
 
             <label htmlFor="">
                 <div>
-                    {errors?.repeatPassword && <p className={style.errormess} style={{ color: "red" }}>{errors?.repeatPassword?.message || "Error!"}</p>}
+                    {errors?.repeatPassword && <p className={style.errormess} >{errors?.repeatPassword?.message || "Error!"}</p>}
                 </div>
-                {password !== repeatPassword && <p className={style.errormess} style={{ color: "red" }}>{errorMes.passReap}</p>}
+                {password !== repeatPassword && <p className={style.errormess} >{errorMes.passReap}</p>}
                 <input
 
-                    className={errors.repeatPassword ? style.erorrInp : null}
+                    className={errors.repeatPassword ? style.erorrInp : style.inp}
                     {
                     ...register("repeatPassword", {
                         required: requeridMes.reqMes,
@@ -173,7 +173,7 @@ const RegistrationForm = () => {
 
             <button
                 disabled={butDisable}
-                // className={style.but}
+                className={style.but}
                 type="submit">Submit
             </button>
         </form >
