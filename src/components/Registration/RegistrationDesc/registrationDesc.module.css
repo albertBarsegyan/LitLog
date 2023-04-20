@@ -1,9 +1,10 @@
-.heading{
+.heading {
     font-size: 50px;
     margin-bottom: 40px;
 }
 
-.textBox p{
+.desc {
+    font-family: "Poppins";
     margin-top: 20px;
+    line-height: 25px;
 }
-

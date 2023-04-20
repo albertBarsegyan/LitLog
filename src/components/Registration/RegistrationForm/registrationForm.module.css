@@ -69,7 +69,7 @@ form .border span {
 }
 
 .erorrInp {
-    border-color:var(--red);
+    border-color: var(--red);
     display: block;
     width: 98%;
     padding: 10px 3px;

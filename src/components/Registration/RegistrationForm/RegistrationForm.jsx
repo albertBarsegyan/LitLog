@@ -15,7 +15,7 @@ const RegistrationForm = () => {
         watch,
         reset
     } = useForm({
-        mode: "onBlur"
+        mode: "all"
     }
     )
 
@@ -141,7 +141,9 @@ const RegistrationForm = () => {
                         }
                     })
                     }
-                    type="password" placeholder="Password"
+                    type="password"
+                    placeholder="Password"
+                   
 
                 />
             </label>
