@@ -1,4 +1,4 @@
 export const RouteConstant = {
-    LoginPage: '/login',
-    RegPage: '/register'
-}
+  LoginPage: '/login',
+  RegPage: '/register',
+};

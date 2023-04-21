@@ -1,63 +1,81 @@
-// import {
-//   createUserWithEmailAndPassword,
-//   GoogleAuthProvider,
-//   sendSignInLinkToEmail,
-//   signInWithPopup
-// } from '@firebase/auth'
-// import { firebaseAuth } from '../libs/firebase/firebase.config'
-// import { UrlConstants } from '../constants/url.constants'
-// import { LocalStorageConstants } from '../constants/localStorage.constants'
+import {
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  sendEmailVerification,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from '@firebase/auth';
+import { firebaseAuth, firestoreApp } from '../libs/firebase/firebase.config';
+import { collection, doc, getDoc, setDoc } from '@firebase/firestore';
+import { FirebaseDocument } from '../constants/firebase.constants';
+import { UrlConstants } from '../constants/url.constants';
+import { getAuth } from 'firebase/auth';
+import { firebaseUserDataFilter } from '../utils/firebase.utils';
 
-// const actionCodeSettings = {
-//   url: UrlConstants.FirebaseRedirect,
-//   handleCodeInApp: true,
-// }
+export const registerService = async ({ email, password, firstname, lastname }) => {
+  try {
+    const newUserCredential = await createUserWithEmailAndPassword(firebaseAuth, email, password);
 
-// const provider = new GoogleAuthProvider();
+    const userDocumentReference = doc(firestoreApp, FirebaseDocument.Users, newUserCredential.user.uid);
 
-// export const registerService = ({email, password}) => {
-//   return createUserWithEmailAndPassword(firebaseAuth, email, password)
-//     .then((userCredential) => {
-//       const user = userCredential.user
-//       if (user) {
-//         return sendSignInLinkToEmail(firebaseAuth, email, actionCodeSettings)
-//           .then(() => {
-//             window.localStorage.setItem(LocalStorageConstants.E, email)
-//           })
-//           .catch((error) => {
-//             const errorCode = error.code
-//             const errorMessage = error.message
+    await setDoc(userDocumentReference, { email, firstname, lastname });
+    await sendEmailVerification(getAuth().currentUser, {
+      url: UrlConstants.FirebaseRedirect,
+      handleCodeInApp: true,
+    });
 
-//             return {data: null, errorCode, errorMessage}
-//           })
-//       }
+    return { data: firebaseUserDataFilter(newUserCredential.user), errorCode: null, errorMessage: null };
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    return { data: null, errorCode, errorMessage };
+  }
+};
 
-//       return {data: user, errorMessage: null, errorCode: null}
-//     })
-//     .catch((error) => {
-//       const errorCode = error.code
-//       const errorMessage = error.message
-//       return {data: null, errorCode, errorMessage}
+export const loginService = async ({ email, password }) => {
+  try {
+    const response = await signInWithEmailAndPassword(firebaseAuth, email, password);
+    return { data: firebaseUserDataFilter(response.user), errorCode: null, errorMessage: null };
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    return { data: null, errorCode, errorMessage };
+  }
+};
 
-//     })
-// }
+export const signOutService = async () => {
+  try {
+    await firebaseAuth.signOut();
+    return { data: null, errorCode: null, errorMessage: null };
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    return { data: null, errorCode, errorMessage };
+  }
+};
+export const googleAuthService = async () => {
+  try {
+    const provider = new GoogleAuthProvider();
+    const result = await signInWithPopup(getAuth(), provider);
 
+    const { displayName, email, uid } = result.user;
 
-// export const signInWithGoogle = () => {
-//   return signInWithPopup(firebaseAuth, provider)
-//     .then((result) => {
-//       return {data: result.user, errorCode: null, errorMessage: null}
-//     }).catch((error) => {
-//       // Handle Errors here.
-//       const errorCode = error.code;
-//       const errorMessage = error.message;
-//       // The email of the user's account used.
-//       // const email = error.customData.email;
-//       // The AuthCredential type that was used.
-//       // const credential = GoogleAuthProvider.credentialFromError(error);
+    const userDoc = await getDoc(doc(collection(firestoreApp, 'users'), uid));
 
-//       return {data: null, errorCode, errorMessage}
-//     });
+    if (userDoc.exists()) {
+      return { data: firebaseUserDataFilter(result.user), errorCode: null, errorMessage: null };
+    } else {
+      await setDoc(doc(collection(firestoreApp, 'users'), uid), {
+        displayName,
+        email,
+        createdAt: new Date(),
+      });
 
-
-// }
+      return { data: firebaseUserDataFilter(result.user), errorCode: null, errorMessage: null };
+    }
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    return { data: null, errorCode, errorMessage };
+  }
+};

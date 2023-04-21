@@ -1,18 +1,11 @@
-import LoginPage from './components/LoginPage/LoginPage'
-import { signInWithGoogle } from './services/auth.services'
+import { Registration } from './components/Registration/Registration';
 
 function App() {
-
-  const handleClick = () => {
-    signInWithGoogle().then(console.log)
-  }
-
-
   return (
-    <div className="App">
-      <LoginPage />
+    <div>
+      <Registration />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

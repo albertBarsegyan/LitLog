@@ -1,3 +1,3 @@
 export const RouterConst = {
-    RegPage: "/register"
-}
+  RegPage: '/register',
+};

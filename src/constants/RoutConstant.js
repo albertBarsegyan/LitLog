@@ -1,3 +1,3 @@
-export const  RouterConstant = {
-    LoginPage: "/login"
-}
+export const RouterConstant = {
+  LoginPage: '/login',
+};
