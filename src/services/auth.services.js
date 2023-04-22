@@ -1,27 +1,32 @@
 import {
   createUserWithEmailAndPassword,
+  getAuth,
   GoogleAuthProvider,
-  sendEmailVerification,
   signInWithEmailAndPassword,
   signInWithPopup,
+  updateProfile,
 } from '@firebase/auth';
 import { firebaseAuth, firestoreApp } from '../libs/firebase/firebase.config';
 import { collection, doc, getDoc, setDoc } from '@firebase/firestore';
 import { FirebaseDocument } from '../constants/firebase.constants';
-import { UrlConstants } from '../constants/url.constants';
-import { getAuth } from 'firebase/auth';
 import { firebaseUserDataFilter } from '../utils/firebase.utils';
 
 export const registerService = async ({ email, password, firstname, lastname }) => {
   try {
     const newUserCredential = await createUserWithEmailAndPassword(firebaseAuth, email, password);
 
-    const userDocumentReference = doc(firestoreApp, FirebaseDocument.Users, newUserCredential.user.uid);
+    const user = getAuth().currentUser;
 
-    await setDoc(userDocumentReference, { email, firstname, lastname });
-    await sendEmailVerification(getAuth().currentUser, {
-      url: UrlConstants.FirebaseRedirect,
-      handleCodeInApp: true,
+    await updateProfile(user, {
+      displayName: `${firstname} ${lastname}`,
+    });
+
+    const userDocumentReference = doc(firestoreApp, FirebaseDocument.Users, newUserCredential.user.uid);
+    await setDoc(userDocumentReference, {
+      email,
+      displayName: `${firstname} ${lastname}`,
+      emailVerified: false,
+      photoURL: null,
     });
 
     return { data: firebaseUserDataFilter(newUserCredential.user), errorCode: null, errorMessage: null };
@@ -53,21 +58,24 @@ export const signOutService = async () => {
     return { data: null, errorCode, errorMessage };
   }
 };
+
 export const googleAuthService = async () => {
   try {
     const provider = new GoogleAuthProvider();
     const result = await signInWithPopup(getAuth(), provider);
 
-    const { displayName, email, uid } = result.user;
+    const { displayName, email, uid, emailVerified, photoURL } = result.user;
 
-    const userDoc = await getDoc(doc(collection(firestoreApp, 'users'), uid));
+    const userDoc = await getDoc(doc(collection(firestoreApp, FirebaseDocument.Users), uid));
 
     if (userDoc.exists()) {
       return { data: firebaseUserDataFilter(result.user), errorCode: null, errorMessage: null };
     } else {
-      await setDoc(doc(collection(firestoreApp, 'users'), uid), {
+      await setDoc(doc(collection(firestoreApp, FirebaseDocument.Users), uid), {
         displayName,
         email,
+        emailVerified,
+        photoURL,
         createdAt: new Date(),
       });
 
