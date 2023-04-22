@@ -1,5 +1,6 @@
 import {
   createUserWithEmailAndPassword,
+  getAuth,
   GoogleAuthProvider,
   signInWithEmailAndPassword,
   signInWithPopup,
@@ -8,7 +9,6 @@ import {
 import { firebaseAuth, firestoreApp } from '../libs/firebase/firebase.config';
 import { collection, doc, getDoc, setDoc } from '@firebase/firestore';
 import { FirebaseDocument } from '../constants/firebase.constants';
-import { getAuth } from 'firebase/auth';
 import { firebaseUserDataFilter } from '../utils/firebase.utils';
 
 export const registerService = async ({ email, password, firstname, lastname }) => {
@@ -58,6 +58,7 @@ export const signOutService = async () => {
     return { data: null, errorCode, errorMessage };
   }
 };
+
 export const googleAuthService = async () => {
   try {
     const provider = new GoogleAuthProvider();

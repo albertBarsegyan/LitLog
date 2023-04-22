@@ -13,11 +13,11 @@ export const AuthProvider = ({ children }) => {
 
   const signUp = async ({ email, password, firstname, lastname }) => {
     const { errorMessage, errorCode, data } = await registerService({ email, password, firstname, lastname });
-    setUser(data || null);
+    setUser(data);
     setIsLoading(false);
     setError({
-      code: errorCode || null,
-      message: errorMessage || null,
+      code: errorCode,
+      message: errorMessage,
     });
   };
 

@@ -1,7 +1,12 @@
 import { useAuth } from './context/auth.context';
 
+const ErrrorMessages = {
+  'auth/wrong-password': 'Your password is incorrect',
+};
+
 function App() {
   const { googleAuth, isLoading, user, signOut, error, signIn, signUp } = useAuth();
+
   const handleGoogleAuth = () => googleAuth();
 
   const handleSignOut = () => signOut();
@@ -18,7 +23,7 @@ function App() {
 
   return (
     <div className="App">
-      <p>code => {error.code}</p>
+      <p>code => {ErrrorMessages[error.code]}</p>
       <p>message => {error.message}</p>
       <pre>user => {JSON.stringify(user, null, 2)}</pre>
       <span>{isLoading ? 'loading' : 'not loading'}</span>
