@@ -1,6 +1,5 @@
 import { useAuth } from './context/auth.context';
-import {Registration} from "./components/Registration/Registration"
-
+import { Registration } from './components/Registration/Registration';
 
 function App() {
   const { googleAuth, isLoading, user, signOut, error, signIn, signUp } = useAuth();
