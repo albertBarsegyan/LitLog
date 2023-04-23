@@ -1,5 +1,5 @@
 import { useAuth } from './context/auth.context';
-
+import {Registration} from "./components/Registration/Registration"
 
 
 function App() {
