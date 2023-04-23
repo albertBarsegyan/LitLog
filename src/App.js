@@ -1,6 +1,7 @@
 import { useAuth } from './context/auth.context';
 import { Registration } from './components/Registration/Registration';
-
+import BookCount from './BookCount/BookCount';
+import {FirstPage} from "./components/FirstPage/FirstPage"
 function App() {
   const { googleAuth, isLoading, user, signOut, error, signIn, signUp } = useAuth();
 
@@ -28,7 +29,9 @@ function App() {
       <button onClick={handleSignOut}>Sign out</button>
       <button onClick={handleLogin}>Login</button>
       <button onClick={handleSignUp}>Sign up</button> */}
-      <Registration />
+      {/* <Registration /> */}
+      {/* <FirstPage/> */}
+      <BookCount/>
     </div>
   );
 }
