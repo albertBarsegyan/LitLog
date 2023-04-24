@@ -1,5 +1,5 @@
 import { useAuth } from './context/auth.context';
-import {Registration} from "./components/Registration/Registration"
+import { Registration } from "./components/Registration/Registration"
 
 
 function App() {
@@ -21,15 +21,15 @@ function App() {
 
   return (
     <div className="App">
-      {/* <p>code => {error.code}</p>
+      <p>code => {error.code}</p>
       <p>message => {error.message}</p>
       <pre>user => {JSON.stringify(user, null, 2)}</pre>
       <span>{isLoading ? 'loading' : 'not loading'}</span>
       <button onClick={handleGoogleAuth}>Google</button>
       <button onClick={handleSignOut}>Sign out</button>
       <button onClick={handleLogin}>Login</button>
-      <button onClick={handleSignUp}>Sign up</button> */}
-      <Registration />
+      <button onClick={handleSignUp}>Sign up</button>
+      {/* <Registration /> */}
     </div>
   );
 }
