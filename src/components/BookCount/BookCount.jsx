@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Footer from "../components/Registration/Footer/Footer";
 import style from "./book.module.css";
 import { Link } from "react-router-dom";
 
@@ -14,7 +13,6 @@ const BookCount = () => {
         const value = e.target.value
         if (RegEx.test(value)) {
             setNumber(value)
-            console.log(54661);
         }
 
     }
@@ -35,15 +33,17 @@ const BookCount = () => {
                     for choosing to visit us, and we hope you have a wonderful time
                     exploring all that our site has to offer!
                 </p>
-                <input
-                    className={style.inpNum}
-                    placeholder="book count"
-                    value={number}
-                    onChange={handleChange}
-                />
+                <label>
+                    <p className={style.lebPar}> <span className={style.lebSpan}>E</span>nter quantity to read books</p>
+                    <input
+                        className={style.inpNum}
+                        placeholder="book count"
+                        value={number}
+                        onChange={handleChange}
+                    />
+                </label>
                 <Link className={style.btnN}>Next</Link>
             </div>
-            {/* <Footer /> */}
         </div>
     );
 };
