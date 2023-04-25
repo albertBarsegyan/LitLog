@@ -21,7 +21,10 @@ const LeftSide = () => {
                             <img
                                 className={style.icons}
                                 src={Vector} alt="" />
+<<<<<<< HEAD:src/components/PrifilPage/LeftSide/LeftSide.jsx
                             {/* <Icons article={PropsConst.article} /> */}
+=======
+>>>>>>> f4582d70e7de0587676a396b35ba943e92c8ac69:src/components/ProfilPage/LeftSide/LeftSide.jsx
                             Dashboard
                         </Link>
                         <Link className={style.link}><img className={style.icons} src={save} alt="" />  My Collection</Link>
