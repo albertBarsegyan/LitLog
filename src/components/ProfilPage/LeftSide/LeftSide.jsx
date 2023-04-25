@@ -6,6 +6,7 @@ const LeftSide = () => {
     return (
         <div>
             <div className={style.leftSide}>
+                <NavLink className={style.logo}><span className={style.lspan}>L</span>it<span className={style.lspan}>L</span>og</NavLink>
                 <div>
                    
                 </div>
