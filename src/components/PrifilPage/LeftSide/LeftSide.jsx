@@ -1,36 +1,28 @@
-import style from './LeftSide.module.css'
-import logo from '../../assets/images/logo.jpg'
-import Vector from '../../assets/images/Vector.png'
-import save from '../../assets/images/save.png'
-import collection from '../../assets/images/collection.png'
-import settings from '../../assets/images/settings.png'
-import logout from '../../assets/images/logout.png'
+import style from './leftSide.module.css'
 import { Link, NavLink } from "react-router-dom";
-import Icons from "../../assets/Icons/icons";
-
 const LeftSide = () => {
+
     return (
         <div>
             <div className={style.leftSide}>
                 <div>
-                    <img className={style.logo} src={logo} alt="" />
+                    <NavLink className={style.logo}>LITLOG</NavLink>
                 </div>
                 <div className={style.navbar}>
                     <nav className={style.menu}>
                         <Link className={style.link}>
                             <img
                                 className={style.icons}
-                                src={Vector} alt="" />
-                            <Icons article={PropsConst.article} />
+                                src="" alt="" />
                             Dashboard
                         </Link>
-                        <Link className={style.link}><img className={style.icons} src={save} alt="" />  My Collection</Link>
-                        <Link className={style.link}><img className={style.icons} src={collection} alt="" />  Favorites</Link>
+                        <Link className={style.link}><img className={style.icons} src="" alt="" />  My Collection</Link>
+                        <Link className={style.link}><img className={style.icons} src="" alt="" />  Favorites</Link>
                     </nav>
                 </div>
                 <div className={style.setings}>
-                    <NavLink> <img className={style.icons} src={settings} alt="" /> settings </NavLink> <br /><br />
-                    <Link> <img className={style.icons} src={logout} alt="" /> Log Out => </Link>
+                    <Link> <img className={style.icons} src="" alt="" /> settings </Link>
+                    <Link> <img className={style.icons} src="" alt="" /> Log Out</Link>
                 </div>
             </div>
 
