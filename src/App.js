@@ -15,13 +15,6 @@ function App() {
 
   return (
     <div className="App">
-<<<<<<< HEAD
-=======
-      {/* <Routes>
-        <Route/>
-      </Routes> */}
-
->>>>>>> 8e473351cc63e527e0b2b700df4ea5e10390303f
       {/* <FirstPage/> */}
       <Routes>
         <Route path={RouteConstant.FirstPage} exact element={<FirstPage/>}/>
@@ -30,11 +23,7 @@ function App() {
       </Routes>
       {/* <LoginPage /> */}
       {/* <Registration /> */}
-<<<<<<< HEAD
-      <FirstPage/>
-      
-=======
->>>>>>> 8e473351cc63e527e0b2b700df4ea5e10390303f
+
     </div>
   )
 }
