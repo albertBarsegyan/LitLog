@@ -5,7 +5,9 @@ import { Registration } from './components/Registration/Registration'
 import { signInWithGoogle } from './services/auth.services'
 import { RouteConstant } from './constants/RouteCostant'
 import Icons from './assets/images/icons/Icons'
-import LeftSide from './components/PrifilPage/LeftSide/LeftSide'
+import LeftSide from './components/ProfilPage/LeftSide/LeftSide'
+import { Icon } from './constants/PropsIcon'
+
 
 
 function App() {
@@ -17,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-     
+
 
       {/* <FirstPage/> */}
       {/* <Routes>
@@ -25,9 +27,13 @@ function App() {
         <Route path={RouteConstant.LoginPage} element={<LoginPage />} />
         <Route path={RouteConstant.RegPage} element={<Registration />} />
       </Routes> */}
-      <LeftSide/>
+      <LeftSide />
       {/* <LoginPage /> */}
       {/* <Registration /> */}
+
+      {/* <Icons setting={Icon.setting}/> */}
+
+
     </div>
   )
 }
