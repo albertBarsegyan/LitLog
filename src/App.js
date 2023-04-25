@@ -27,8 +27,9 @@ function App() {
       </Routes> */}
       {/* <LoginPage /> */}
       {/* <Registration /> */}
-      <Icon setting={Icon.setting}/>
+      <Icons setting={Icon.setting} />
       
+
     </div>
   )
 }
