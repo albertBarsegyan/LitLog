@@ -30,7 +30,7 @@ const LeftSide = () => {
                 </div>
                 <div className={style.setings}>
                     <NavLink> <img className={style.icons} src={settings} alt="" /> settings </NavLink> <br /><br />
-                    <Link> <img className={style.icons} src={logout} alt="" /> Log Out => </Link>
+                    <Link> <img className={style.icons} src={logout} alt="" /> Log Out </Link>
                 </div>
             </div>
 
