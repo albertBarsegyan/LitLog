@@ -12,7 +12,6 @@ const Header = () => {
                 <NavLink to={RouteConstant.FirstPage}>
                     <img className={style.logo} src={Logo} alt="" />
                 </NavLink>
-
             </div>
 
             <div className={style.hrefs}>
