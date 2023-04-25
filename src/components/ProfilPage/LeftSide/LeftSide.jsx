@@ -21,7 +21,6 @@ const LeftSide = () => {
                             <img
                                 className={style.icons}
                                 src={Vector} alt="" />
-                            <Icons article={PropsConst.article} />
                             Dashboard
                         </Link>
                         <Link className={style.link}><img className={style.icons} src={save} alt="" />  My Collection</Link>
