@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-const Icons = ({height, width,setting, friends, book, singOut, article, singIn, singUp }) => {
+const Icons = ({ setting, friends, book, singOut, article, singIn, singUp }) => {
     return (
         <>
-            <span>{singIn}</span>
+            {singIn}
             {singUp}
             {friends}
             {setting}

@@ -1,27 +1,53 @@
 import style from './leftSide.module.css'
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Icons from "../../../assets/images/icons/Icons";
+import { Icon } from '../../../constants/PropsIcon';
 
 const LeftSide = () => {
     return (
-        <div>
+        <div className={style.leftSide}>
             <div className={style.header}>
-                <NavLink className={style.logo}>LitLog</NavLink>
+                <Link className={style.logo}>LitLog</Link>
             </div>
-
             <nav className={style.menu}>
                 <Link className={style.link}>
-                    Dashboard
+                    <Icons book={Icon.book} />
+                    <span className={style.text}>
+                        Book
+                    </span>
                 </Link>
-                <Link className={style.link}>  My Collection</Link>
-                <Link className={style.link}>  Favorites</Link>
+                <Link className={style.link}>
+                    <Icons article={Icon.article} />
+                    <span className={style.text}>
+                        Article
+                    </span>
+                </Link>
+                <Link className={style.link}>
+                    <Icons friends={Icon.friends} />
+                    <span className={style.text}>
+                        Friends
+                    </span>
+                </Link>
             </nav>
-
             <div className={style.setings}>
-                <NavLink> settings </NavLink>
-                <Link> Log Out </Link>
+                <Link className={style.link}>
+                    <Icons setting={Icon.setting} />
+                    <span className={style.text}>
+                        Settings
+                    </span>
+                </Link>
+
+                <Link className={style.link}>
+                    <Icons singOut={Icon.singOut} />
+                    <span className={style.text}>
+                        Log Out
+                    </span>
+                </Link>
             </div>
+
         </div>
+
+
     );
 };
 
