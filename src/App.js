@@ -20,15 +20,18 @@ function App() {
 
   return (
     <div className="App">
-       {/* <p>code = {error.code}</p>
-      <p>message = {error.message}</p>
-      <pre>user = {JSON.stringify(user, null, 2)}</pre>
-      <span>{isLoading ? 'loading' : 'not loading'}</span>
-      <button onClick={handleGoogleAuth}>Google</button>
-      <button onClick={handleSignOut}>Sign out</button>
-      <button onClick={handleLogin}>Login</button>
-      <button onClick={handleSignUp}>Sign up</button> */}
-      <LoginPage />
+      {/* <Routes>
+        <Route/>
+      </Routes> */}
+
+      {/* <FirstPage/> */}
+      <Routes>
+        <Route path={RouteConstant.FirstPage} exact element={<FirstPage/>}/>
+        <Route path={RouteConstant.LoginPage} element={<LoginPage />} />
+        <Route path={RouteConstant.RegPage} element={<Registration />} />
+      </Routes>
+      {/* <LoginPage /> */}
+      {/* <Registration /> */}
     </div>
   );
 }
