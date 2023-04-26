@@ -7,7 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 // import { Registration } from '../Registration/Registration';
 
 export function FirstPage() {
-<<<<<<< HEAD
+
   return (
     <div>
       <Header />
@@ -18,19 +18,4 @@ export function FirstPage() {
     </div>
   );
 }
-=======
 
-    return (
-        <div>
-            <Header />
-
-            <div>
-                <HeadingPage />
-
-            </div>
-            <Footer />
-        </div>
-
-    )
-}
->>>>>>> newBranch

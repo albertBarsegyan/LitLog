@@ -1,24 +1,4 @@
-<<<<<<< HEAD
-import ReginBut from './Navigation/ReginBut';
-import logo from './images/logo.jpg';
-import style from './header.module.css';
-import { NavLink } from 'react-router-dom';
 
-const Header = () => {
-  return (
-    <header>
-      <div className={style.logoDiv}>
-        <NavLink>
-          <img src={logo} className={style.logo} alt="" />
-        </NavLink>
-      </div>
-      <div>
-        <ReginBut />
-      </div>
-    </header>
-  );
-=======
-// import ReginBut from "./Navigation/ReginBut";
 import logo from "../../../assets/images/logo.jpg"
 import style from "./header.module.css"
 import { NavLink, Route, Routes } from "react-router-dom";
@@ -45,7 +25,6 @@ const Header = () => {
         </header>
 
     );
->>>>>>> newBranch
 };
 
 export default Header;
