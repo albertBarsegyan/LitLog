@@ -6,6 +6,7 @@ import { signInWithGoogle } from './services/auth.services'
 import { RouteConstant } from './constants/RouteCostant'
 import Icons from './assets/images/icons/Icons'
 import { Icon } from './constants/PropsIcon'
+import LeftSide from './components/ProfilPage/LeftSide/LeftSide'
 
 
 function App() {
@@ -27,9 +28,8 @@ function App() {
       </Routes> */}
       {/* <LoginPage /> */}
       {/* <Registration /> */}
-      <Icons setting={Icon.setting} />
-      
-
+      {/* <Icons singOut={Icon.singOut} /> */}
+    <LeftSide/>
     </div>
   )
 }

@@ -1,40 +1,11 @@
-body{
-    display: flex;
-    justify-content: space-between;
-    background-color: #d9d9d9
-}
-.icons{
-    color: #1D1D2A
-}
-.leftSide {
-    padding: 60px 75px;
-}
 .logo {
-    height: 47px;
-    width: 179px;
-    left: 75px;
-    mix-blend-mode: color-burn;
-}
-.navbar{
-    margin-top: 83px;
-}
-.link {
-    margin-bottom: 38px;
-    list-style-type: none;
-    height: 29px;
-    left: 123px;
-    top: 207px;
+    text-decoration: none;
+    font-size: 40px;
+    color: black;
+    font-family: "Poppins";
 }
 
-.navbar  .menu   img, .settings  img{
-    width: 20px;
-    height: 20px;
-    margin-right: 21px;
+.header{
+    margin: 60px 0 80px 75px;
 }
 
-.setings{
-    margin-top: 125%;
-}
-.settings div{
-    margin-bottom: 33px;
-}
