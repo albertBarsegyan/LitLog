@@ -30,7 +30,7 @@ function App() {
 
   return (
     <div className="App">
-<<<<<<< HEAD
+
       <p>code => {error.code}</p>
       <p>message => {error.message}</p>
       <pre>user => {JSON.stringify(user, null, 2)}</pre>
@@ -39,7 +39,7 @@ function App() {
       <button onClick={handleSignOut}>Sign out</button>
       <button onClick={handleLogin}>Login</button>
       <button onClick={handleSignUp}>Sign up</button>
-=======
+
      
 
       {/* <FirstPage/> */}
@@ -49,7 +49,7 @@ function App() {
         <Route path={RouteConstant.RegPage} element={<Registration />} />
       </Routes>
       {/* <LoginPage /> */}
->>>>>>> newBranch
+
       {/* <Registration /> */}
     </div>
   );
