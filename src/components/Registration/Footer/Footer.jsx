@@ -1,6 +1,6 @@
 import style from './footer.module.css';
 import { NavLink } from 'react-router-dom';
-import { RouterConstant } from '../../../constants/RoutConstant';
+// import { RouterConstant } from '../../../constants/RoutConstant';
 
 const Footer = () => {
   return (

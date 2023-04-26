@@ -11,10 +11,9 @@ const BookCount = () => {
 
     const handleChange = e => {
         const value = e.target.value
-        if (RegEx.test(value)) {
+        if (RegEx.test(value) && value <= 365 && value >= 1) {
             setNumber(value)
         }
-
     }
 
     return (
@@ -22,16 +21,13 @@ const BookCount = () => {
             <h1 className={style.wHead}> Welcome LitLog</h1>
             <div className={style.parDiv}>
                 <p className={style.content}>
-                    Welcome to our website! We are delighted to have you here. Our site is
-                    designed to provide you with a seamless and enjoyable experience,
-                    whether you're here to shop, learn, or simply browse. We pride
-                    ourselves on offering a wide range of high-quality products and
-                    services that cater to your every need. From cutting-edge technology
-                    to stylish fashion, we have something for everyone. We believe that
-                    every visitor to our site deserves the very best, and we are committed
-                    to delivering excellence in every aspect of our business. Thank you
-                    for choosing to visit us, and we hope you have a wonderful time
-                    exploring all that our site has to offer!
+                    Welcome to LitLog, the online platform for all things literature!
+
+                    Here, you'll find a wealth of resources to help you deepen your
+                    understanding and appreciation of books, authors, and literary 
+                    works from around the world. Whether you're a student, a researcher,
+                    or simply a lover of literature, LitLog is the perfect place for you 
+                    to explore and engage with the world of words.
                 </p>
                 <label>
                     <p className={style.lebPar}> <span className={style.lebSpan}>E</span>nter quantity to read books</p>
