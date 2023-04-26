@@ -1,21 +1,28 @@
-import { Route, Routes } from 'react-router-dom'
-import { FirstPage } from './components/FirstPage/FirstPage'
 import LoginPage from './components/LoginPage/LoginPage'
-import { Registration } from './components/Registration/Registration'
 import { signInWithGoogle } from './services/auth.services'
-import { RouteConstant } from './constants/RouteCostant'
-
 
 function App() {
+  // const { googleAuth, isLoading, user, signOut, error, signIn, signUp } = useAuth();
 
-  const handleClick = () => {
-    signInWithGoogle().then(console.log)
-  }
+  // const handleGoogleAuth = () => googleAuth();
 
+  // const handleSignOut = () => signOut();
+
+  // const handleLogin = () => signIn({ email: 'albertbarsegyan6@gmail.com', password: 'ajdkfjaksjdkjf' });
+
+  // const handleSignUp = () =>
+  //   signUp({
+  //     email: 'test2000@mailinator.com',
+  //     password: 'ajdkfjaksjdkjf',
+  //     firstname: 'Micki',
+  //     lastname: 'jimmiy',
+  //   });
 
   return (
     <div className="App">
-     
+      {/* <Routes>
+        <Route/>
+      </Routes> */}
 
       {/* <FirstPage/> */}
       <Routes>
@@ -26,7 +33,7 @@ function App() {
       {/* <LoginPage /> */}
       {/* <Registration /> */}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

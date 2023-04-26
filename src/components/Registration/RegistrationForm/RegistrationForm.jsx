@@ -5,47 +5,41 @@ import style from "./registrationForm.module.css"
 
 
 const RegistrationForm = () => {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    watch,
+    reset,
+  } = useForm({
+    mode: 'all',
+  });
 
-    const {
-        register,
-        formState: {
-            errors
-        },
-        handleSubmit,
-        watch,
-        reset
-    } = useForm({
-        mode: "all"
+  const password = watch('password', '');
+  const repeatPassword = watch('repeatPassword', '');
+
+  const onSubmit = (data) => {
+    reset();
+    if (password === repeatPassword) {
+      console.log(JSON.stringify(data));
+    } else {
+      console.log(false);
     }
-    )
+  };
 
+  const butDisable = errors.firstName || errors.lastName || errors.email || errors.password || errors.repeatPassword;
 
-    const password = watch("password", "");
-    const repeatPassword = watch("repeatPassword", "");
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <button className={style.googleBtn}>
+        <img src={google} alt="" className={style.googleImg} /> Sing up with Google
+      </button>
 
-    const onSubmit = data => {
-        reset()
-        if (password === repeatPassword) {
-            console.log(JSON.stringify(data));
-        }
-        else {
-            console.log(false);
-        }
-    }
-
-    const butDisable = errors.firstName || errors.lastName || errors.email || errors.password || errors.repeatPassword;
-
-
-    return (
-        <form onSubmit={handleSubmit(onSubmit)} >
-
-            <button className={style.googleBtn}><img src={google} alt="" className={style.googleImg} /> Sing up with Google</button>
-
-            <div className={style.border}>
-                <div className={style.spBor}></div>
-                <span>or</span>
-                <div className={style.spBor}></div>
-            </div>
+      <div className={style.border}>
+        <div className={style.spBor}></div>
+        <span>or</span>
+        <div className={style.spBor}></div>
+      </div>
 
             <label htmlFor="">
                 <div>

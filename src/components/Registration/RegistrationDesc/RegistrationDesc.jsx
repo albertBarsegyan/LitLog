@@ -1,5 +1,5 @@
 // import Rbook from "../../images/Rbook.png"
-import style from "./registrationDesc.module.css"
+import style from './registrationDesc.module.css';
 
 const RegistrationDesc = () => {
     return (
