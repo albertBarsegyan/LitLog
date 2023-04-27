@@ -1,31 +1,76 @@
 import style from './leftSide.module.css'
-import { Link, NavLink } from "react-router-dom";
+import { NavLink ,Link } from "react-router-dom";
+import Icons from "../../../assets/images/icons/Icons";
+import { Icon } from '../../../constants/PropsIcon';
+import { RouteConstant } from '../../../constants/RouteCostant';
+
+
 
 
 const LeftSide = () => {
     return (
-        <div>
-            <div className={style.leftSide}>
-                <NavLink className={style.logo}><span className={style.lspan}>L</span>it<span className={style.lspan}>L</span>og</NavLink>
-                <div>
-                   
-                </div>
-                <div className={style.navbar}>
-                    <nav className={style.menu}>
-                        <Link className={style.link}>
-                            
-                        </Link>
-                        <Link className={style.link}>  My Collection</Link>
-                        <Link className={style.link}>  Favorites</Link>
-                    </nav>
-                </div>
-                <div className={style.setings}>
-                    <NavLink>  settings </NavLink> <br /><br />
-                    <Link>  Log Out  </Link>
-                </div>
+        <div className={style.leftSide}>
+            <div className={style.header}>
+                <Link className={style.logo}>LitLog</Link>
+            </div>
+            <nav className={style.menu}>
+
+                <NavLink to={RouteConstant.BookPage} 
+                    className={({isActive}) =>
+                        isActive ? style.activeLink : style.link 
+                }>
+                    <Icons book={Icon.book} />
+
+                    <span className={style.text}>
+                        Book
+                    </span>
+
+                </NavLink>
+
+                <NavLink to={RouteConstant.ArticlePage} 
+                    className={({isActive}) =>
+                    isActive ? style.activeLink : style.link
+                 }>
+                    <Icons article={Icon.article} />
+
+                    <span className={style.text}>
+                        Article
+                    </span>
+
+                </NavLink>
+
+                <NavLink to={RouteConstant.FriendPage} 
+                    className={({isActive}) =>
+                        isActive ? style.activeLink : style.link
+                }>
+
+                    <Icons friends={Icon.friends} />
+
+                    <span className={style.text}>
+                        Friends
+                    </span>
+
+                </NavLink>
+            </nav>
+            <div className={style.setings}>
+                <Link className={style.link}>
+                    <Icons setting={Icon.setting} />
+                    <span className={style.text}>
+                        Settings
+                    </span>
+                </Link>
+
+                <Link className={style.link}>
+                    <Icons singOut={Icon.singOut} />
+                    <span className={style.text}>
+                        Log Out
+                    </span>
+                </Link>
             </div>
 
         </div>
+
+
     );
 };
 
