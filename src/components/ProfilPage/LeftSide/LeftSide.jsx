@@ -1,7 +1,11 @@
 import style from './leftSide.module.css'
-import { Link } from "react-router-dom";
+import { NavLink ,Link } from "react-router-dom";
 import Icons from "../../../assets/images/icons/Icons";
 import { Icon } from '../../../constants/PropsIcon';
+import { RouteConstant } from '../../../constants/RouteCostant';
+
+
+
 
 const LeftSide = () => {
     return (
@@ -10,24 +14,43 @@ const LeftSide = () => {
                 <Link className={style.logo}>LitLog</Link>
             </div>
             <nav className={style.menu}>
-                <Link className={style.link}>
+
+                <NavLink to={RouteConstant.BookPage} 
+                    className={({isActive}) =>
+                        isActive ? style.activeLink : style.link 
+                }>
                     <Icons book={Icon.book} />
+
                     <span className={style.text}>
                         Book
                     </span>
-                </Link>
-                <Link className={style.link}>
+
+                </NavLink>
+
+                <NavLink to={RouteConstant.ArticlePage} 
+                    className={({isActive}) =>
+                    isActive ? style.activeLink : style.link
+                 }>
                     <Icons article={Icon.article} />
+
                     <span className={style.text}>
                         Article
                     </span>
-                </Link>
-                <Link className={style.link}>
+
+                </NavLink>
+
+                <NavLink to={RouteConstant.FriendPage} 
+                    className={({isActive}) =>
+                        isActive ? style.activeLink : style.link
+                }>
+
                     <Icons friends={Icon.friends} />
+
                     <span className={style.text}>
                         Friends
                     </span>
-                </Link>
+
+                </NavLink>
             </nav>
             <div className={style.setings}>
                 <Link className={style.link}>

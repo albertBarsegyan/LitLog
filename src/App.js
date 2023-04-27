@@ -7,6 +7,7 @@ import { RouteConstant } from './constants/RouteCostant'
 import Icons from './assets/images/icons/Icons'
 import { Icon } from './constants/PropsIcon'
 import LeftSide from './components/ProfilPage/LeftSide/LeftSide'
+import ProfilPage from './components/ProfilPage/ProfilPage'
 
 
 function App() {
@@ -19,7 +20,6 @@ function App() {
   return (
     <div className="App">
 
-
       {/* <FirstPage/> */}
       {/* <Routes>
         <Route path={RouteConstant.FirstPage} exact element={<FirstPage/>}/>
@@ -29,7 +29,10 @@ function App() {
       {/* <LoginPage /> */}
       {/* <Registration /> */}
       {/* <Icons singOut={Icon.singOut} /> */}
-      <LeftSide />
+
+      {/* <LeftSide /> */}
+      <ProfilPage/>
+
     </div>
   )
 }
