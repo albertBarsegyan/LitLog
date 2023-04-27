@@ -5,11 +5,12 @@ import { Icon } from '../../../constants/PropsIcon';
 import { RouteConstant } from '../../../constants/RouteCostant';
 import Modal from '../Modal/Modal';
 import { useState } from 'react';
+import { usePopUp } from '../../../context/popup';
 
 
 
 const LeftSide = () => {
-    const [modaleActive, setModaleActive] = useState(false)
+    const [setModaleActive] = usePopUp(false)
     return (
         <div className={style.leftSide}>
 
@@ -75,16 +76,6 @@ const LeftSide = () => {
                     </span>
                 </Link>
             </div>
-            <Modal active={modaleActive} setActive={setModaleActive} >
-                <span>Name</span>
-                <span>Surname</span>
-                <form>
-                    <input type="file" placeholder='Images' />
-                    <input type="password" placeholder='Current password' />
-                    <input type="password" placeholder='Edit password' />
-                    <input type="password" placeholder='Repeat password' />
-                </form>
-            </Modal>
         </div>
 
 
