@@ -1,5 +1,5 @@
 import style from './leftSide.module.css'
-import { NavLink ,Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import Icons from "../../../assets/images/icons/Icons";
 import { Icon } from '../../../constants/PropsIcon';
 import { RouteConstant } from '../../../constants/RouteCostant';
@@ -11,14 +11,14 @@ const LeftSide = () => {
     return (
         <div className={style.leftSide}>
             <div className={style.header}>
-                <Link className={style.logo}>LitLog</Link>
+                <Link to={RouteConstant.PrifilPage} className={style.logo}>LitLog</Link>
             </div>
             <nav className={style.menu}>
 
-                <NavLink to={RouteConstant.BookPage} 
-                    className={({isActive}) =>
-                        isActive ? style.activeLink : style.link 
-                }>
+                <NavLink to={RouteConstant.BookPage}
+                    className={({ isActive }) =>
+                        isActive ? style.activeLink : style.link
+                    }>
                     <Icons book={Icon.book} />
 
                     <span className={style.text}>
@@ -27,10 +27,10 @@ const LeftSide = () => {
 
                 </NavLink>
 
-                <NavLink to={RouteConstant.ArticlePage} 
-                    className={({isActive}) =>
-                    isActive ? style.activeLink : style.link
-                 }>
+                <NavLink to={RouteConstant.ArticlePage}
+                    className={({ isActive }) =>
+                        isActive ? style.activeLink : style.link
+                    }>
                     <Icons article={Icon.article} />
 
                     <span className={style.text}>
@@ -39,10 +39,10 @@ const LeftSide = () => {
 
                 </NavLink>
 
-                <NavLink to={RouteConstant.FriendPage} 
-                    className={({isActive}) =>
+                <NavLink to={RouteConstant.FriendPage}
+                    className={({ isActive }) =>
                         isActive ? style.activeLink : style.link
-                }>
+                    }>
 
                     <Icons friends={Icon.friends} />
 

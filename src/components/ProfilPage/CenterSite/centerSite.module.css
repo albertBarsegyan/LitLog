@@ -1,0 +1,45 @@
+.imageContainer {
+    position: relative;
+}
+
+.bookImg {
+    width: 700px;
+    height: 453px;
+    border-radius: 15px;
+}
+
+.imageText {
+    position: absolute;
+    top: 75%;
+    left: 17%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.butRead{
+    position: absolute;
+    top: 75%;
+    left: 43%;
+
+}
+.readNow{
+    text-decoration: none;
+    padding: 15px 40px;
+    background: blue;
+    color: white;
+    border-radius: 45px;
+
+}
+.heading{
+    font-size: 25px;
+    padding-bottom: 13px;
+}
+.paragrath{
+    font-size: 36px;
+    line-height: 43px;
+}
+
+.centerDiv {
+    margin-left: 45px;
+    margin-top: 40px;
+}

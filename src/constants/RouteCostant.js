@@ -4,5 +4,6 @@ export const RouteConstant = {
     RegPage: '/register',
     BookPage:"/books",
     FriendPage:"/friends",
-    ArticlePage:"/articles"
+    ArticlePage:"/articles",
+    PrifilPage:"/profil"
 }
