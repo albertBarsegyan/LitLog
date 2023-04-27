@@ -4,10 +4,8 @@ import LoginPage from './components/LoginPage/LoginPage'
 import { Registration } from './components/Registration/Registration'
 import { signInWithGoogle } from './services/auth.services'
 import { RouteConstant } from './constants/RouteCostant'
-import Icons from './assets/images/icons/Icons'
-import { Icon } from './constants/PropsIcon'
-import LeftSide from './components/ProfilPage/LeftSide/LeftSide'
 import ProfilPage from './components/ProfilPage/ProfilPage'
+import Modal from './components/ProfilPage/Modal/Modal'
 
 
 function App() {
@@ -33,6 +31,7 @@ function App() {
 
       {/* <LeftSide /> */}
       <ProfilPage/>
+      {/* <Modal/> */}
 
     </div>
   )

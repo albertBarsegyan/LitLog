@@ -3,13 +3,17 @@ import { NavLink, Link } from "react-router-dom";
 import Icons from "../../../assets/images/icons/Icons";
 import { Icon } from '../../../constants/PropsIcon';
 import { RouteConstant } from '../../../constants/RouteCostant';
-
+import Modal from '../Modal/Modal';
+import { useState } from 'react';
+import { usePopUp } from '../../../context/popup';
 
 
 
 const LeftSide = () => {
+    const [setModaleActive] = usePopUp(false)
     return (
         <div className={style.leftSide}>
+
             <div className={style.header}>
                 <Link to={RouteConstant.PrifilPage} className={style.logo}>LitLog</Link>
             </div>
@@ -53,12 +57,17 @@ const LeftSide = () => {
                 </NavLink>
             </nav>
             <div className={style.setings}>
-                <Link className={style.link}>
+
+                <NavLink
+
+                    onClick={() => setModaleActive(true)}
+                    
+                    className={style.link}>
                     <Icons setting={Icon.setting} />
                     <span className={style.text}>
                         Settings
                     </span>
-                </Link>
+                </NavLink>
 
                 <Link className={style.link}>
                     <Icons singOut={Icon.singOut} />
@@ -67,11 +76,10 @@ const LeftSide = () => {
                     </span>
                 </Link>
             </div>
-
         </div>
 
 
     );
 };
 
-export default LeftSide;
+export default LeftSide

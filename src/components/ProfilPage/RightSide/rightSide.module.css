@@ -1,8 +1,22 @@
+.inpSearch {
+    border: none;
+    outline: none;
+    background: none;
+    width: 644px;
+    font-size: 25px;
+    margin-top: 50px;
+}
+
+.labSt {
+    border: 1px solid black;
+    padding: 15px;
+    border-radius: 10px;
+    margin-left: 45px;
+}
 .rightDiv {
     display: flex;
     /* justify-content: space-between; */
 }
-
 .maxDiv{
     margin-right: 180px;
 }
