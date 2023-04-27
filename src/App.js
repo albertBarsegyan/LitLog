@@ -26,6 +26,7 @@ function App() {
         <Route path={RouteConstant.LoginPage} element={<LoginPage />} />
         <Route path={RouteConstant.RegPage} element={<Registration />} />
       </Routes> */}
+      
       {/* <LoginPage /> */}
       {/* <Registration /> */}
       {/* <Icons singOut={Icon.singOut} /> */}
