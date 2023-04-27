@@ -29,7 +29,7 @@ function App() {
       {/* <LoginPage /> */}
       {/* <Registration /> */}
       {/* <Icons singOut={Icon.singOut} /> */}
-    <LeftSide/>
+      <LeftSide />
     </div>
   )
 }
