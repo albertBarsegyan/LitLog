@@ -3,11 +3,11 @@ import { NavLink ,Link } from "react-router-dom";
 import Icons from "../../../assets/images/icons/Icons";
 import { Icon } from '../../../constants/PropsIcon';
 import { RouteConstant } from '../../../constants/RouteCostant';
-
-
+import Modal from "../Modal/Modal"
 
 
 const LeftSide = () => {
+    const [moduleActive, setModuleActive] = useState()
     return (
         <div className={style.leftSide}>
             <div className={style.header}>
@@ -67,7 +67,7 @@ const LeftSide = () => {
                     </span>
                 </Link>
             </div>
-
+            <Modal/>
         </div>
 
 
