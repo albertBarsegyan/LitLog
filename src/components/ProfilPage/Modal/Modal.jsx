@@ -1,11 +1,12 @@
-import "./modal.module.css"
+import { useState } from "react";
+import style from "./modal.module.css"
 
 
-const Modal = ({active, setActive}) => {
+const Modal = ({active, setActive, children}) => {
     return (
-        <div className="modale">
-            <div className="modale__content">
-                
+        <div className={active ? `${style.modale} ${style.active}` : style.modale} onClick={()=> setActive(false)}>
+            <div className={active ? `${style.modale__content} ${active}`: style.modale__content} onClick={e => e.stopPropagation()}>
+                {children}
             </div>
         </div>
     );

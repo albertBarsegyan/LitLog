@@ -5,6 +5,7 @@ import { Registration } from './components/Registration/Registration'
 import { signInWithGoogle } from './services/auth.services'
 import { RouteConstant } from './constants/RouteCostant'
 import ProfilPage from './components/ProfilPage/ProfilPage'
+import Modal from './components/ProfilPage/Modal/Modal'
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
 
       {/* <LeftSide /> */}
       <ProfilPage/>
+      {/* <Modal/> */}
 
     </div>
   )

@@ -1,18 +1,18 @@
 import style from "./profil.module.css"
 import LeftSide from './LeftSide/LeftSide';
-import RightSide from './RightSide/RightSide';
+// import RightSide from './RightSide/RightSide';
 
 
 
 const ProfilPage = () => {
     return (
         <div className={style.side}>
-            <div>
                 <LeftSide />
-            </div>
-            <div>
+            {/* <div>
+            </div> */}
+            {/* <div>
                 <RightSide/>
-            </div>
+            </div> */}
         </div>
     );
 };
