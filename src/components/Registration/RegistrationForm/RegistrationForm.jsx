@@ -171,13 +171,12 @@ const RegistrationForm = () => {
                 />
 
             </label>
-
-
             <button
                 disabled={butDisable}
                 className={style.but}
                 type="submit">Submit
             </button>
+            
         </form >
     );
 };

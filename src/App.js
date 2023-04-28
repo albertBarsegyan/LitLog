@@ -5,7 +5,6 @@ import { Registration } from './components/Registration/Registration'
 import { signInWithGoogle } from './services/auth.services'
 import { RouteConstant } from './constants/RouteCostant'
 import ProfilPage from './components/ProfilPage/ProfilPage'
-import Modal from './components/ProfilPage/Modal/Modal'
 
 
 function App() {
@@ -19,19 +18,17 @@ function App() {
     <div className="App">
 
       {/* <FirstPage/> */}
-      <Routes>
-        <Route path={RouteConstant.FirstPage} exact element={<FirstPage/>}/>
+      {/* <Routes>
+        <Route path={RouteConstant.FirstPage} exact element={<FirstPage />} />
         <Route path={RouteConstant.LoginPage} element={<LoginPage />} />
         <Route path={RouteConstant.RegPage} element={<Registration />} />
-      </Routes>
-      
-      {/* <LoginPage /> */}
-      {/* <Registration /> */}
-      {/* <Icons singOut={Icon.singOut} /> */}
+        <Route path={RouteConstant.PrifilPage} element={<ProfilPage />} />
+      </Routes> */}
+     
 
-      {/* <LeftSide /> */}
+     
       <ProfilPage/>
-      {/* <Modal/> */}
+     
 
     </div>
   )

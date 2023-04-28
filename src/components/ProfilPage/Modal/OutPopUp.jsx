@@ -1,4 +1,3 @@
-// import { Route, Routes } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
 import { useModal } from "../../../context/popup";
 import SingOutBut from "../../Button/singOutBut";
@@ -23,6 +22,9 @@ const OutPopUp = () => {
                 </div>
             </SingOutPopUp>
 
+            <Routes>
+                <Route path={RouteConstant.PrifilPage} element={<LoginPage />} />
+            </Routes>
         </>
     );
 };
