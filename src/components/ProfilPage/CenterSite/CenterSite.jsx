@@ -6,7 +6,7 @@ import BookShow from "../BookShow/BookShow";
 const CenterSite = () => {
     return (
         <div className={style.centerDiv}>
-            <div class={style.imageContainer}>
+            <div class={style.imageContainer} >
                 <img className={style.bookImg} src={batman} alt="" />
                 <div class={style.imageText}>
                     <h2 className={style.heading}>Frank Miller</h2>

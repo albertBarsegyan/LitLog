@@ -1,6 +1,6 @@
 body {
     font-family: "Poppins";
-    background-color: var(--backGrey);
+    /* background-color: var(--backGrey); */
 }
 
 .form {
@@ -28,7 +28,7 @@ body {
 }
 
 .formInput {
-    
+
     height: 30px;
     margin-bottom: 15px;
     width: 100%;
