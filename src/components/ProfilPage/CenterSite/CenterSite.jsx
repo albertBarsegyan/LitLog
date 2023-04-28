@@ -20,8 +20,6 @@ const CenterSite = () => {
                 <h2>Continue Reading</h2>
                 <div>
                     <img src={bookimg2} alt="" />
-                    <div>
-                    </div>
                 </div>
             </div>
         </div>

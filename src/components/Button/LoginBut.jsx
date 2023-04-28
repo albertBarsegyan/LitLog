@@ -5,7 +5,7 @@ import style from './button.module.css'
 function Login() {
 
     return (
-        <Link className={style.fBtn} to={RouteConstant.LoginPage}>Sing In</Link>
+        <Link className={style.fBtn} to={RouteConstant.LoginPage}>Sign In</Link>
     )
 
 }

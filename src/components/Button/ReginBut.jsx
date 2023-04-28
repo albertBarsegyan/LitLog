@@ -5,7 +5,7 @@ import style from './button.module.css'
 function RegIn() {
 
     return (
-        <Link className={style.fBtn} to={RouteConstant.RegPage}>Sing Up</Link>
+        <Link className={style.fBtn} to={RouteConstant.RegPage}>Sign Up</Link>
     )
 }
 
