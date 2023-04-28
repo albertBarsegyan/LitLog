@@ -1,5 +1,9 @@
-import LoginPage from './components/LoginPage/LoginPage'
-import { signInWithGoogle } from './services/auth.services'
+import { Route, Routes } from 'react-router-dom';
+import LoginPage from './components/LoginPage/LoginPage';
+import { RouteConstant } from './constants/RouteCostant';
+import { signInWithGoogle } from './services/auth.services';
+import { FirstPage } from './components/FirstPage/FirstPage';
+import { Registration } from './components/Registration/Registration';
 
 function App() {
   // const { googleAuth, isLoading, user, signOut, error, signIn, signUp } = useAuth();
