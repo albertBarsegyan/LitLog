@@ -21,18 +21,18 @@ const ProfilPage = () => {
 
                 <CenterSite />
             </div>
-            <div className={style.modal}>
-                <Modal active={modaleActive} setActive={setModaleActive} >
-                    <span>Name</span>
-                    <span>Surname</span>
+            {/* <div className={style.modal}> */}
+            <Modal active={modaleActive} setActive={setModaleActive} />
+            {/* <span className={style.name}>User Name</span>
+                    <span className={style.name}>User Surname</span>
                     <form>
                         <input type="file" placeholder='Images' />
                         <input type="password" placeholder='Current password' />
                         <input type="password" placeholder='Edit password' />
                         <input type="password" placeholder='Repeat password' />
-                    </form>
-                </Modal>
-            </div>
+                    </form>  */}
+            {/* </Modal> */}
+            {/* </div> */}
         </div>
     );
 };
