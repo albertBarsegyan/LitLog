@@ -1,5 +1,12 @@
 .imageContainer {
     position: relative;
+    display: inline-block;
+
+}
+
+.readingMain {
+    display: inline-block;
+    margin-left: 55px;
 }
 
 .bookImg {
@@ -11,30 +18,35 @@
 .imageText {
     position: absolute;
     top: 75%;
-    left: 17%;
+    left: 25%;
     transform: translate(-50%, -50%);
     color: white;
+    font-weight: bold;
 }
 
-.butRead{
+.butRead {
     position: absolute;
-    top: 75%;
-    left: 43%;
-
+    top: 80%;
+    left: 60%;
+    font-size: 24px;
 }
-.readNow{
+
+.readNow {
     text-decoration: none;
     padding: 15px 40px;
     background: blue;
     color: white;
     border-radius: 45px;
+    font-weight: bold;
 
 }
-.heading{
+
+.heading {
     font-size: 25px;
     padding-bottom: 13px;
 }
-.paragrath{
+
+.paragrath {
     font-size: 36px;
     line-height: 43px;
 }
@@ -42,4 +54,26 @@
 .centerDiv {
     margin-left: 45px;
     margin-top: 40px;
+}
+
+.reding {
+    font-size: 29px;
+    color: var(--white);
+    margin-bottom: 42px;
+    font-family: 'Poppins';
+}
+
+.redingImages {
+    border-radius: 15px;
+}
+
+.redingBookName {
+    color: var(--white);
+    color: var(--white);
+    font-size: 24px;
+    margin-top: 50px;
+}
+
+.imgParent {
+    padding-bottom: 10px;
 }
