@@ -1,5 +1,10 @@
+import { Route, Routes } from 'react-router';
 import LoginPage from './components/LoginPage/LoginPage'
 import { signInWithGoogle } from './services/auth.services'
+import { RouteConstant } from './constants/RouteCostant';
+import { FirstPage } from './components/FirstPage/FirstPage';
+import {LoginPage} from "./components/LoginPage/LoginPage"
+import {Registration} from './components/Registration/Registration';
 
 function App() {
   // const { googleAuth, isLoading, user, signOut, error, signIn, signUp } = useAuth();
@@ -26,7 +31,7 @@ function App() {
 
       {/* <FirstPage/> */}
       <Routes>
-        <Route path={RouteConstant.FirstPage} exact element={<FirstPage/>}/>
+        <Route path={RouteConstant.FirstPage} exact element={<FirstPage />} />
         <Route path={RouteConstant.LoginPage} element={<LoginPage />} />
         <Route path={RouteConstant.RegPage} element={<Registration />} />
       </Routes>
