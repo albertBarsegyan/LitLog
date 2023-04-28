@@ -143,7 +143,7 @@ const RegistrationForm = () => {
                     }
                     type="password"
                     placeholder="Password"
-                   
+
 
                 />
             </label>

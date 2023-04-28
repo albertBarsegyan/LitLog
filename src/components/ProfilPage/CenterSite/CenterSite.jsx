@@ -5,7 +5,7 @@ import style from "../CenterSite/centerSite.module.css"
 const CenterSite = () => {
     return (
         <div className={style.centerDiv}>
-            <div class={style.imageContainer}>
+            <div class={style.imageContainer} >
                 <img className={style.bookImg} src={batman} alt="" />
                 <div class={style.imageText}>
                     <h2 className={style.heading}>Frank Miller</h2>
@@ -20,9 +20,6 @@ const CenterSite = () => {
                 <h2>Continue Reading</h2>
                 <div>
                     <img src={bookimg2} alt="" />
-                    <div>
-                        <progress></progress>
-                    </div>
                 </div>
             </div>
         </div>

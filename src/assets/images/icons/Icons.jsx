@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Icons = ({ setting, friends, book, singOut, article, singIn, singUp, search, bell }) => {
+const Icons = ({ setting, friends, book, singOut, article, singIn, singUp, search, bell, pen }) => {
     return (
         <>
             {singIn}
@@ -12,6 +12,7 @@ const Icons = ({ setting, friends, book, singOut, article, singIn, singUp, searc
             {article}
             {search}
             {bell}
+            {pen}
         </>
     );
 };
