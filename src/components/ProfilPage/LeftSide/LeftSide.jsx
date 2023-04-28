@@ -1,44 +1,96 @@
-import style from './LeftSide.module.css'
-import logo from '../../assets/images/logo.jpg'
-import Vector from '../../assets/images/Vector.png'
-import save from '../../assets/images/save.png'
-import collection from '../../assets/images/collection.png'
-import settings from '../../assets/images/settings.png'
-import logout from '../../assets/images/logout.png'
-import { Link, NavLink } from "react-router-dom";
-import Icons from "../../assets/Icons/icons";
+import style from './leftSide.module.css'
+import { NavLink, Link } from "react-router-dom";
+import Icons from "../../../assets/images/icons/Icons";
+import { Icon } from '../../../constants/PropsIcon';
+import { RouteConstant } from '../../../constants/RouteCostant';
+
+import { usePopUp } from '../../../context/popup';
+
+
 
 const LeftSide = () => {
-    return (
-        <div>
-            <div className={style.leftSide}>
-                <div>
-                    <img className={style.logo} src={logo} alt="" />
-                </div>
-                <div className={style.navbar}>
-                    <nav className={style.menu}>
-                        <Link className={style.link}>
-                            <img
-                                className={style.icons}
-                                src={Vector} alt="" />
-<<<<<<< HEAD:src/components/PrifilPage/LeftSide/LeftSide.jsx
-                            {/* <Icons article={PropsConst.article} /> */}
-=======
->>>>>>> f4582d70e7de0587676a396b35ba943e92c8ac69:src/components/ProfilPage/LeftSide/LeftSide.jsx
-                            Dashboard
-                        </Link>
-                        <Link className={style.link}><img className={style.icons} src={save} alt="" />  My Collection</Link>
-                        <Link className={style.link}><img className={style.icons} src={collection} alt="" />  Favorites</Link>
-                    </nav>
-                </div>
-                <div className={style.setings}>
-                    <NavLink> <img className={style.icons} src={settings} alt="" /> settings </NavLink> <br /><br />
-                    <Link> <img className={style.icons} src={logout} alt="" /> Log Out => </Link>
-                </div>
-            </div>
+    const { setModaleActive } = usePopUp(false)
 
+    return (
+        <div className={style.leftSide}>
+
+            <div className={style.header}>
+                <Link to={RouteConstant.PrifilPage} className={style.logo}>LitLog</Link>
+            </div>
+            <nav className={style.menu}>
+
+                <NavLink to={RouteConstant.BookPage}
+                    className={({ isActive }) =>
+                        isActive ? style.activeLink : style.link
+                    }>
+                    <Icons book={Icon.book} />
+
+                    <span className={style.text}>
+                        Book
+                    </span>
+
+                </NavLink>
+
+                <NavLink to={RouteConstant.ArticlePage}
+                    className={({ isActive }) =>
+                        isActive ? style.activeLink : style.link
+                    }>
+                    <Icons article={Icon.article} />
+
+                    <span className={style.text}>
+                        Article
+                    </span>
+
+                </NavLink>
+
+                <NavLink to={RouteConstant.FriendPage}
+                    className={({ isActive }) =>
+                        isActive ? style.activeLink : style.link
+                    }>
+
+                    <Icons friends={Icon.friends} />
+
+                    <span className={style.text}>
+                        Friends
+                    </span>
+
+                </NavLink>
+            </nav>
+            <div className={style.setings}>
+
+                <NavLink
+
+                    onClick={() => setModaleActive(true)}
+                    className={style.link}
+                >
+
+                    <Icons setting={Icon.setting} />
+                    <span className={style.text}>
+                        Settings
+                    </span>
+                </NavLink>
+
+                <Link className={style.link}>
+                    <Icons singOut={Icon.singOut} />
+                    <span className={style.text}>
+                        Log Out
+                    </span>
+                </Link>
+            </div>
+            {/* <Modal active={modaleActive} setActive={setModaleActive} >
+                <span>Name</span>
+                <span>Surname</span>
+                <form>
+                    <input type="file" placeholder='Images' />
+                    <input type="password" placeholder='Current password' />
+                    <input type="password" placeholder='Edit password' />
+                    <input type="password" placeholder='Repeat password' />
+                </form>
+            </Modal> */}
         </div>
+
+
     );
 };
 
-export default LeftSide;
+export default LeftSide

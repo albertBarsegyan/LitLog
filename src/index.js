@@ -4,15 +4,17 @@ import './styles/global.css'
 import './styles/variable.css'
 import App from './App'
 import { BrowserRouter } from 'react-router-dom'
-
+import { PopUpProvider } from "./context/popup"
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <BrowserRouter>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </BrowserRouter>
+  <React.StrictMode>
+    <PopUpProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </PopUpProvider>
+  </React.StrictMode>
 )
 
 

@@ -1,0 +1,40 @@
+import style from "./profil.module.css"
+import LeftSide from './LeftSide/LeftSide';
+import RightSide from './RightSide/RightSide';
+import Modal from "./Modal/Modal";
+import { usePopUp } from "../../context/popup";
+import CenterSite from './CenterSite/CenterSite';
+
+
+const ProfilPage = () => {
+
+    const { modaleActive, setModaleActive } = usePopUp()
+
+    return (
+        <div className={style.side}>
+
+            <div>
+                <LeftSide />
+            </div>
+            <div>
+                <RightSide />
+
+                <CenterSite />
+            </div>
+            {/* <div className={style.modal}> */}
+            <Modal active={modaleActive} setActive={setModaleActive} />
+            {/* <span className={style.name}>User Name</span>
+                    <span className={style.name}>User Surname</span>
+                    <form>
+                        <input type="file" placeholder='Images' />
+                        <input type="password" placeholder='Current password' />
+                        <input type="password" placeholder='Edit password' />
+                        <input type="password" placeholder='Repeat password' />
+                    </form>  */}
+            {/* </Modal> */}
+            {/* </div> */}
+        </div>
+    );
+};
+
+export default ProfilPage;

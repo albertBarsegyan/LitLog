@@ -1,5 +1,9 @@
 export const RouteConstant = {
     FirstPage: "/",
     LoginPage: '/login',
-    RegPage: '/register'
+    RegPage: '/register',
+    BookPage:"/books",
+    FriendPage:"/friends",
+    ArticlePage:"/articles",
+    PrifilPage:"/profil"
 }

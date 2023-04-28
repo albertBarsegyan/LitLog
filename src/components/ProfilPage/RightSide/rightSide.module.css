@@ -1,0 +1,46 @@
+.inpSearch {
+    border: none;
+    outline: none;
+    background: none;
+    width: 644px;
+    font-size: 25px;
+    margin-top: 50px;
+}
+
+.labSt {
+    border: 1px solid black;
+    padding: 15px;
+    border-radius: 10px;
+    margin-left: 45px;
+}
+.rightDiv {
+    display: flex;
+    /* justify-content: space-between; */
+}
+.maxDiv{
+    margin-right: 180px;
+}
+
+.inpSearch {
+    border: none;
+    outline: none;
+    background: none;
+    width: 644px;
+    margin-top: 50px;
+}
+
+.labInp {
+    border: 1px solid black;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    margin-left: 45px;
+}
+
+.userImg {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    margin-left: 47px;
+    margin-top: 35px;
+}
