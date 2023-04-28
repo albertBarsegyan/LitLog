@@ -13,5 +13,4 @@ export const PopUpProvider = ({ children }) => {
     );
 };
 
-
 export const usePopUp = () => useContext(PopUpContext);

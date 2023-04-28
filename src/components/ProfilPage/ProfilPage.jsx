@@ -4,7 +4,9 @@ import RightSide from './RightSide/RightSide';
 import Modal from "./Modal/Modal";
 import { usePopUp } from "../../context/popup";
 import CenterSite from './CenterSite/CenterSite';
-
+import modal from "./Modal/modal.module.css"
+import Icons from "../../assets/images/icons/Icons";
+import { Icon } from "../../constants/PropsIcon";
 
 const ProfilPage = () => {
 
@@ -21,18 +23,29 @@ const ProfilPage = () => {
 
                 <CenterSite />
             </div>
-            {/* <div className={style.modal}> */}
-            <Modal active={modaleActive} setActive={setModaleActive} />
-            {/* <span className={style.name}>User Name</span>
-                    <span className={style.name}>User Surname</span>
+            <div className={style.modal}>
+                <Modal active={modaleActive} setActive={setModaleActive} >
+                    <span className={modal.name}>
+                        User Name
+                        <Icons pen={Icon.pen} />
+                    </span>
+                    <br />
+                    <br />
+                    <span className={modal.name}>
+                        User Surname
+                        <Icons pen={Icon.pen} />
+                    </span>
                     <form>
-                        <input type="file" placeholder='Images' />
-                        <input type="password" placeholder='Current password' />
-                        <input type="password" placeholder='Edit password' />
-                        <input type="password" placeholder='Repeat password' />
-                    </form>  */}
-            {/* </Modal> */}
-            {/* </div> */}
+                        <div>
+                            <label className={modal.modLeb} htmlFor="id">Images</label><br />
+                            <input className={modal.customFileInput} id="id" type="file" accept='.jpg, .png' />
+                        </div>
+                        <div><input className={modal.modInp} type="password" placeholder='Current password' /></div>
+                        <div><input className={modal.modInp} type="password" placeholder='Edit password' /></div>
+                        <div><input className={modal.modInp} type="password" placeholder='Repeat password' /></div>
+                    </form>
+                </Modal>
+            </div>
         </div>
     );
 };

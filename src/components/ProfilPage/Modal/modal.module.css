@@ -23,7 +23,7 @@
     border-radius: 12px;
     background-color: white;
     /* height: 400px; */
-    width: 82%;
+    /* width: 82%; */
     transform: scale(.5);
     transition: .4s all;
 }
@@ -32,6 +32,26 @@
     transform: scale(1);
 }
 
-.name{
+.name {
     font-size: 6rem;
+    font-family: "Poppins";
+}
+
+.modInp {
+    padding: 25px;
+    font-size: 30px;
+}
+
+.customFileInput::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.customFileInput::before {
+    content: 'Edit your Images';
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.modLeb{
+    font-size: 25px;
 }
