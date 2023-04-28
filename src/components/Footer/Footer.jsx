@@ -8,10 +8,10 @@ function Footer() {
       <p>&copy; All Rights Reserved from K.A.S.A. </p>
       <div>
         <NavLink className={style.link} to={RouteConstant.LoginPage}>
-          Sing In
+          Sign In
         </NavLink>
         <NavLink className={style.link} to={RouteConstant.RegPage}>
-          Sing Up
+          Sign Up
         </NavLink>
       </div>
     </footer>

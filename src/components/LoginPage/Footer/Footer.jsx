@@ -9,7 +9,7 @@ const Footer = () => {
             <div>
                 <Link className={style.link} to={{
                     pathname: RouteConstant.RegPage
-                }}>Sing Up</Link>
+                }}>Sign Up</Link>
             </div>
         </footer>
     );

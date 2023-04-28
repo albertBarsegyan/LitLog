@@ -32,7 +32,7 @@ const RegistrationForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <button className={style.googleBtn}>
-        <img src={google} alt="" className={style.googleImg} /> Sing up with Google
+        <img src={google} alt="" className={style.googleImg} /> Sign up with Google
       </button>
 
       <div className={style.border}>
