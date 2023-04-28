@@ -18,16 +18,16 @@ function App() {
     <div className="App">
 
       {/* <FirstPage/> */}
-      {/* <Routes>
+      <Routes>
         <Route path={RouteConstant.FirstPage} exact element={<FirstPage />} />
         <Route path={RouteConstant.LoginPage} element={<LoginPage />} />
         <Route path={RouteConstant.RegPage} element={<Registration />} />
         <Route path={RouteConstant.PrifilPage} element={<ProfilPage />} />
-      </Routes> */}
+      </Routes>
      
 
      
-      <ProfilPage/>
+      {/* <ProfilPage/> */}
      
 
     </div>
