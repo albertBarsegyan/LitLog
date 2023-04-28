@@ -3,13 +3,13 @@ import { NavLink, Link } from "react-router-dom";
 import Icons from "../../../assets/images/icons/Icons";
 import { Icon } from '../../../constants/PropsIcon';
 import { RouteConstant } from '../../../constants/RouteCostant';
-
-import { usePopUp } from '../../../context/popup';
+import { useModal, usePopUp } from '../../../context/popup';
 
 
 
 const LeftSide = () => {
     const { setModaleActive } = usePopUp(false)
+    const { setModeActive } = useModal(false)
 
     return (
         <div className={style.leftSide}>
@@ -70,23 +70,17 @@ const LeftSide = () => {
                     </span>
                 </NavLink>
 
-                <Link className={style.link}>
+                <Link
+                    onClick={() => setModeActive(true)}
+                    className={style.link}
+                >
                     <Icons singOut={Icon.singOut} />
                     <span className={style.text}>
                         Log Out
                     </span>
                 </Link>
             </div>
-            {/* <Modal active={modaleActive} setActive={setModaleActive} >
-                <span>Name</span>
-                <span>Surname</span>
-                <form>
-                    <input type="file" placeholder='Images' />
-                    <input type="password" placeholder='Current password' />
-                    <input type="password" placeholder='Edit password' />
-                    <input type="password" placeholder='Repeat password' />
-                </form>
-            </Modal> */}
+
         </div>
 
 

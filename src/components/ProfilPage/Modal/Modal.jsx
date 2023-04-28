@@ -1,6 +1,5 @@
 import style from "./modal.module.css"
 
-
 const Modal = ({ active, setActive, children }) => {
     return (
         <div className={active ? `${style.modale} ${style.active}` : style.modale} onClick={() => setActive(false)}>
