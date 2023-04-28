@@ -1,3 +1,21 @@
-.side{
+.side {
     display: flex;
+}
+
+.cen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+}
+
+.cont:first-child {
+    font-size: 25px;
+    margin-bottom: 40px;
+}
+
+.cont {
+    text-align: center;
+    width: 100%;
 }

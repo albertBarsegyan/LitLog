@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
 import style from "./button.module.css"
-const singOutBut = () => {
+
+const SingOutBut = () => {
     return (
-        <button className={style.outBtn}>
+        <Link className={style.outBtn}>
             Sign Out
-        </button>
+        </Link>
     );
 };
 
-export default singOutBut;
+export default SingOutBut;

@@ -23,3 +23,14 @@
     border: none;
     cursor: pointer;
 }
+
+.outBtn{
+    font-size: 1.5rem;
+    color: var(--white);
+    background-color: var(--black);
+    padding: 15px;
+    margin-top: 25px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}

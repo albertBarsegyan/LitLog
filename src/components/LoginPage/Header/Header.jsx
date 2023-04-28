@@ -3,7 +3,6 @@ import logo from "../../../assets/images/logo.jpg"
 import style from "./header.module.css"
 import { NavLink, Route, Routes } from "react-router-dom";
 import RegIn from "../../Button/ReginBut";
-import { FirstPage } from "../../FirstPage/FirstPage";
 import { RouteConstant } from "../../../constants/RouteCostant";
 import LoginPage from "../LoginPage";
 

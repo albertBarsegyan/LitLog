@@ -3,11 +3,10 @@ import LeftSide from './LeftSide/LeftSide';
 import RightSide from './RightSide/RightSide';
 import CenterSite from './CenterSite/CenterSite';
 import PopUp from "./Modal/PopUp";
-import SingOutPopUp from "./Modal/singOutPopUp"
-import { useModal } from "../../context/popup";
+import OutPopUp from "./Modal/OutPopUp";
 
 const ProfilPage = () => {
-    const { modeActive, setModeActive } = useModal()
+
     return (
         <div className={style.side}>
 
@@ -15,15 +14,11 @@ const ProfilPage = () => {
                 <LeftSide />
             </div>
             <div>
-                <RightSide /> 
+                <RightSide />
                 <CenterSite />
             </div>
             <PopUp />
-
-            <SingOutPopUp active={modeActive} setActive={setModeActive}>
-                <p>Get out so early</p>
-
-            </SingOutPopUp>
+            <OutPopUp />
         </div>
     );
 };
