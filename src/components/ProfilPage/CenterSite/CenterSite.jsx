@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import batman from "../../../assets/images/batman.png"
 import bookimg2 from "../../../assets/images/bookimg2.png"
 import style from "../CenterSite/centerSite.module.css"
+import BookShow from "../BookShow/BookShow";
 const CenterSite = () => {
     return (
         <div className={style.centerDiv}>
@@ -16,15 +17,20 @@ const CenterSite = () => {
                 </div>
             </div>
 
-            <div>
-                <h2>Continue Reading</h2>
+            <div className={style.readingMain}>
+                <h2 className={style.reding}>Continue Reading</h2>
                 <div>
-                    <img src={bookimg2} alt="" />
-                    <div>
-                        <progress></progress>
+                    <div className={style.imgParent}>
+                        <img src={bookimg2} className={style.redingImages} alt="" />
                     </div>
+                    <div>
+                        {/* <progress></progress> */}
+                    </div>
+                    <p className={style.redingBookName}>Kobra Kai: Ultimate</p>
                 </div>
             </div>
+            <BookShow />
+
         </div>
     );
 };
