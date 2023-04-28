@@ -8,27 +8,31 @@ import CenterSite from './CenterSite/CenterSite';
 
 const ProfilPage = () => {
 
-    const [modaleActive, setModaleActive] = usePopUp()
+    const { modaleActive, setModaleActive } = usePopUp()
 
     return (
         <div className={style.side}>
+
             <div>
                 <LeftSide />
             </div>
             <div>
                 <RightSide />
+
                 <CenterSite />
             </div>
-            <Modal active={modaleActive} setActive={setModaleActive} >
-                <span>Name</span>
-                <span>Surname</span>
-                <form>
-                    <input type="file" placeholder='Images' />
-                    <input type="password" placeholder='Current password' />
-                    <input type="password" placeholder='Edit password' />
-                    <input type="password" placeholder='Repeat password' />
-                </form>
-            </Modal>
+            <div className={style.modal}>
+                <Modal active={modaleActive} setActive={setModaleActive} >
+                    <span>Name</span>
+                    <span>Surname</span>
+                    <form>
+                        <input type="file" placeholder='Images' />
+                        <input type="password" placeholder='Current password' />
+                        <input type="password" placeholder='Edit password' />
+                        <input type="password" placeholder='Repeat password' />
+                    </form>
+                </Modal>
+            </div>
         </div>
     );
 };

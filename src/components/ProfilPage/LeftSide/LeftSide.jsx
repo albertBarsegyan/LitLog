@@ -3,14 +3,14 @@ import { NavLink, Link } from "react-router-dom";
 import Icons from "../../../assets/images/icons/Icons";
 import { Icon } from '../../../constants/PropsIcon';
 import { RouteConstant } from '../../../constants/RouteCostant';
-import Modal from '../Modal/Modal';
-import { useState } from 'react';
+
 import { usePopUp } from '../../../context/popup';
 
 
 
 const LeftSide = () => {
-    const [setModaleActive] = usePopUp(false)
+    const { setModaleActive } = usePopUp(false)
+
     return (
         <div className={style.leftSide}>
 
@@ -61,8 +61,9 @@ const LeftSide = () => {
                 <NavLink
 
                     onClick={() => setModaleActive(true)}
-                    
-                    className={style.link}>
+                    className={style.link}
+                >
+
                     <Icons setting={Icon.setting} />
                     <span className={style.text}>
                         Settings
@@ -76,6 +77,16 @@ const LeftSide = () => {
                     </span>
                 </Link>
             </div>
+            {/* <Modal active={modaleActive} setActive={setModaleActive} >
+                <span>Name</span>
+                <span>Surname</span>
+                <form>
+                    <input type="file" placeholder='Images' />
+                    <input type="password" placeholder='Current password' />
+                    <input type="password" placeholder='Edit password' />
+                    <input type="password" placeholder='Repeat password' />
+                </form>
+            </Modal> */}
         </div>
 
 

@@ -1,3 +1,7 @@
 .bigDiv{
     display: flex;
 }
+.modal{
+    display: flex;
+    justify-content: center;
+}
