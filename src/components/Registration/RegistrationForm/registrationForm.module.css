@@ -1,25 +1,25 @@
-body{
-    background-color: rgb(191, 191, 191);
+body {
+    background-color: var(--backGrey);
 }
 
 form {
-    border: 1px solid gray;
-    background: white;
+    background: var(--white);
     padding: 35px;
 }
 
-input {
+.inp {
     display: block;
-    padding: 10px 150px 15px 10px;
     margin-bottom: 25px;
-    border: 1px solid ;
+    border: 1px solid;
+    width: 98%;
+    padding: 10px 3px;
 }
 
 .but {
     padding: 10px 40px;
-    background-color: black;
-    color: white;
-    border: 1px solid white;
+    background-color: var(--black);
+    color: var(--white);
+    border: 1px solid var(--white);
     cursor: pointer;
 }
 
@@ -28,7 +28,7 @@ input {
     align-items: center;
     padding: 10px 110px 15px 10px;
     margin-bottom: 25px;
-    background: #fff;
+    background: var(--white);
     font-size: 20px;
 }
 
@@ -52,7 +52,7 @@ form .border {
 }
 
 .spBor {
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid ;
     width: 46%;
     height: 1px;
 }
@@ -62,12 +62,17 @@ form .border span {
 }
 
 
-.errormess{
+.errormess {
     font-size: 18px;
     margin-bottom: 10px;
-}
-.erorrInp{
-    border: 1px solid red
+    color: var(--red);
 }
 
-
+.erorrInp {
+    border-color: var(--red);
+    display: block;
+    width: 98%;
+    padding: 10px 3px;
+    margin-bottom: 25px;
+    outline: none;
+}

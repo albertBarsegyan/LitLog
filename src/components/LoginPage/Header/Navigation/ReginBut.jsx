@@ -7,7 +7,7 @@ const ReginBut = () => {
 
   return (
     <button onClick={() => navigation(RouterConst.RegPage)} className={style.regin}>
-      Sing Up <i className="fa-solid fa-user-plus"></i>
+      Sign Up <i className="fa-solid fa-user-plus"></i>
     </button>
   );
 };

@@ -1,14 +1,13 @@
-import { useNavigate } from 'react-router-dom';
-import { RouteConstant } from '../../constants/RouteCostant';
+import { Link } from "react-router-dom";
+import { RouteConstant } from "../../constants/RouteCostant";
+import style from './button.module.css'
 
 function Login() {
-  const navigation = useNavigate();
 
-  return (
-    <button onClick={() => navigation(RouteConstant.LoginPage)}>
-      Sing In <i className="fa-solid fa-user"></i>{' '}
-    </button>
-  );
+    return (
+        <Link className={style.fBtn} to={RouteConstant.LoginPage}>Sign In</Link>
+    )
+
 }
 
 export default Login;
