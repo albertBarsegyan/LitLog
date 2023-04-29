@@ -23,7 +23,7 @@ const OutPopUp = () => {
             </SingOutPopUp>
 
             {/* <Routes> */}
-                {/* <Route path={RouteConstant.PrifilPage} element={<LoginPage />} /> */}
+            {/* <Route path={RouteConstant.PrifilPage} element={<LoginPage />} /> */}
             {/* </Routes> */}
         </>
     );
