@@ -20,7 +20,6 @@ const ProfilPage = () => {
             <PopUp />
             <OutPopUp />
 
-
         </div>
     );
 };
