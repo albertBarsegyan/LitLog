@@ -6,8 +6,6 @@ import { RouteConstant } from '../../../constants/RouteCostant';
 
 import { useModal, usePopUp } from '../../../context/popup';
 
-
-
 const LeftSide = () => {
     const { setModaleActive } = usePopUp(false)
     const { setModeActive } = useModal(false)

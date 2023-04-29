@@ -17,11 +17,9 @@ function LoginPage() {
             errors,
         },
         handleSubmit,
-    } = useForm(
-        {
-            mode: "onChange"
-        }
-    )
+    } = useForm({
+        mode: "onChange"
+    })
 
     const onSubmit = data => {
         console.log(JSON.stringify(data))
@@ -31,14 +29,14 @@ function LoginPage() {
 
     return (
 
-
-        <div>
+        <div className={style.lol}>
             <Header />
             <div className={style.main}>
                 <div className={style.form}>
                     <div className={style.userImg}>
                         <img src={loginUser} alt="loginUser" />
                     </div>
+                    
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <label>
 
@@ -94,6 +92,7 @@ function LoginPage() {
                 </div>
             </div>
             <Footer />
+
         </div>
     )
 }
