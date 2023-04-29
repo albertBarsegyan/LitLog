@@ -5,36 +5,24 @@
     width: 644px;
     font-size: 25px;
     margin-top: 50px;
+    color:var(--white)
 }
 
-.labSt {
-    border: 1px solid black;
-    padding: 15px;
-    border-radius: 10px;
-    margin-left: 45px;
-}
 .rightDiv {
     display: flex;
-    /* justify-content: space-between; */
 }
-.maxDiv{
+
+.maxDiv {
     margin-right: 180px;
 }
 
-.inpSearch {
-    border: none;
-    outline: none;
-    background: none;
-    width: 644px;
-    margin-top: 50px;
-}
-
 .labInp {
-    border: 1px solid black;
+    border: 1px solid var(--white);
     padding: 15px;
     border-radius: 10px;
     text-align: center;
     margin-left: 45px;
+    
 }
 
 .userImg {

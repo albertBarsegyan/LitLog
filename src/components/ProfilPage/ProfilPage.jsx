@@ -23,9 +23,9 @@ const ProfilPage = () => {
             <PopUp />
             <OutPopUp />
 
-            <Routes>
+            {/* <Routes>
                 <Route path={RouteConstant.PrifilPage} element={<LoginPage />} />
-            </Routes>
+            </Routes> */}
         </div>
     );
 };

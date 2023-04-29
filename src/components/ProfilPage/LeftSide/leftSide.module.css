@@ -8,7 +8,7 @@
 .logo {
     text-decoration: none;
     font-size: 40px;
-    color: black;
+    color: var(--white);
     font-family: "Poppins";
 }
 
@@ -18,24 +18,31 @@
 
 .menu {
     display: flex;
+    align-items: center;
     flex-wrap: wrap;
-    margin-left: 75px;
 }
 
 .link {
-    color: black;
+    color: var(--white);
     width: 100%;
     font-size: 24px;
     text-decoration: none;
-    padding-bottom: 50px;
+    margin-bottom: 50px;
+    font-family: "Poppins";
+    padding: 18px 75px;
 }
 
 .activeLink {
-    color: gray;
+    background-color: var(--lightBlue);
+    padding: 18px 75px;
+    border-radius: 15px;
+    margin-right: 45px;
     width: 100%;
     font-size: 24px;
+    margin-bottom: 50px;
+    color: var(--white);
     text-decoration: none;
-    padding-bottom: 50px;
+    font-family: "Poppins";
 }
 
 .text {
@@ -45,6 +52,5 @@
 .setings {
     display: flex;
     flex-wrap: wrap;
-    margin-left: 75px;
-    padding-top: 377px;
+    padding-top: 275px;
 }

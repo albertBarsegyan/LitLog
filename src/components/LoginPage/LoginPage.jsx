@@ -5,9 +5,9 @@ import { errorMes } from "../../constants/errorMessage"
 import google from "../../assets/images/google.png"
 import Footer from "./Footer/Footer"
 import Header from "./Header/Header"
-import { NavLink, Route, Routes } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { RouteConstant } from "../../constants/RouteCostant"
-import { FirstPage } from "../FirstPage/FirstPage"
+
 
 function LoginPage() {
 
@@ -30,6 +30,8 @@ function LoginPage() {
     const butDisable = errors.email || errors.password
 
     return (
+
+
         <div>
             <Header />
             <div className={style.main}>

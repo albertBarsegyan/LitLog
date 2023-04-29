@@ -56,7 +56,9 @@ const LeftSide = () => {
                     </span>
 
                 </NavLink>
+
             </nav>
+
             <div className={style.setings}>
 
                 <NavLink
@@ -80,6 +82,7 @@ const LeftSide = () => {
                         Log Out
                     </span>
                 </Link>
+
             </div>
 
         </div>
