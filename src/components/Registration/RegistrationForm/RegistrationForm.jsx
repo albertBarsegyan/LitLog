@@ -7,14 +7,14 @@ import { useState } from "react";
 
 
 const RegistrationForm = () => {
-    const { signUp, isLoading, error } = useAuth();
-    const [formData, setFormData] = useState({
-        email: "",
-        password: "",
-        firstName: "",
-        lastName: ""
-    })
+    const { signUp, error } = useAuth();
 
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: ""
+    });
 
     const {
         register,
@@ -29,17 +29,15 @@ const RegistrationForm = () => {
     const password = watch('password', '');
     const repeatPassword = watch('repeatPassword', '');
 
-    const onSubmit = (e) => {
+    const onSubmit = async (e) => {
         reset();
         // e.preventDefault();
-        signUp(formData)
-        console.log(1233);
+
+        await console.log(JSON.stringify(signUp(formData)))
+
+
     };
 
-    const handleUserChange = e => {
-        const { name, value } = e.target
-        setFormData((prev) => ({ ...prev, [name]: value }))
-    }
 
     const butDisable = errors.firstName || errors.lastName || errors.email || errors.password || errors.repeatPassword;
 
@@ -61,8 +59,8 @@ const RegistrationForm = () => {
                 </div>
                 <input
                     className={errors.firstName ? style.erorrInp : style.inp}
-                    onChange={handleUserChange}
-                    // value={formData.firstName}
+                    onChange={e => setFormData(prev => ({ ...prev, firstName: e.target.value }))}
+                    value={formData.firstName}
 
                     {...register("firstName", {
                         required: requeridMes.reqMes,
@@ -89,9 +87,9 @@ const RegistrationForm = () => {
                 </div>
                 <input
 
+                    onChange={e => setFormData(prev => ({ ...prev, lastName: e.target.value }))}
                     className={errors.lastName ? style.erorrInp : style.inp}
-                    onChange={handleUserChange}
-                    // value={formData.lastName}
+                    value={formData.lastName}
                     {...register("lastName", {
                         required: requeridMes.reqMes,
                         minLength: {
@@ -117,9 +115,9 @@ const RegistrationForm = () => {
 
                 <input
 
+                    onChange={ e => setFormData(prev => ({ ...prev, email: e.target.value }))}
                     className={errors.email ? style.erorrInp : style.inp}
-                    onChange={handleUserChange}
-                    // value={formData.email}
+                    value={formData.email}
                     {
                     ...register("email", {
                         required: requeridMes.reqMes,
@@ -142,8 +140,9 @@ const RegistrationForm = () => {
 
 
                 <input
-                    onChange={handleUserChange}
-                    // value={formData.password}
+                    onChange={e => setFormData(prev => ({ ...prev, password: e.target.value }))}
+
+                    value={formData.password}
                     className={errors.password ? style.erorrInp : style.inp}
                     {
                     ...register("password", {
@@ -187,10 +186,10 @@ const RegistrationForm = () => {
 
 
             <button
-                disabled={butDisable || isLoading}
+                disabled={butDisable}
                 className={style.but}
-                
-                type="submit">Submit
+
+                type="submit">Sign Up
             </button>
             {error && <p>{error.message}</p>}
         </form >
