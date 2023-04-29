@@ -1,5 +1,5 @@
 import popMod from "./modal.module.css"
- 
+
 const SingOutPopUp = ({ active, setActive, children }) => {
     return (
         <div className={active ? `${popMod.modalee} ${popMod.active}` : popMod.modalee} onClick={() => setActive(false)}>

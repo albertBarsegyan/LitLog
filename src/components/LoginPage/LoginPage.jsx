@@ -5,9 +5,9 @@ import { errorMes } from "../../constants/errorMessage"
 import google from "../../assets/images/google.png"
 import Footer from "./Footer/Footer"
 import Header from "./Header/Header"
-import { NavLink, Route, Routes } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 import { RouteConstant } from "../../constants/RouteCostant"
-import { FirstPage } from "../FirstPage/FirstPage"
+
 
 function LoginPage() {
 
@@ -17,11 +17,9 @@ function LoginPage() {
             errors,
         },
         handleSubmit,
-    } = useForm(
-        {
-            mode: "onChange"
-        }
-    )
+    } = useForm({
+        mode: "onChange"
+    })
 
     const onSubmit = data => {
         console.log(JSON.stringify(data))
@@ -30,13 +28,15 @@ function LoginPage() {
     const butDisable = errors.email || errors.password
 
     return (
-        <div>
+
+        <div className={style.lol}>
             <Header />
             <div className={style.main}>
                 <div className={style.form}>
                     <div className={style.userImg}>
                         <img src={loginUser} alt="loginUser" />
                     </div>
+                    
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <label>
 
@@ -92,6 +92,7 @@ function LoginPage() {
                 </div>
             </div>
             <Footer />
+
         </div>
     )
 }

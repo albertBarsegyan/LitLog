@@ -174,9 +174,9 @@ const RegistrationForm = () => {
             <button
                 disabled={butDisable}
                 className={style.but}
-                type="submit">Submit
+                type="submit">Sign Up
             </button>
-            
+
         </form >
     );
 };

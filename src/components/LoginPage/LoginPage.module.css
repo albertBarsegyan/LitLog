@@ -1,22 +1,23 @@
-body {
-    font-family: "Poppins";
-    /* background-color: var(--backGrey); */
+.lol{
+    background-color: var(--backGrey);
 }
-
 .form {
     background-color: var(--white);
     display: inline-block;
     padding: 35px;
     border-radius: 15px;
-
+    font-family: "Poppins";
+    
+    /* background-color: var(--backGrey); */
 }
 
 .main {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 13% 0;
+    padding: 13% 0;
 }
+
 
 .userImg {
     text-align: center;
@@ -28,7 +29,6 @@ body {
 }
 
 .formInput {
-
     height: 30px;
     margin-bottom: 15px;
     width: 100%;

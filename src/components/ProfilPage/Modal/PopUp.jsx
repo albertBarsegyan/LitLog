@@ -16,6 +16,7 @@ const PopUp = () => {
         formState: {
             errors
         },
+        reset,
         handleSubmit,
     } = useForm({
         mode: "onBlur"
@@ -25,9 +26,7 @@ const PopUp = () => {
     const repeatPassword = watch("repeatPassword", "")
 
     const onSubmit = () => {
-        if (newPassword !== repeatPassword) {
-            console.error("15")
-        }
+      reset()
     }
 
     const { modaleActive, setModaleActive } = usePopUp()
