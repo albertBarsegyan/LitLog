@@ -5,16 +5,14 @@ import { errorMes, requeridMes } from '../../constants/errorMessage';
 import google from '../../assets/images/google.png';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
-import { Link, NavLink, Route, Routes } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { RouteConstant } from '../../constants/RouteCostant';
 import { useAuth } from '../../context/auth.context';
-import { element } from 'prop-types';
-import { FirstPage } from '../FirstPage/FirstPage';
 
 
 
 function LoginPage() {
-
+  const navigate = useNavigate("")
   const { signIn, error: fireBaseError, googleAuth } = useAuth()
 
   const {
@@ -30,22 +28,18 @@ function LoginPage() {
     }
   });
 
-  const onSubmit = (value, e) => {
-    // e.preventDefault()
-    reset()
+  const onSubmit = (value) => {
+    // reset()
     if (value) {
       signIn(value)
       console.log(value);
-
+      navigate("/")
     }
     else if (!value) {
-
       console.log(fireBaseError);
+      navigate("/register")
     }
-
-
   };
-
 
 
   const isSubmitDisabled = !isDirty && !isValid;
@@ -95,11 +89,20 @@ function LoginPage() {
               />
             </label>
             <div className={style.but}>
-              <Link to={RouteConstant.FirstPage}>
-                <button disabled={isSubmitDisabled} type="submit" className={style.loginButton}>
-                  Login
-                </button>
-              </Link>
+              {
+                !fireBaseError.code ?
+
+                  <button disabled={isSubmitDisabled} type="submit" style={{ color: "red" }} className={style.loginButton}>
+                    Login
+                  </button>
+                  :
+                  <button disabled={true} type="submit" className={style.loginButton}>
+                    Login
+                  </button>
+
+              }
+
+              {fireBaseError && <p>{fireBaseError.message}</p>}
               <span>OR</span>
               <button className={style.googleBut}>
                 <span>
