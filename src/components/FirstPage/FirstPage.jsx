@@ -7,7 +7,6 @@ import { Route, Routes } from 'react-router-dom';
 // import { Registration } from '../Registration/Registration';
 
 export function FirstPage() {
-
   return (
     <div>
       <Header />
@@ -18,4 +17,3 @@ export function FirstPage() {
     </div>
   );
 }
-
