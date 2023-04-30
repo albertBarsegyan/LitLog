@@ -1,5 +1,7 @@
 import { useAuth } from './context/auth.context';
-
+import { Registration } from './components/Registration/Registration';
+import { FirstPage } from "./components/FirstPage/FirstPage"
+import BookCount from './components/BookCount/BookCount';
 function App() {
   const { googleAuth, isLoading, user, signOut, error, signIn, signUp } = useAuth();
 
@@ -19,15 +21,17 @@ function App() {
 
   return (
     <div className="App">
-      <p>code => {error.code}</p>
+      {/* <p>code => {error.code}</p>
       <p>message => {error.message}</p>
       <pre>user => {JSON.stringify(user, null, 2)}</pre>
       <span>{isLoading ? 'loading' : 'not loading'}</span>
       <button onClick={handleGoogleAuth}>Google</button>
       <button onClick={handleSignOut}>Sign out</button>
       <button onClick={handleLogin}>Login</button>
-      <button onClick={handleSignUp}>Sign up</button>
-      {/*<Registration />*/}
+      <button onClick={handleSignUp}>Sign up</button> */}
+      {/* <Registration /> */}
+      {/* <FirstPage/> */}
+      <BookCount />
     </div>
   );
 }

@@ -1,0 +1,50 @@
+.wHead {
+    font-size: 80px;
+    text-align: center;
+    font-family: "Poppins";
+    margin: 15px 0 40px;
+}
+
+.parDiv {
+    width: 600px;
+    margin: auto;
+}
+
+.content {
+    font-size: 25px;
+    text-align: justify;
+    line-height: 40px;
+    font-family: "Poppins";
+    margin-bottom: 25px;
+}
+
+.inpNum {
+    padding: 9px;
+    font-size: 16px;
+    font-family: "Poppins";
+    width: 86%;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    border-color: black;
+    outline: none;
+}
+
+.btnN {
+    margin-bottom: 20px;
+    background: black;
+    padding: 11px;
+    font-size: 17px;
+    font-family: "Poppins";
+    text-decoration: none;
+    color: white;
+    border: 1px solid;
+}
+
+.lebPar {
+    font-size: 22px;
+    font-family: "Poppins";
+}
+
+.lebSpan {
+    font-size: 40px;
+}
