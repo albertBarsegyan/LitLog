@@ -5,5 +5,5 @@ export const RouteConstant = {
     BookPage: "/books",
     FriendPage: "/friends",
     ArticlePage: "/articles",
-    PrifilPage: "/profil"
+    PrifilPage: "/profile"
 }
