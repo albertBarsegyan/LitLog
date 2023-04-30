@@ -8,8 +8,8 @@ const RegistrationForm = () => {
   const { signUp, error: firebaseError } = useAuth();
 
   // const [formData, setFormData] = useState({
-  //   firstName: '',
-  //   lastName: '',
+  //   firstname: '',
+  //   lastname: '',
   //   email: '',
   //   password: '',
   // });
@@ -36,11 +36,12 @@ const RegistrationForm = () => {
   const onSubmit = async (values) => {
     reset();
     signUp(values);
+    console.log(values);
   };
 
   const isSubmitDisabled = !isValid && !isDirty;
 
-  console.log({ firebaseError });
+  // console.log({ firebaseError });
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -55,12 +56,11 @@ const RegistrationForm = () => {
       </div>
 
       <label htmlFor="">
-        <div>{errors?.firstName && <p className={style.errormess}>{errors?.firstName?.message || 'Error!'}</p>}</div>
+        <div>{errors?.firstname && <p className={style.errormess}>{errors?.firstname?.message || 'Error!'}</p>}</div>
         <input
-          className={errors.firstName ? style.erorrInp : style.inp}
-          // onChange={(e) => setFormData((prev) => ({ ...prev, firstName: e.target.value }))}
-          // value={formData.firstName}
-          {...register('firstName', {
+          className={errors.firstname ? style.erorrInp : style.inp}
+
+          {...register('firstname', {
             required: requeridMes.reqMes,
             minLength: {
               value: 3,
@@ -77,12 +77,10 @@ const RegistrationForm = () => {
       </label>
 
       <label htmlFor="">
-        <div>{errors?.lastName && <p className={style.errormess}>{errors?.lastName?.message || 'Error!'}</p>}</div>
+        <div>{errors?.lastname && <p className={style.errormess}>{errors?.lastname?.message || 'Error!'}</p>}</div>
         <input
-          // onChange={(e) => setFormData((prev) => ({ ...prev, lastName: e.target.value }))}
-          className={errors.lastName ? style.erorrInp : style.inp}
-          // value={formData.lastName}
-          {...register('lastName', {
+          className={errors.lastname ? style.erorrInp : style.inp}
+          {...register('lastname', {
             required: requeridMes.reqMes,
             minLength: {
               value: 3,
@@ -102,9 +100,7 @@ const RegistrationForm = () => {
         <div>{errors?.email && <p className={style.errormess}>{errors?.email?.message || 'Error!'}</p>}</div>
 
         <input
-          // onChange={(e) => setFormData((prev) => ({ ...prev, email: e.target.value }))}
           className={errors.email ? style.erorrInp : style.inp}
-          // value={formData.email}
           {...register('email', {
             required: requeridMes.reqMes,
             pattern: {
@@ -120,8 +116,6 @@ const RegistrationForm = () => {
       <div>{errors?.password && <p className={style.errormess}>{errors?.password?.message || 'Error!'}</p>}</div>
       <label htmlFor="">
         <input
-          // onChange={(e) => setFormData((prev) => ({ ...prev, password: e.target.value }))}
-          // value={formData.password}
           className={errors.password ? style.erorrInp : style.inp}
           {...register('password', {
             required: requeridMes.reqMes,
@@ -154,10 +148,11 @@ const RegistrationForm = () => {
         />
       </label>
 
+
       <button disabled={isSubmitDisabled} className={style.but} type="submit">
         Sign Up
       </button>
-      {/*{error && <p>{error.message}</p>}*/}
+
     </form>
   );
 };

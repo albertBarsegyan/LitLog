@@ -1,28 +1,54 @@
 import loginUser from '../../assets/images/loginUser.png';
 import style from './LoginPage.module.css';
 import { useForm } from 'react-hook-form';
-import { errorMes } from '../../constants/errorMessage';
+import { errorMes, requeridMes } from '../../constants/errorMessage';
 import google from '../../assets/images/google.png';
 import Footer from './Footer/Footer';
 import Header from './Header/Header';
-import { NavLink, Route, Routes } from 'react-router-dom';
+import { Link, NavLink, Route, Routes } from 'react-router-dom';
 import { RouteConstant } from '../../constants/RouteCostant';
+import { useAuth } from '../../context/auth.context';
+import { element } from 'prop-types';
 import { FirstPage } from '../FirstPage/FirstPage';
 
+
+
 function LoginPage() {
+
+  const { signIn, error: fireBaseError, googleAuth } = useAuth()
+
   const {
     register,
-    formState: { errors },
+    formState: { errors, isDirty, isValid },
     handleSubmit,
+    reset
   } = useForm({
     mode: 'onChange',
+    defaultValues: {
+      email: "",
+      password: ""
+    }
   });
 
-  const onSubmit = (data) => {
-    console.log(JSON.stringify(data));
+  const onSubmit = (value, e) => {
+    // e.preventDefault()
+    reset()
+    if (value) {
+      signIn(value)
+      console.log(value);
+
+    }
+    else if (!value) {
+
+      console.log(fireBaseError);
+    }
+
+
   };
 
-  const butDisable = errors.email || errors.password;
+
+
+  const isSubmitDisabled = !isDirty && !isValid;
 
   return (
     <div>
@@ -39,6 +65,7 @@ function LoginPage() {
               <input
                 className={errors.email ? style.errorInp : style.formInput}
                 {...register('email', {
+                  required: requeridMes.reqMes,
                   pattern: {
                     value: /^([a-zA-Z0-9._%+-]+)@([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/,
                     message: errorMes.Email,
@@ -57,6 +84,7 @@ function LoginPage() {
               <input
                 className={errors.password ? style.errorInp : style.formInput}
                 {...register('password', {
+                  required: requeridMes.reqMes,
                   pattern: {
                     value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
                     message: errorMes.Password,
@@ -67,9 +95,11 @@ function LoginPage() {
               />
             </label>
             <div className={style.but}>
-              <button disabled={butDisable} type="submit" className={style.loginButton}>
-                Login
-              </button>
+              <Link to={RouteConstant.FirstPage}>
+                <button disabled={isSubmitDisabled} type="submit" className={style.loginButton}>
+                  Login
+                </button>
+              </Link>
               <span>OR</span>
               <button className={style.googleBut}>
                 <span>
