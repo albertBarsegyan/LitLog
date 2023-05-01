@@ -9,14 +9,7 @@ import { RouteConstant } from '../../../constants/RouteCostant';
 
 const RegistrationForm = () => {
   const { signUp, error: firebaseError, googleAuth } = useAuth();
-
-  // const [formData, setFormData] = useState({
-  //   firstname: '',
-  //   lastname: '',
-  //   email: '',
-  //   password: '',
-  // });
-
+  const navigate = useNavigate()
 
   const {
     register,
@@ -43,7 +36,7 @@ const RegistrationForm = () => {
     console.log(values);
   };
 
-  const navigate = useNavigate()
+
 
   const handleGoogleSubmit = async (e) => {
     e.preventDefault()

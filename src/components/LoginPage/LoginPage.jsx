@@ -11,9 +11,10 @@ import { useAuth } from '../../context/auth.context';
 
 
 
+
 function LoginPage() {
   const navigate = useNavigate("")
-  const { signIn, error: fireBaseError, googleAuth } = useAuth()
+  const { user, signIn, error: fireBaseError, googleAuth } = useAuth()
 
   const {
     register,
@@ -22,22 +23,23 @@ function LoginPage() {
     reset
   } = useForm({
     mode: 'onChange',
-    // defaultValues: {
-    //   email: "",
-    //   password: ""
-    // }
+    defaultValues: {
+      email: "",
+      password: ""
+    }
   });
 
-  const onSubmit = async value => {
-    reset()
+  const onSubmit = async user => {
 
-    // if (value === null) {
-    //   console.log(fireBaseError.code, fireBaseError.message);
-    // }
-    // else if (value) {
-    //   await signIn(value)
-    //   console.log(value);
-    // }
+    reset()
+    if (user) {
+      navigate(RouteConstant.RegPage)
+      await signIn(user)
+    }
+    else {
+      navigate(RouteConstant.LoginPage)
+    }
+
   }
 
   const onGoogleSubmit = async (e) => {
