@@ -22,25 +22,29 @@ function LoginPage() {
     reset
   } = useForm({
     mode: 'onChange',
-    defaultValues: {
-      email: "",
-      password: ""
-    }
+    // defaultValues: {
+    //   email: "",
+    //   password: ""
+    // }
   });
 
-  const onSubmit = (value) => {
-    // reset()
-    if (value) {
-      signIn(value)
-      console.log(value);
-      navigate("/")
-    }
-    else if (!value) {
-      console.log(fireBaseError);
-      navigate("/register")
-    }
-  };
+  const onSubmit = async value => {
+    reset()
 
+    // if (value === null) {
+    //   console.log(fireBaseError.code, fireBaseError.message);
+    // }
+    // else if (value) {
+    //   await signIn(value)
+    //   console.log(value);
+    // }
+  }
+
+  const onGoogleSubmit = async (e) => {
+    e.preventDefault()
+    await googleAuth(google)
+    navigate(RouteConstant.FirstPage)
+  }
 
   const isSubmitDisabled = !isDirty && !isValid;
 
@@ -104,7 +108,11 @@ function LoginPage() {
 
               {fireBaseError && <p>{fireBaseError.message}</p>}
               <span>OR</span>
-              <button className={style.googleBut}>
+              <button
+                onClick={onGoogleSubmit}
+                {...register("google")}
+
+                className={style.googleBut}>
                 <span>
                   <img src={google} alt="" />
                 </span>

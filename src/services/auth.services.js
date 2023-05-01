@@ -28,7 +28,6 @@ export const registerService = async ({ email, password, firstname, lastname }) 
       emailVerified: false,
       photoURL: null,
     });
-
     return { data: firebaseUserDataFilter(newUserCredential.user), errorCode: null, errorMessage: null };
   } catch (error) {
     const errorCode = error.code;
@@ -47,6 +46,8 @@ export const loginService = async ({ email, password }) => {
     return { data: null, errorCode, errorMessage };
   }
 };
+
+
 export const signOutService = async () => {
   try {
     await firebaseAuth.signOut();
