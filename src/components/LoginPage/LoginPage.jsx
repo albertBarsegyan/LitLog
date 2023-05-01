@@ -33,7 +33,7 @@ function LoginPage() {
     if (value) {
       signIn(value)
       console.log(value);
-      navigate("/")
+      navigate("/") 
     }
     else if (!value) {
       console.log(fireBaseError);
