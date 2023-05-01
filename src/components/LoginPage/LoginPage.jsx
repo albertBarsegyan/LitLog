@@ -8,13 +8,15 @@ import Header from './Header/Header';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { RouteConstant } from '../../constants/RouteCostant';
 import { useAuth } from '../../context/auth.context';
+import { useState } from 'react';
 
 
 
 
 function LoginPage() {
-  const navigate = useNavigate("")
+  const navigate = useNavigate()
   const { user, signIn, error: fireBaseError, googleAuth } = useAuth()
+  const [flag, setFlag] = useState(false)
 
   const {
     register,
@@ -29,23 +31,47 @@ function LoginPage() {
     }
   });
 
-  const onSubmit = async user => {
+  // const onSubmit = async user => {
 
-    reset()
-    if (user) {
-      navigate(RouteConstant.RegPage)
-      await signIn(user)
-    }
-    else {
-      navigate(RouteConstant.LoginPage)
-    }
+  //   reset()
+  //   try {
+  //     if (user !== null) {
+  //       const result = await signIn(user)
+  //       console.log(result);
+  //       setFlag()
+  //       if (flag) {
+  //         navigate(RouteConstant.FirstPage)
+  //       } else {
+  //         navigate(RouteConstant.RegPage)
+  //       }
+  //     }
+  //     else {
+  //       console.log(fireBaseError);
+  //     }
+  //   }
+  //   catch (error) {
+  //     console.log(error);
+  //   }
 
+  // }
+
+
+  const onSubmit = data =>{
+    try{
+      const res =  signIn(data)
+      console.log(res);
+      navigate(RouteConstant.FirstPage)
+    }
+    catch(error){
+      console.log(error);
+    }
   }
+
 
   const onGoogleSubmit = async (e) => {
     e.preventDefault()
     await googleAuth(google)
-    navigate(RouteConstant.FirstPage)
+    redirect(RouteConstant.FirstPage)
   }
 
   const isSubmitDisabled = !isDirty && !isValid;

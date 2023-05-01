@@ -33,7 +33,6 @@ function App() {
       <button onClick={handleSignOut}>Sign out</button>
       <button onClick={handleLogin}>Login</button>
       <button onClick={handleSignUp}>Sign up</button> */}
-
       {/* <FirstPage/> */}
       <Routes>
         <Route path={RouteConstant.FirstPage} exact element={<FirstPage />} />
