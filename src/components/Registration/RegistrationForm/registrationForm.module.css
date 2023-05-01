@@ -2,7 +2,9 @@ body {
     background-color: var(--backGrey);
 }
 
-form {
+
+
+.bigDiv {
     background: var(--white);
     padding: 35px;
 }
@@ -30,6 +32,7 @@ form {
     margin-bottom: 25px;
     background: var(--white);
     font-size: 20px;
+    cursor: pointer;
 }
 
 .googleImg {
