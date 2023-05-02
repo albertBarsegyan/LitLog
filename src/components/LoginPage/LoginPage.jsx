@@ -8,71 +8,44 @@ import Header from './Header/Header';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { RouteConstant } from '../../constants/RouteCostant';
 import { useAuth } from '../../context/auth.context';
-import { useState } from 'react';
-
-
-
 
 function LoginPage() {
-  const navigate = useNavigate()
-  const { user, signIn, error: fireBaseError, googleAuth } = useAuth()
-  const [flag, setFlag] = useState(false)
+  const navigate = useNavigate();
+  const { signIn, error: fireBaseError, googleAuth, user } = useAuth();
 
   const {
     register,
     formState: { errors, isDirty, isValid },
     handleSubmit,
-    reset
+    reset,
   } = useForm({
     mode: 'onChange',
     defaultValues: {
-      email: "",
-      password: ""
-    }
+      email: '',
+      password: '',
+    },
   });
 
-  // const onSubmit = async user => {
+  const onSubmit = async (values) => {
+    reset();
+    signIn(values);
 
-  //   reset()
-  //   try {
-  //     if (user !== null) {
-  //       const result = await signIn(user)
-  //       console.log(result);
-  //       setFlag()
-  //       if (flag) {
-  //         navigate(RouteConstant.FirstPage)
-  //       } else {
-  //         navigate(RouteConstant.RegPage)
-  //       }
-  //     }
-  //     else {
-  //       console.log(fireBaseError);
-  //     }
-  //   }
-  //   catch (error) {
-  //     console.log(error);
-  //   }
-
-  // }
-
-
-  const onSubmit = data =>{
-    try{
-      const res =  signIn(data)
-      console.log(res);
-      navigate(RouteConstant.FirstPage)
-    }
-    catch(error){
-      console.log(error);
-    }
-  }
-
+    // if (value === null) {
+    //   console.log(fireBaseError.code, fireBaseError.message);
+    // }
+    // else if (value) {
+    //   await signIn(value)
+    //   console.log(value);
+    // }
+  };
 
   const onGoogleSubmit = async (e) => {
-    e.preventDefault()
-    await googleAuth(google)
-    redirect(RouteConstant.FirstPage)
-  }
+    e.preventDefault();
+    await googleAuth(google);
+    navigate(RouteConstant.FirstPage);
+  };
+
+  console.log({ user });
 
   const isSubmitDisabled = !isDirty && !isValid;
 
@@ -121,26 +94,24 @@ function LoginPage() {
               />
             </label>
             <div className={style.but}>
-              {
-                !fireBaseError.code ?
-
-                  <button disabled={isSubmitDisabled} type="submit" style={{ color: "red" }} className={style.loginButton}>
-                    Login
-                  </button>
-                  :
-                  <button disabled={true} type="submit" className={style.loginButton}>
-                    Login
-                  </button>
-
-              }
+              {!fireBaseError.code ? (
+                <button
+                  disabled={isSubmitDisabled}
+                  type="submit"
+                  style={{ color: 'red' }}
+                  className={style.loginButton}
+                >
+                  Login
+                </button>
+              ) : (
+                <button disabled={true} type="submit" className={style.loginButton}>
+                  Login
+                </button>
+              )}
 
               {fireBaseError && <p>{fireBaseError.message}</p>}
               <span>OR</span>
-              <button
-                onClick={onGoogleSubmit}
-                {...register("google")}
-
-                className={style.googleBut}>
+              <button onClick={onGoogleSubmit} {...register('google')} className={style.googleBut}>
                 <span>
                   <img src={google} alt="" />
                 </span>

@@ -47,7 +47,6 @@ export const loginService = async ({ email, password }) => {
   }
 };
 
-
 export const signOutService = async () => {
   try {
     await firebaseAuth.signOut();
