@@ -2,6 +2,7 @@ import { useAuth } from '../context/auth.context';
 
 export function AuthenticatedApp() {
   const { user, signOut } = useAuth();
+
   const handleClick = () => {
     signOut();
   };

@@ -29,14 +29,6 @@ function LoginPage() {
   const onSubmit = async (values) => {
     reset();
     signIn(values);
-
-    // if (value === null) {
-    //   console.log(fireBaseError.code, fireBaseError.message);
-    // }
-    // else if (value) {
-    //   await signIn(value)
-    //   console.log(value);
-    // }
   };
 
   const onGoogleSubmit = async (e) => {
@@ -83,11 +75,7 @@ function LoginPage() {
               <input
                 className={errors.password ? style.errorInp : style.formInput}
                 {...register('password', {
-                  required: requeridMes.reqMes,
-                  pattern: {
-                    value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-                    message: errorMes.Password,
-                  },
+                  required: requeridMes.reqMes
                 })}
                 type="password"
                 placeholder="Password"
