@@ -7,16 +7,16 @@ import Footer from "./Footer/Footer"
 import Header from "./Header/Header"
 import { NavLink } from "react-router-dom"
 import { RouteConstant } from "../../constants/RouteCostant"
+import { useAuth } from "../../context/auth.context"
 
 
 function LoginPage() {
 
+    const { signIn, error: fireBaseError, googleAuth } = useAuth()
 
     const {
         register,
-        formState: {
-            errors,
-        },
+        formState: { errors, isDirty, isValid },
         handleSubmit,
     } = useForm({
         mode: "onChange"
@@ -26,7 +26,7 @@ function LoginPage() {
         console.log(JSON.stringify(data))
     }
 
-    const butDisable = errors.email || errors.password
+    const isDisableSubmit = !isDirty || !isValid
 
     return (
 
