@@ -22,22 +22,22 @@ function LoginPage() {
     reset
   } = useForm({
     mode: 'onChange',
-    // defaultValues: {
-    //   email: "",
-    //   password: ""
-    // }
+    defaultValues: {
+      email: "",
+      password: ""
+    }
   });
 
   const onSubmit = async value => {
     reset()
 
-    // if (value === null) {
-    //   console.log(fireBaseError.code, fireBaseError.message);
-    // }
-    // else if (value) {
-    //   await signIn(value)
-    //   console.log(value);
-    // }
+    if (value === null) {
+      console.log(fireBaseError.code, fireBaseError.message);
+    }
+    else if (value) {
+      await signIn(value)
+      console.log(value);
+    }
   }
 
   const onGoogleSubmit = async (e) => {
