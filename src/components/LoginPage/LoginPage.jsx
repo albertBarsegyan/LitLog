@@ -82,22 +82,14 @@ function LoginPage() {
               />
             </label>
             <div className={style.but}>
-              {!fireBaseError.code ? (
-                <button
-                  disabled={isSubmitDisabled}
-                  type="submit"
-                  style={{ color: 'red' }}
-                  className={style.loginButton}
-                >
-                  Login
-                </button>
-              ) : (
-                <button disabled={true} type="submit" className={style.loginButton}>
-                  Login
-                </button>
-              )}
 
-              {fireBaseError && <p>{fireBaseError.message}</p>}
+              <button
+                disabled={isSubmitDisabled}
+                type="submit"
+                className={style.loginButton}
+              >
+                Login
+              </button>
               <span>OR</span>
               <button onClick={onGoogleSubmit} {...register('google')} className={style.googleBut}>
                 <span>
@@ -105,6 +97,7 @@ function LoginPage() {
                 </span>
               </button>
             </div>
+            {fireBaseError && <p>{fireBaseError.message}</p>}
           </form>
           <div className={style.href}>
             <span className={style.span}>Not registred?</span>
