@@ -7,70 +7,70 @@ import { firebaseUserDataFilter } from '../utils/firebase.utils';
 export const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
-  const [error, setError] = useState({ message: null, code: null });
-  const [isLoading, setIsLoading] = useState(true);
+    const [user, setUser] = useState(null);
+    const [error, setError] = useState({ message: null, code: null });
+    const [isLoading, setIsLoading] = useState(true);
 
-  const signUp = async ({ email, password, firstname, lastname }) => {
-    const { errorMessage, errorCode, data } = await registerService({ email, password, firstname, lastname });
-    setUser(data);
-    setIsLoading(false);
-    setError({
-      code: errorCode,
-      message: errorMessage,
-    });
-  };
-
-  const signIn = async ({ email, password }) => {
-    const { errorMessage, data, errorCode } = await loginService({ email, password });
-    setUser(data || null);
-    setIsLoading(false);
-    setError({
-      code: errorCode || null,
-      message: errorMessage || null,
-    });
-  };
-
-  const signOut = async () => {
-    const { errorMessage, errorCode } = await signOutService();
-    setIsLoading(false);
-    setError({
-      code: errorCode || null,
-      message: errorMessage || null,
-    });
-
-    setUser((prev) => {
-      return errorMessage ? prev : null;
-    });
-  };
-
-  const googleAuth = async () => {
-    const { errorMessage, errorCode, data } = await googleAuthService();
-    setUser(data || null);
-
-    setIsLoading(false);
-    setError({
-      code: errorCode || null,
-      message: errorMessage || null,
-    });
-  };
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(firebaseAuth, (user) => {
-      if (user) setUser(firebaseUserDataFilter(user));
-      setIsLoading(false);
-    });
-
-    return () => {
-      unsubscribe();
+    const signUp = async ({ email, password, firstname, lastname }) => {
+        const { errorMessage, errorCode, data } = await registerService({ email, password, firstname, lastname });
+        setUser(data);
+        setIsLoading(false);
+        setError({
+            code: errorCode,
+            message: errorMessage,
+        });
     };
-  }, []);
 
-  return (
-    <AuthContext.Provider value={{ user, error, signIn, signUp, signOut, isLoading, googleAuth }}>
-      {children}
-    </AuthContext.Provider>
-  );
+    const signIn = async ({ email, password }) => {
+        const { errorMessage, data, errorCode } = await loginService({ email, password });
+        setUser(data || null);
+        setIsLoading(false);
+        setError({
+            code: errorCode || null,
+            message: errorMessage || null,
+        });
+    };
+
+    const signOut = async () => {
+        const { errorMessage, errorCode } = await signOutService();
+        setIsLoading(false);
+        setError({
+            code: errorCode || null,
+            message: errorMessage || null,
+        });
+
+        setUser((prev) => {
+            return errorMessage ? prev : null;
+        });
+    };
+
+    const googleAuth = async () => {
+        const { errorMessage, errorCode, data } = await googleAuthService();
+        setUser(data || null);
+
+        setIsLoading(false);
+        setError({
+            code: errorCode || null,
+            message: errorMessage || null,
+        });
+    };
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(firebaseAuth, (user) => {
+            if (user) setUser(firebaseUserDataFilter(user));
+            setIsLoading(false);
+        });
+
+        return () => {
+            unsubscribe();
+        };
+    }, []);
+
+    return (
+        <AuthContext.Provider value={{ user, error, signIn, signUp, signOut, isLoading, googleAuth }}>
+            {children}
+        </AuthContext.Provider>
+    );
 };
 
 // useAuth will return { user, errorMessage, signIn, signUp, isLoading, googleAuth }
