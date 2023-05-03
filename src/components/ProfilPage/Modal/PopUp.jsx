@@ -26,7 +26,7 @@ const PopUp = () => {
     const repeatPassword = watch("repeatPassword", "")
 
     const onSubmit = () => {
-      reset()
+        reset()
     }
 
     const { modaleActive, setModaleActive } = usePopUp()
@@ -47,7 +47,8 @@ const PopUp = () => {
             </div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className={modal.modDiv}>
-                    <input className={modal.customFileInput} type="file" />
+                    <label for="file-upload">Выберите файл</label><br />
+                    <input id="file-upload" type="file" accept=".jpg, .png" />
                 </div>
 
                 <div className={modal.modDiv}>

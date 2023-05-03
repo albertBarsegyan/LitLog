@@ -5,7 +5,9 @@
     margin: 30px 0;
     font-family: "Poppins";
 }
-
+.img:nth-child(-n+2){
+    border-radius: 15px;
+}
 .books {
     display: flex;
     justify-content: space-between;

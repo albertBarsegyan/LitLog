@@ -13,9 +13,8 @@ const BookShow = () => {
                     bookName.map((item) => {
                         return (
                             <div key={item.id}>
-                                <img src={item.img} alt="img" />
+                                <img className={style.img} src={item.img} alt="img" />
                                 <Link className={style.name}>{item.name}</Link>
-                                {/* <h3 className={style.name}>{item.name}</h3> */}
                                 <p className={style.paragrap}>{item.desc}</p>
                             </div>
                         )
