@@ -14,7 +14,6 @@ export function FirstPage() {
 
             <div>
                 <HeadingPage />
-
             </div>
             <Footer />
         </div>

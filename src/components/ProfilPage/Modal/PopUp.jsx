@@ -42,13 +42,13 @@ const PopUp = () => {
 
                 <span className={modal.name}>
                     User Surname
-                    <Icons pen={Icon.pen} />
+                    <Icons className={modal.pen} pen={Icon.pen} />
                 </span>
             </div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className={modal.modDiv}>
-                    <label for="file-upload">Выберите файл</label><br />
-                    <input id="file-upload" type="file" accept=".jpg, .png" />
+                    <label className={modal.label} htmlFor="customFileInput">Add or edit your picture</label><br />
+                    <input id={modal.customFileInput} type="file" />
                 </div>
 
                 <div className={modal.modDiv}>

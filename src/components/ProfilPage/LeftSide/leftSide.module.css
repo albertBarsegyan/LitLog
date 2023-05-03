@@ -1,8 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+}
+
 .leftSide {
     max-width: 360px;
     border-right: 1px solid #282837;
     height: 100%;
     display: inline-block;
+
 }
 
 .logo {
@@ -21,15 +30,24 @@
     align-items: center;
     flex-wrap: wrap;
 }
-.btn{
+
+.setings {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 365px;
+}
+
+.btn {
+    cursor: pointer;
+    margin-right: 75px;
+    margin-bottom: 40px;
     width: 100%;
     font-size: 24px;
     color: var(--white);
     background-color: transparent;
     border: none;
-    outline: none;
-    text-decoration: none;
-    font-family: "Poppins";    
+    font-family: "Poppins";
 }
 
 .link {
@@ -57,10 +75,4 @@
 
 .text {
     padding-left: 20px;
-}
-
-.setings {
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 275px;
 }

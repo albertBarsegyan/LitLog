@@ -40,9 +40,10 @@
 .name {
     font-size: 5rem;
     font-family: "Poppins";
-    margin-right: 15px;
 }
-
+.pen{
+    margin-left: 15px;
+}
 
 .modDiv {
     margin-top: 20px;
@@ -62,16 +63,17 @@
     padding: 30px;
     font-size: 25px;
 }
-
-/* .customFileInput::-webkit-file-upload-button {
-    visibility: hidden;
+.label{
+    font-size: 3rem;
+    font-family: "Poppins";
+    color: var(--lightBlue);
 }
 
-.customFileInput::before {
-    content: 'edit your picture';
-    font-size: 2rem;
+#customFileInput {
+    font-size: 2.5rem;
     cursor: pointer;
-} */
+    margin-top: 15px;
+}
 
 .errorMod {
     font-size: 2rem;
