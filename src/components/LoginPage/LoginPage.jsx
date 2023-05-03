@@ -9,42 +9,43 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { RouteConstant } from '../../constants/RouteCostant';
 import { useAuth } from '../../context/auth.context';
 
-
-
 function LoginPage() {
-  const navigate = useNavigate("")
-  const { signIn, error: fireBaseError, googleAuth } = useAuth()
+  const navigate = useNavigate();
+  const { signIn, error: fireBaseError, googleAuth, user } = useAuth();
 
   const {
     register,
     formState: { errors, isDirty, isValid },
     handleSubmit,
-    reset
+    reset,
   } = useForm({
     mode: 'onChange',
     defaultValues: {
-      email: "",
-      password: ""
-    }
+      email: '',
+      password: '',
+    },
   });
 
-  const onSubmit = async value => {
-    reset()
+  const onSubmit = async (values) => {
+    reset();
+    signIn(values);
 
-    if (value === null) {
-      console.log(fireBaseError.code, fireBaseError.message);
-    }
-    else if (value) {
-      await signIn(value)
-      console.log(value);
-    }
-  }
+    // if (value === null) {
+    //   console.log(fireBaseError.code, fireBaseError.message);
+    // }
+    // else if (value) {
+    //   await signIn(value)
+    //   console.log(value);
+    // }
+  };
 
   const onGoogleSubmit = async (e) => {
-    e.preventDefault()
-    await googleAuth(google)
-    navigate(RouteConstant.FirstPage)
-  }
+    e.preventDefault();
+    await googleAuth(google);
+    navigate(RouteConstant.FirstPage);
+  };
+
+  console.log({ user });
 
   const isSubmitDisabled = !isDirty && !isValid;
 
@@ -93,26 +94,24 @@ function LoginPage() {
               />
             </label>
             <div className={style.but}>
-              {
-                !fireBaseError.code ?
-
-                  <button disabled={isSubmitDisabled} type="submit" style={{ color: "red" }} className={style.loginButton}>
-                    Login
-                  </button>
-                  :
-                  <button disabled={true} type="submit" className={style.loginButton}>
-                    Login
-                  </button>
-
-              }
+              {!fireBaseError.code ? (
+                <button
+                  disabled={isSubmitDisabled}
+                  type="submit"
+                  style={{ color: 'red' }}
+                  className={style.loginButton}
+                >
+                  Login
+                </button>
+              ) : (
+                <button disabled={true} type="submit" className={style.loginButton}>
+                  Login
+                </button>
+              )}
 
               {fireBaseError && <p>{fireBaseError.message}</p>}
               <span>OR</span>
-              <button
-                onClick={onGoogleSubmit}
-                {...register("google")}
-
-                className={style.googleBut}>
+              <button onClick={onGoogleSubmit} {...register('google')} className={style.googleBut}>
                 <span>
                   <img src={google} alt="" />
                 </span>
