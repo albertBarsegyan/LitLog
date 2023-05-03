@@ -36,7 +36,7 @@ function LoginPage() {
                     <div className={style.userImg}>
                         <img src={loginUser} alt="loginUser" />
                     </div>
-                    
+
                     <form onSubmit={handleSubmit(onSubmit)}>
                         <label>
 
