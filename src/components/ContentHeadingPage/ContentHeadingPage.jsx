@@ -3,6 +3,7 @@ function HeadingPage() {
     return (
         <div className={style.wrapper}>
 
+
             <div className={style.imgBack}>
                 <div className={style.content}>
                     <h1>Lit<span>Log</span></h1>
