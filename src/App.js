@@ -1,34 +1,24 @@
-import { Route, Routes } from 'react-router-dom'
-import { FirstPage } from './components/FirstPage/FirstPage'
-import LoginPage from './components/LoginPage/LoginPage'
-import { Registration } from './components/Registration/Registration'
-import { RouteConstant } from './constants/RouteCostant'
-import ProfilPage from './components/ProfilPage/ProfilPage'
+import { useAuth } from './context/auth.context';
+import AuthenticatedApp from './routes/AuthenticatedApp';
+import UnauthenticatedApp from './routes/UnauthenticatedApp';
 
 
 function App() {
 
- 
 
+  const { user, isLoading } = useAuth()
 
-  return (
-    <div className="App">
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
 
+  if (!user) {
+    return <UnauthenticatedApp />;
+  }
 
-      <Routes>
-        <Route path={RouteConstant.FirstPage} exact element={<FirstPage />} />
-        <Route path={RouteConstant.LoginPage} element={<LoginPage />} />
-        <Route path={RouteConstant.RegPage} element={<Registration />} />
-        <Route path={RouteConstant.PrifilPage} element={<ProfilPage />} />
-      </Routes>
-
-
-
-      {/* <ProfilPage/> */}
-
-
-    </div>
-  )
+  return <AuthenticatedApp />;
 }
 
-export default App
+export default App;
+
+

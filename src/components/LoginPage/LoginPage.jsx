@@ -1,30 +1,46 @@
 import loginUser from "../../assets/images/loginUser.png"
 import style from "./LoginPage.module.css"
 import { useForm } from "react-hook-form"
-import { errorMes } from "../../constants/errorMessage"
+import { errorMes, requeridMes } from "../../constants/errorMessage"
 import google from "../../assets/images/google.png"
 import Footer from "./Footer/Footer"
 import Header from "./Header/Header"
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 import { RouteConstant } from "../../constants/RouteCostant"
 import { useAuth } from "../../context/auth.context"
 
 
-function LoginPage() {
 
+function LoginPage() {
+    const navigate = useNavigate();
     const { signIn, error: fireBaseError, googleAuth } = useAuth()
 
     const {
         register,
         formState: { errors, isDirty, isValid },
         handleSubmit,
+        reset
     } = useForm({
-        mode: "onChange"
+        mode: "onChange",
+        defaultValues: {
+            email: "",
+            password: ""
+        }
     })
 
-    const onSubmit = data => {
-        console.log(JSON.stringify(data))
+    const onSubmit = async (data) => {
+        reset()
+        signIn(data)
+        navigate(RouteConstant.ProfilPage)
     }
+
+    const googleWithAcount = async (e) => {
+        e.preventDefault()
+        await googleAuth(google)
+        navigate(RouteConstant.ProfilPage)
+    }
+
+
 
     const isDisableSubmit = !isDirty || !isValid
 
@@ -49,6 +65,7 @@ function LoginPage() {
                                 className={errors.email ? style.errorInp : style.formInput}
                                 {
                                 ...register("email", {
+                                    required: requeridMes.reqMes,
                                     pattern: {
                                         value: /^([a-zA-Z0-9._%+-]+)@([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/,
                                         message: errorMes.Email
@@ -68,10 +85,7 @@ function LoginPage() {
                                 className={errors.password ? style.errorInp : style.formInput}
                                 {
                                 ...register("password", {
-                                    pattern: {
-                                        value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-                                        message: errorMes.Password
-                                    }
+                                    required: requeridMes.reqMes,
                                 })
                                 }
                                 type="password" placeholder="Password" />
@@ -79,10 +93,21 @@ function LoginPage() {
                         </label>
                         <div className={style.but}>
                             <button
-                                disabled={butDisable}
+                                disabled={isDisableSubmit}
                                 type="submit" className={style.loginButton}>Login</button>
                             <span>OR</span>
-                            <button className={style.googleBut}><span><img src={google} alt="" /></span></button>
+
+                            <button
+                                {
+                                ...register("google")
+                                }
+                                onClick={googleWithAcount}
+                                className={style.googleBut}
+                            >
+                                <span>
+                                    <img src={google} alt="" />
+                                </span>
+                            </button>
                         </div>
                     </form>
                     <div className={style.href}>

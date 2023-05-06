@@ -58,8 +58,6 @@ export const signOutService = async () => {
   }
 };
 
-
-
 export const googleAuthService = async () => {
   try {
     const provider = new GoogleAuthProvider();
