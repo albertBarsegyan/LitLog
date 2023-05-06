@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 const BookShow = () => {
     return (
+
         <div className={style.bookShowMain}>
             <h2 className={style.bookShow}>Top Rated Comics</h2>
 
@@ -22,6 +23,8 @@ const BookShow = () => {
                 }
             </div>
         </div>
+
+
     );
 };
 
