@@ -1,20 +1,19 @@
+import ProfilPage from '../components/ProfilPage/ProfilPage';
 import { useAuth } from '../context/auth.context';
 
 function AuthenticatedApp() {
-    const { user, signOut } = useAuth();
+    const { user } = useAuth();
 
-    const handleClick = () => {
-        signOut();
-    };
+  
 
     return (
-        <div>
+        <>
             <div>
-                <span>{user.uid}</span>
+                <span style={{color:"pink"}}>{user.uid}</span>
             </div>
 
-            <button onClick={handleClick}>Logout</button>
-        </div>
+            <ProfilPage />
+        </>
     );
 }
 
