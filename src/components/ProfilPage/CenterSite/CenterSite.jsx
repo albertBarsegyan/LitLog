@@ -3,6 +3,7 @@ import batman from "../../../assets/images/batman.png"
 import bookimg2 from "../../../assets/images/bookimg2.png"
 import style from "../CenterSite/centerSite.module.css"
 import BookShow from "../BookShow/BookShow";
+import ProgressBar from "../Progress/ProgressBar";
 const CenterSite = () => {
     return (
         <div className={style.centerDiv}>
@@ -23,10 +24,11 @@ const CenterSite = () => {
                     <div className={style.imgParent}>
                         <img src={bookimg2} className={style.redingImages} alt="" />
                     </div>
-                    <div>
-                        {/* <progress></progress> */}
-                    </div>
+
                     <p className={style.redingBookName}>Kobra Kai: Ultimate</p>
+                </div>
+                <div>
+                    <ProgressBar />
                 </div>
             </div>
             <BookShow />

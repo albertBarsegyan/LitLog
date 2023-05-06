@@ -6,6 +6,7 @@ import { RouteConstant } from '../../../constants/RouteCostant';
 
 import { useModal, usePopUp } from '../../../context/popup';
 
+
 const LeftSide = () => {
     const { setModaleActive } = usePopUp(false)
     const { setModeActive } = useModal(false)
@@ -59,27 +60,27 @@ const LeftSide = () => {
 
             <div className={style.setings}>
 
-                <NavLink
+                <button
 
                     onClick={() => setModaleActive(true)}
-                    className={style.link}
+                    className={style.btn}
                 >
 
                     <Icons setting={Icon.setting} />
                     <span className={style.text}>
                         Settings
                     </span>
-                </NavLink>
+                </button>
 
-                <Link
+                <button
                     onClick={() => setModeActive(true)}
-                    className={style.link}
+                    className={style.btn}
                 >
                     <Icons singOut={Icon.singOut} />
                     <span className={style.text}>
                         Log Out
                     </span>
-                </Link>
+                </button>
 
             </div>
 

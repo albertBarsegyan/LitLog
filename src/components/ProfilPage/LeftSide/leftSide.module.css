@@ -1,8 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+}
+
 .leftSide {
     max-width: 360px;
-    border-right: 1px solid #151524;
+    border-right: 1px solid #282837;
     height: 100%;
     display: inline-block;
+
 }
 
 .logo {
@@ -22,12 +31,31 @@
     flex-wrap: wrap;
 }
 
+.setings {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-top: 365px;
+}
+
+.btn {
+    cursor: pointer;
+    margin-right: 75px;
+    margin-bottom: 40px;
+    width: 100%;
+    font-size: 24px;
+    color: var(--white);
+    background-color: transparent;
+    border: none;
+    font-family: "Poppins";
+}
+
 .link {
     color: var(--white);
     width: 100%;
     font-size: 24px;
     text-decoration: none;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     font-family: "Poppins";
     padding: 18px 75px;
 }
@@ -47,10 +75,4 @@
 
 .text {
     padding-left: 20px;
-}
-
-.setings {
-    display: flex;
-    flex-wrap: wrap;
-    padding-top: 275px;
 }
