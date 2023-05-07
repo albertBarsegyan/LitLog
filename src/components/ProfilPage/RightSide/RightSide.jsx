@@ -7,7 +7,6 @@ import style from "../RightSide/rightSide.module.css"
 const RightSide = () => {
 
     const { user } = useAuth()
-    console.log(Array.isArray(user.photoURL));
     return (
         <div className={style.rightDiv}>
             <div className={style.maxDiv}>

@@ -65,28 +65,29 @@ const LeftSide = () => {
 
             <div className={style.setings}>
 
-                <button
 
-                    onClick={() => setModaleActive(true)}
-                    className={style.btn}
-                >
+                    <button
 
-                    <Icons setting={Icon.setting} />
-                    <span className={style.text}>
-                        Settings
-                    </span>
-                </button>
+                        onClick={() => setModaleActive(true)}
+                        className={style.btn}
+                    >
 
-                <button
-                    onClick={handleOutSubmit}
-                    className={style.btn}
-                >
-                    <Icons singOut={Icon.singOut} />
-                    <span className={style.text}>
-                        Log Out
-                    </span>
-                </button>
+                        <Icons setting={Icon.setting} />
+                        <span className={style.text}>
+                            Settings
+                        </span>
+                    </button>
 
+                    <button
+                        onClick={handleOutSubmit}
+                        className={style.btn}
+                    >
+                        <Icons singOut={Icon.singOut} />
+                        <span className={style.text}>
+                            Log Out
+                        </span>
+                    </button>
+                
             </div>
 
         </div>

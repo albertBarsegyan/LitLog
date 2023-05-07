@@ -2,16 +2,17 @@ import EditModal from "../../Button/EditModal";
 import { useForm } from "react-hook-form";
 import { errorMes, requeridMes } from "../../../constants/errorMessage";
 import modal from "./modal.module.css"
-import Icons from "../../../assets/images/icons/Icons";
-import { Icon } from "../../../constants/PropsIcon";
 import Modal from "./Modal";
 import { usePopUp } from "../../../context/popup";
 import { useAuth } from "../../../context/auth.context";
+import { Icon } from "../../../constants/PropsIcon";
+import Icons from "../../../assets/images/icons/Icons";
 
 
 const PopUp = () => {
 
     const { user } = useAuth()
+    const { modaleActive, setModaleActive } = usePopUp()
 
     const {
         register,
@@ -23,8 +24,8 @@ const PopUp = () => {
         handleSubmit,
     } = useForm({
         mode: "all",
-        defaultValues:{
-            photo:""
+        defaultValues: {
+            photo: ""
         }
     })
     const newPassword = watch("newPassword", "")
@@ -32,35 +33,52 @@ const PopUp = () => {
 
     const onSubmit = (e) => {
         reset()
-        
     }
 
-    const { modaleActive, setModaleActive } = usePopUp()
-    // console.log(user.displayName);
+    const fullName = user.displayName.split(" ")
 
     return (
         <Modal active={modaleActive} setActive={setModaleActive} >
 
             <div className={modal.modSpan}>
+                {/* <label htmlFor="displayName">
+                    <span className={modal.name}>Change your name</span>
+                    <br />
+                    <input
+                        id="displayName"
+                        className={modal.modInp1}
+                        type="text"
+                        placeholder={user.displayName}
+                    />
+                    <Icons pen={Icon.pen} />
+                </label> */}
                 <span className={modal.name}>
-                    {user.displayName}
+                    {fullName[0]}
+                    <Icons pen={Icon.pen} />
+                </span>
+                <span className={modal.name}>
+                    {fullName[1]}
                     <Icons pen={Icon.pen} />
                 </span>
 
-                <span className={modal.name}>
-                    {user.displayName}
-                    <Icons className={modal.pen} pen={Icon.pen} />
-                </span>
             </div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className={modal.modDiv}>
-                    <label className={modal.label} htmlFor="customFileInput">Add or edit your picture</label><br />
-                    <input
-                        {
+                    <label
+                        className={modal.label}
+                        htmlFor="customFileInput"
+                    >
+                        Add or edit your picture
+
+                        <br />
+                        <input
+                            {
                             ...register("photo")
-                        }
-                        id={modal.customFileInput} 
-                        type="file" />
+                            }
+                            id="customFileInput"
+                            className={modal.customFileInput}
+                            type="file" />
+                    </label>
                 </div>
 
                 <div className={modal.modDiv}>
