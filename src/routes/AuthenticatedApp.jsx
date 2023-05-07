@@ -8,9 +8,9 @@ function AuthenticatedApp() {
 
     return (
         <>
-            <div>
+            {/* <div>
                 <span style={{ color: "pink" }}>{user.uid}</span>
-            </div>
+            </div> */}
             {/* <button onClick={()=> signOut()}>
                 Log Out
             </button> */}

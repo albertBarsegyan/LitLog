@@ -7,13 +7,10 @@ import { Icon } from "../../../constants/PropsIcon";
 import Modal from "./Modal";
 import { usePopUp } from "../../../context/popup";
 import { useAuth } from "../../../context/auth.context";
-import { firebaseUserDataFilter } from "../../../utils/firebase.utils";
 
-import { useAuth } from "../../../context/auth.context"
+
 const PopUp = () => {
-
     const { user } = useAuth()
-
     const {
         register,
         watch,
@@ -34,12 +31,11 @@ const PopUp = () => {
     }
 
     const { modaleActive, setModaleActive } = usePopUp()
-    console.log(user.displayName);
 
     return (
         <Modal active={modaleActive} setActive={setModaleActive} >
 
-            <form action="" className={modal.modSpan}>
+            {/* <form action="" className={modal.modSpan}>
                 <label htmlFor="firstName" className={modal.name}>
                     <input type="text" id="firstName" placeholder="Change your name" />
                     <Icons pen={Icon.pen} />
@@ -48,18 +44,20 @@ const PopUp = () => {
                     <input type="text" id="lastName" placeholder="Change your last name" />
                     <Icons className={modal.pen} pen={Icon.pen} />
                 </label>
-            </form>
+            </form> */}
 
             <div className={modal.modSpan}>
-                <span className={modal.name}>
-                    {user.displayName}
+                {/* <span className={modal.name}>
+                    {user.firstName}
                     <Icons pen={Icon.pen} />
-                </span>
+                </span> */}
 
                 <span className={modal.name}>
-                    User Surname
-                    <Icons className={modal.pen} pen={Icon.pen} />
-                </span> */}
+                    <label htmlFor="dispName">
+                        <input className={modal.dispName} type="text" id="dispName" placeholder={user.displayName} />
+                        <Icons className={modal.pen} pen={Icon.pen} />
+                    </label>
+                </span>
             </div>
 
 
@@ -115,7 +113,8 @@ const PopUp = () => {
                             }
 
                         }
-                        )}
+                        )
+                        }
                         type="password"
                         placeholder='Edit password' />
                 </div>
