@@ -32,16 +32,14 @@
 }
 
 .modSpan {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 25px;
-    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 35px;
 }
 
 .name {
-    font-size: 5rem;
+    font-size: 2.5em;
     font-family: "Poppins";
-    color: red;
+    color: var(--lightBlue);
 }
 
 .pen {
@@ -53,13 +51,26 @@
     margin-bottom: 35px;
 }
 
-.dispName {}
-
 .modInp {
     border: none;
     width: 90%;
     padding: 30px;
     font-size: 25px;
+}
+
+.modInp1 {
+    border: none;
+    width: 30%;
+    padding: 30px;
+    font-size: 35px;
+    margin-top: 5px;
+}
+
+.modInp1::placeholder {
+    color: red;
+    border: none;
+    width: 90%;
+    font-size: 30px;
 }
 
 .errorModInp {
@@ -75,10 +86,11 @@
     color: var(--lightBlue);
 }
 
-#customFileInput {
+.customFileInput {
     font-size: 2.5rem;
     cursor: pointer;
     margin-top: 15px;
+    color: var(--black);
 }
 
 .errorMod {
