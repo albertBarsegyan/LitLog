@@ -10,13 +10,13 @@ import { AuthProvider } from './context/auth.context'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
   <React.StrictMode>
-    <AuthProvider>
-      <PopUpProvider>
-        <BrowserRouter>
+    <BrowserRouter>
+      <AuthProvider>
+        <PopUpProvider>
           <App />
-        </BrowserRouter>
-      </PopUpProvider>
-    </AuthProvider>
+        </PopUpProvider>
+      </AuthProvider>
+    </BrowserRouter>
   </React.StrictMode >
 )
 

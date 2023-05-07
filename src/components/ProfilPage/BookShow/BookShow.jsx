@@ -21,9 +21,7 @@ const BookShow = () => {
                         )
                     })
                 }
-
             </div>
-
         </div>
 
 

@@ -10,7 +10,6 @@ import Icons from "../../../assets/images/icons/Icons";
 
 
 const PopUp = () => {
-
     const { user } = useAuth()
     const { modaleActive, setModaleActive } = usePopUp()
 
@@ -40,6 +39,17 @@ const PopUp = () => {
     return (
         <Modal active={modaleActive} setActive={setModaleActive} >
 
+            {/* <form action="" className={modal.modSpan}>
+                <label htmlFor="firstName" className={modal.name}>
+                    <input type="text" id="firstName" placeholder="Change your name" />
+                    <Icons pen={Icon.pen} />
+                </label>
+                <label htmlFor="lastName" className={modal.name}>
+                    <input type="text" id="lastName" placeholder="Change your last name" />
+                    <Icons className={modal.pen} pen={Icon.pen} />
+                </label>
+            </form> */}
+
             <div className={modal.modSpan}>
                 {/* <label htmlFor="displayName">
                     <span className={modal.name}>Change your name</span>
@@ -62,6 +72,8 @@ const PopUp = () => {
                 </span>
 
             </div>
+
+
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className={modal.modDiv}>
                     <label
@@ -127,7 +139,8 @@ const PopUp = () => {
                             }
 
                         }
-                        )}
+                        )
+                        }
                         type="password"
                         placeholder='Edit password' />
                 </div>

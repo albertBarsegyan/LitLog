@@ -8,7 +8,7 @@ function AuthenticatedApp() {
 
     return (
         <>
-           
+
             {/* <button onClick={()=> signOut()}>
                 Log Out
             </button> */}
