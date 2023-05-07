@@ -34,14 +34,14 @@ const PopUp = () => {
     }
 
     const { modaleActive, setModaleActive } = usePopUp()
-    console.log(user);
+    console.log(user.displayName);
 
     return (
         <Modal active={modaleActive} setActive={setModaleActive} >
 
             <div className={modal.modSpan}>
                 <span className={modal.name}>
-                   
+                    {user.displayName}
                     <Icons pen={Icon.pen} />
                 </span>
 
@@ -102,8 +102,7 @@ const PopUp = () => {
                             }
 
                         }
-                        )
-                        }
+                        )}
                         type="password"
                         placeholder='Edit password' />
                 </div>
