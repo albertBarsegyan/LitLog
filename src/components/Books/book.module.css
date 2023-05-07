@@ -1,0 +1,32 @@
+.img:nth-child(-n+2) {
+    border-radius: 15px;
+}
+
+.mainDin {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.name {
+    font-family: 'Poppins';
+    font-size: 20px;
+    line-height: 24px;
+    color: var(--lightBlue);
+    display: inherit;
+    padding: 10px 0;
+    text-decoration: none;
+}
+
+.paragrap {
+    color: var(--white);
+    font-family: 'Poppins';
+    font-size: 18px;
+    line-height: 21px;
+    padding-bottom: 10px;
+}
+
+.mainDin {
+    width: 75vw;
+    padding: 25px 10px;
+}

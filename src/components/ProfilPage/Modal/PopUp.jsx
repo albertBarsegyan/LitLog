@@ -7,13 +7,10 @@ import { Icon } from "../../../constants/PropsIcon";
 import Modal from "./Modal";
 import { usePopUp } from "../../../context/popup";
 import { useAuth } from "../../../context/auth.context";
-import { firebaseUserDataFilter } from "../../../utils/firebase.utils";
 
 
 const PopUp = () => {
-
     const { user } = useAuth()
-
     const {
         register,
         watch,
@@ -34,22 +31,36 @@ const PopUp = () => {
     }
 
     const { modaleActive, setModaleActive } = usePopUp()
-    console.log(user.displayName);
 
     return (
         <Modal active={modaleActive} setActive={setModaleActive} >
 
-            <div className={modal.modSpan}>
-                <span className={modal.name}>
-                    {user.displayName}
+            {/* <form action="" className={modal.modSpan}>
+                <label htmlFor="firstName" className={modal.name}>
+                    <input type="text" id="firstName" placeholder="Change your name" />
                     <Icons pen={Icon.pen} />
-                </span>
+                </label>
+                <label htmlFor="lastName" className={modal.name}>
+                    <input type="text" id="lastName" placeholder="Change your last name" />
+                    <Icons className={modal.pen} pen={Icon.pen} />
+                </label>
+            </form> */}
+
+            <div className={modal.modSpan}>
+                {/* <span className={modal.name}>
+                    {user.firstName}
+                    <Icons pen={Icon.pen} />
+                </span> */}
 
                 <span className={modal.name}>
-                    User Surname
-                    <Icons className={modal.pen} pen={Icon.pen} />
+                    <label htmlFor="dispName">
+                        <input className={modal.dispName} type="text" id="dispName" placeholder={user.displayName} />
+                        <Icons className={modal.pen} pen={Icon.pen} />
+                    </label>
                 </span>
             </div>
+
+
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className={modal.modDiv}>
                     <label className={modal.label} htmlFor="customFileInput">Add or edit your picture</label><br />
@@ -102,7 +113,8 @@ const PopUp = () => {
                             }
 
                         }
-                        )}
+                        )
+                        }
                         type="password"
                         placeholder='Edit password' />
                 </div>
