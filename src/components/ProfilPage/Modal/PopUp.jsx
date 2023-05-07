@@ -7,7 +7,6 @@ import { Icon } from "../../../constants/PropsIcon";
 import Modal from "./Modal";
 import { usePopUp } from "../../../context/popup";
 import { useAuth } from "../../../context/auth.context";
-import { firebaseUserDataFilter } from "../../../utils/firebase.utils";
 
 
 const PopUp = () => {
@@ -23,18 +22,21 @@ const PopUp = () => {
         reset,
         handleSubmit,
     } = useForm({
-        mode: "onBlur"
-    }
-    )
+        mode: "all",
+        defaultValues:{
+            photo:""
+        }
+    })
     const newPassword = watch("newPassword", "")
     const repeatPassword = watch("repeatPassword", "")
 
-    const onSubmit = () => {
+    const onSubmit = (e) => {
         reset()
+        
     }
 
     const { modaleActive, setModaleActive } = usePopUp()
-    console.log(user.displayName);
+    // console.log(user.displayName);
 
     return (
         <Modal active={modaleActive} setActive={setModaleActive} >
@@ -46,14 +48,19 @@ const PopUp = () => {
                 </span>
 
                 <span className={modal.name}>
-                    User Surname
+                    {user.displayName}
                     <Icons className={modal.pen} pen={Icon.pen} />
                 </span>
             </div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className={modal.modDiv}>
                     <label className={modal.label} htmlFor="customFileInput">Add or edit your picture</label><br />
-                    <input id={modal.customFileInput} type="file" />
+                    <input
+                        {
+                            ...register("photo")
+                        }
+                        id={modal.customFileInput} 
+                        type="file" />
                 </div>
 
                 <div className={modal.modDiv}>
@@ -132,8 +139,8 @@ const PopUp = () => {
                         type="password"
                         placeholder='Repeat password' />
                 </div>
-                <EditModal />
             </form>
+            <EditModal />
         </Modal>
     )
 };

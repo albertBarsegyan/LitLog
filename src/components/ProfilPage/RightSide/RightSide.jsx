@@ -1,9 +1,13 @@
 import Icons from "../../../assets/images/icons/Icons";
 import { Icon } from "../../../constants/PropsIcon";
+import { useAuth } from "../../../context/auth.context";
 import style from "../RightSide/rightSide.module.css"
-import bkimg from "../../../assets/images/bkimg.jpg"
+// import bkimg from "../../../assets/images/bkimg.jpg"
 
 const RightSide = () => {
+
+    const { user } = useAuth()
+    console.log(Array.isArray(user.photoURL));
     return (
         <div className={style.rightDiv}>
             <div className={style.maxDiv}>
@@ -14,7 +18,7 @@ const RightSide = () => {
             </div>
             <div className={style.minDiv}>
                 <Icons bell={Icon.bell} />
-                <img className={style.userImg} src={bkimg} alt="" />
+                <img className={style.userImg} src={user.photoURL} alt="" />
             </div>
         </div>
     );
