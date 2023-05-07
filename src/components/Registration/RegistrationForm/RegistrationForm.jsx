@@ -18,7 +18,14 @@ const RegistrationForm = () => {
         watch,
         reset
     } = useForm({
-        mode: "all"
+        mode: "all",
+        defaultValues: {
+            firstname: "",
+            lastname: "",
+            email: "",
+            password: "",
+
+        }
     }
     )
 
@@ -32,7 +39,7 @@ const RegistrationForm = () => {
         navigate(RouteConstant.ProfilPage)
 
     }
-    const handleGoogleSubmit = async (e) => {
+    const handleGoogleSubmit = async () => {
         await googleAuth(google)
         navigate(RouteConstant.ProfilPage)
     }
@@ -51,7 +58,7 @@ const RegistrationForm = () => {
                     <div className={style.spBor}></div>
                 </div>
 
-                <label htmlFor="">
+                <label>
                     <div>{errors?.firstname && <p className={style.errormess}>{errors?.firstname?.message || 'Error!'}</p>}</div>
                     <input
                         className={errors.firstname ? style.erorrInp : style.inp}
@@ -71,7 +78,7 @@ const RegistrationForm = () => {
                     />
                 </label>
 
-                <label htmlFor="">
+                <label>
                     <div>{errors?.lastname && <p className={style.errormess}>{errors?.lastname?.message || 'Error!'}</p>}</div>
                     <input
                         className={errors.lastname ? style.erorrInp : style.inp}
@@ -91,7 +98,7 @@ const RegistrationForm = () => {
                     />
                 </label>
 
-                <label htmlFor="">
+                <label>
                     <div>{errors?.email && <p className={style.errormess}>{errors?.email?.message || 'Error!'}</p>}</div>
                     <input
                         className={errors.email ? style.erorrInp : style.inp}
@@ -108,7 +115,7 @@ const RegistrationForm = () => {
                 </label>
 
                 <div>{errors?.password && <p className={style.errormess}>{errors?.password?.message || 'Error!'}</p>}</div>
-                <label htmlFor="">
+                <label>
                     <input
                         className={errors.password ? style.erorrInp : style.inp}
                         {...register('password', {
@@ -123,7 +130,7 @@ const RegistrationForm = () => {
                     />
                 </label>
 
-                <label htmlFor="">
+                <label>
                     <div>
                         {errors?.repeatPassword && <p className={style.errormess}>{errors?.repeatPassword?.message || 'Error!'}</p>}
                     </div>

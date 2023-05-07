@@ -1,3 +1,4 @@
+import ProfilPage from '../components/ProfilPage/ProfilPage';
 import { useAuth } from '../context/auth.context';
 
 function AuthenticatedApp() {
@@ -8,13 +9,7 @@ function AuthenticatedApp() {
     };
 
     return (
-        <div>
-            <div>
-                <span>{user.uid}</span>
-            </div>
-
-            <button onClick={handleClick}>Logout</button>
-        </div>
+        <ProfilPage />
     );
 }
 

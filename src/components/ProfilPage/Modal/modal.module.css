@@ -35,13 +35,15 @@
     display: flex;
     justify-content: space-around;
     margin-bottom: 25px;
+    width: 100%;
 }
 
 .name {
     font-size: 5rem;
     font-family: "Poppins";
 }
-.pen{
+
+.pen {
     margin-left: 15px;
 }
 
@@ -63,7 +65,8 @@
     padding: 30px;
     font-size: 25px;
 }
-.label{
+
+.label {
     font-size: 3rem;
     font-family: "Poppins";
     color: var(--lightBlue);

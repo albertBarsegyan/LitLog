@@ -7,9 +7,9 @@ import { Icon } from "../../../constants/PropsIcon";
 import Modal from "./Modal";
 import { usePopUp } from "../../../context/popup";
 
-
+import { useAuth } from "../../../context/auth.context"
 const PopUp = () => {
-
+    const { user } = useAuth()
     const {
         register,
         watch,
@@ -30,12 +30,23 @@ const PopUp = () => {
     }
 
     const { modaleActive, setModaleActive } = usePopUp()
-
+    console.log(user?.displayName);
     return (
         <Modal active={modaleActive} setActive={setModaleActive} >
 
+            <form action="" className={modal.modSpan}>
+                <label htmlFor="firstName" className={modal.name}>
+                    <input type="text" id="firstName" placeholder="Change your name" />
+                    <Icons pen={Icon.pen} />
+                </label>
+                <label htmlFor="lastName" className={modal.name}>
+                    <input type="text" id="lastName" placeholder="Change your last name" />
+                    <Icons className={modal.pen} pen={Icon.pen} />
+                </label>
+            </form>
+
             <div className={modal.modSpan}>
-                <span className={modal.name}>
+                {/* <span className={modal.name}>
                     User Name
                     <Icons pen={Icon.pen} />
                 </span>
@@ -43,8 +54,10 @@ const PopUp = () => {
                 <span className={modal.name}>
                     User Surname
                     <Icons className={modal.pen} pen={Icon.pen} />
-                </span>
+                </span> */}
             </div>
+
+
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className={modal.modDiv}>
                     <label className={modal.label} htmlFor="customFileInput">Add or edit your picture</label><br />
