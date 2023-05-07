@@ -18,14 +18,7 @@ const RegistrationForm = () => {
         watch,
         reset
     } = useForm({
-        mode: "all",
-        defaultValues: {
-            firstname: "",
-            lastname: "",
-            email: "",
-            password: "",
-
-        }
+        mode: "all"
     }
     )
 
@@ -37,9 +30,8 @@ const RegistrationForm = () => {
         reset()
         await signUp(data)
         navigate(RouteConstant.ProfilPage)
-
     }
-    const handleGoogleSubmit = async () => {
+    const handleGoogleSubmit = async (e) => {
         await googleAuth(google)
         navigate(RouteConstant.ProfilPage)
     }
@@ -149,9 +141,10 @@ const RegistrationForm = () => {
                     />
                 </label>
 
-                <button disabled={isDisableSubmit} className={style.but} type="submit">
+                <button className={style.but} type="submit">
                     Sign Up
                 </button>
+                {/* {fireBaseError && <p>{fireBaseError}</p>} */}
             </form>
         </div>
     );

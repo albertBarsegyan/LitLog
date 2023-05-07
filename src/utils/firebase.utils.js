@@ -3,5 +3,5 @@ export const firebaseUserDataFilter = (user) => ({
     email: user.email,
     emailVerified: user.emailVerified,
     displayName: user.displayName,
-    photoURL: user.photoURL,
+    photoURL: user.photoURL
 });

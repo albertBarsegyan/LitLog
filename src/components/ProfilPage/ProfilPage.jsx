@@ -3,7 +3,7 @@ import LeftSide from './LeftSide/LeftSide';
 import RightSide from './RightSide/RightSide';
 import CenterSite from './CenterSite/CenterSite';
 import PopUp from "./Modal/PopUp";
-import OutPopUp from "./Modal/OutPopUp";
+
 
 const ProfilPage = () => {
 
@@ -18,7 +18,6 @@ const ProfilPage = () => {
                 <CenterSite />
             </div>
             <PopUp />
-            <OutPopUp />
 
         </div>
     );

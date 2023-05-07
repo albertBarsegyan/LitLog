@@ -6,10 +6,14 @@ import Icons from "../../../assets/images/icons/Icons";
 import { Icon } from "../../../constants/PropsIcon";
 import Modal from "./Modal";
 import { usePopUp } from "../../../context/popup";
+import { useAuth } from "../../../context/auth.context";
+import { firebaseUserDataFilter } from "../../../utils/firebase.utils";
 
 import { useAuth } from "../../../context/auth.context"
 const PopUp = () => {
+
     const { user } = useAuth()
+
     const {
         register,
         watch,
@@ -30,7 +34,8 @@ const PopUp = () => {
     }
 
     const { modaleActive, setModaleActive } = usePopUp()
-    console.log(user?.displayName);
+    console.log(user.displayName);
+
     return (
         <Modal active={modaleActive} setActive={setModaleActive} >
 
@@ -46,8 +51,8 @@ const PopUp = () => {
             </form>
 
             <div className={modal.modSpan}>
-                {/* <span className={modal.name}>
-                    User Name
+                <span className={modal.name}>
+                    {user.displayName}
                     <Icons pen={Icon.pen} />
                 </span>
 
@@ -110,8 +115,7 @@ const PopUp = () => {
                             }
 
                         }
-                        )
-                        }
+                        )}
                         type="password"
                         placeholder='Edit password' />
                 </div>

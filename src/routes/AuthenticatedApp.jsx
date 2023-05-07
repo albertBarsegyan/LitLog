@@ -4,12 +4,18 @@ import { useAuth } from '../context/auth.context';
 function AuthenticatedApp() {
     const { user, signOut } = useAuth();
 
-    const handleClick = () => {
-        signOut();
-    };
+    console.log(user.uid);
 
     return (
-        <ProfilPage />
+        <>
+            <div>
+                <span style={{ color: "pink" }}>{user.uid}</span>
+            </div>
+            {/* <button onClick={()=> signOut()}>
+                Log Out
+            </button> */}
+            <ProfilPage />
+        </>
     );
 }
 
