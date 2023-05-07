@@ -5,25 +5,24 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   updateProfile,
-} from "@firebase/auth";
+} from '@firebase/auth'
 import {
   firebaseAuth,
   firebaseCloudStorage,
   firestoreApp,
-} from "../libs/firebase/firebase.config";
-import {
-  collection,
-  doc,
-  getDoc,
-  setDoc,
-  updateDoc,
-} from "@firebase/firestore";
+} from '../libs/firebase/firebase.config'
+import { collection, doc, getDoc, setDoc, updateDoc } from '@firebase/firestore'
 import {
   FirebaseCloudStorages,
   FirebaseDocument,
-} from "../constants/firebase.constants";
-import { firebaseUserDataFilter } from "../utils/firebase.utils";
-import { getDownloadURL, ref, uploadBytesResumable } from "@firebase/storage";
+} from '../constants/firebase.constants'
+import { firebaseUserDataFilter } from '../utils/firebase.utils'
+import {
+  deleteObject,
+  getDownloadURL,
+  ref,
+  uploadBytesResumable,
+} from '@firebase/storage'
 
 export const registerService = async ({
   email,
@@ -36,36 +35,36 @@ export const registerService = async ({
       firebaseAuth,
       email,
       password
-    );
+    )
 
-    const user = getAuth().currentUser;
+    const user = getAuth().currentUser
 
     await updateProfile(user, {
       displayName: `${firstname} ${lastname}`,
-    });
+    })
 
     const userDocumentReference = doc(
       firestoreApp,
       FirebaseDocument.Users,
       newUserCredential.user.uid
-    );
+    )
     await setDoc(userDocumentReference, {
       email,
       displayName: `${firstname} ${lastname}`,
       emailVerified: false,
       photoURL: null,
-    });
+    })
     return {
       data: firebaseUserDataFilter(newUserCredential.user),
       errorCode: null,
       errorMessage: null,
-    };
+    }
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    return { data: null, errorCode, errorMessage };
+    const errorCode = error.code
+    const errorMessage = error.message
+    return { data: null, errorCode, errorMessage }
   }
-};
+}
 
 export const loginService = async ({ email, password }) => {
   try {
@@ -73,47 +72,47 @@ export const loginService = async ({ email, password }) => {
       firebaseAuth,
       email,
       password
-    );
+    )
     return {
       data: firebaseUserDataFilter(response.user),
       errorCode: null,
       errorMessage: null,
-    };
+    }
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    return { data: null, errorCode, errorMessage };
+    const errorCode = error.code
+    const errorMessage = error.message
+    return { data: null, errorCode, errorMessage }
   }
-};
+}
 
 export const signOutService = async () => {
   try {
-    await firebaseAuth.signOut();
-    return { data: null, errorCode: null, errorMessage: null };
+    await firebaseAuth.signOut()
+    return { data: null, errorCode: null, errorMessage: null }
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    return { data: null, errorCode, errorMessage };
+    const errorCode = error.code
+    const errorMessage = error.message
+    return { data: null, errorCode, errorMessage }
   }
-};
+}
 
 export const googleAuthService = async () => {
   try {
-    const provider = new GoogleAuthProvider();
-    const result = await signInWithPopup(getAuth(), provider);
+    const provider = new GoogleAuthProvider()
+    const result = await signInWithPopup(getAuth(), provider)
 
-    const { displayName, email, uid, emailVerified, photoURL } = result.user;
+    const { displayName, email, uid, emailVerified, photoURL } = result.user
 
     const userDoc = await getDoc(
       doc(collection(firestoreApp, FirebaseDocument.Users), uid)
-    );
+    )
 
     if (userDoc.exists()) {
       return {
         data: firebaseUserDataFilter(result.user),
         errorCode: null,
         errorMessage: null,
-      };
+      }
     } else {
       await setDoc(doc(collection(firestoreApp, FirebaseDocument.Users), uid), {
         displayName,
@@ -121,87 +120,107 @@ export const googleAuthService = async () => {
         emailVerified,
         photoURL,
         createdAt: new Date(),
-      });
+      })
 
       return {
         data: firebaseUserDataFilter(result.user),
         errorCode: null,
         errorMessage: null,
-      };
+      }
     }
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    return { data: null, errorCode, errorMessage };
+    const errorCode = error.code
+    const errorMessage = error.message
+    return { data: null, errorCode, errorMessage }
   }
-};
+}
 
-export const editUserService = async ({ fullName, profilePhotoFile }) => {
-  try {
-    let response = {
-      data: null,
-      errorCode: null,
-      errorMessage: null,
-    };
-    const user = getAuth().currentUser;
+export const editUserService = ({ fullName, profilePhotoFile }) => {
+  return new Promise((resolve, reject) => {
+    const user = getAuth().currentUser
 
     const userDocumentReference = doc(
       firestoreApp,
       FirebaseDocument.Users,
       user.uid
-    );
+    )
 
     if (fullName) {
-      await updateProfile(user, {
+      updateProfile(user, {
         displayName: fullName,
-      });
-
-      await updateDoc(userDocumentReference, {
-        displayName: fullName,
-      });
+      })
+        .then(() => {
+          updateDoc(userDocumentReference, {
+            displayName: fullName,
+          }).catch((error) => {
+            reject({
+              data: null,
+              errorCode: error.code,
+              errorMessage: error.message,
+            })
+          })
+        })
+        .catch((error) => {
+          reject({
+            data: null,
+            errorCode: error.code,
+            errorMessage: error.message,
+          })
+        })
     }
 
     if (profilePhotoFile) {
       const storageRef = ref(
         firebaseCloudStorage,
         `${FirebaseCloudStorages.ProfileImage}/${profilePhotoFile.name}`
-      );
-      const uploadTask = uploadBytesResumable(storageRef, profilePhotoFile);
+      )
+      const uploadTask = uploadBytesResumable(storageRef, profilePhotoFile)
 
       uploadTask.on(
-        "state_changed",
+        'state_changed',
         null,
         (error) => {
-          response = {
+          reject({
             data: null,
             errorCode: error.code,
             errorMessage: error.message,
-          };
+          })
         },
         async () => {
-          const uploadedFileUrl = await getDownloadURL(uploadTask.snapshot.ref);
+          try {
+            const uploadedFileUrl = await getDownloadURL(
+              uploadTask.snapshot.ref
+            )
 
-          await updateProfile(user, {
-            photoURL: uploadedFileUrl,
-          });
+            const oldProfilePictureStorageRef = ref(
+              firebaseCloudStorage,
+              user.photoURL
+            )
 
-          await updateDoc(userDocumentReference, {
-            photoURL: uploadedFileUrl,
-          });
+            await deleteObject(oldProfilePictureStorageRef)
 
-          response = {
-            data: firebaseUserDataFilter(user),
-            errorCode: null,
-            errorMessage: null,
-          };
+            await updateProfile(user, {
+              photoURL: uploadedFileUrl,
+            })
+
+            await updateDoc(userDocumentReference, {
+              photoURL: uploadedFileUrl,
+            })
+
+            resolve({
+              data: firebaseUserDataFilter(getAuth().currentUser),
+              errorCode: null,
+              errorMessage: null,
+            })
+          } catch (error) {
+            reject({
+              data: null,
+              errorCode: error.code,
+              errorMessage: error.message,
+            })
+          }
         }
-      );
+      )
     }
-
-    return response;
-  } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    return { data: null, errorCode, errorMessage };
-  }
-};
+  })
+}

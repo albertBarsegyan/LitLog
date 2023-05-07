@@ -1,0 +1,10 @@
+build/
+node_modules/
+*.min.js
+*.min.css
+__tests__/
+*.test.js
+*.config.js
+*.config.json
+server/
+coverage/

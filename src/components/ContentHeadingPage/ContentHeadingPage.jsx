@@ -1,4 +1,4 @@
-import style from "./headingPage.module.css";
+import style from './headingPage.module.css'
 
 function HeadingPage() {
   return (
@@ -11,9 +11,9 @@ function HeadingPage() {
           <p>
             Are you dreaming of reading books but don't want <br />
             to spend time going to the library or waiting for delivery? <br />
-            Then our website is for you! Here you will find a wide selection{" "}
+            Then our website is for you! Here you will find a wide selection{' '}
             <br />
-            of literature - from novels to scientific works. Our books are{" "}
+            of literature - from novels to scientific works. Our books are{' '}
             <br />
             available online, and you can start reading right away. <br />
             Our library is constantly updated with new books, <br />
@@ -23,7 +23,7 @@ function HeadingPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default HeadingPage;
+export default HeadingPage

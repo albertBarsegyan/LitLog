@@ -1,19 +1,21 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
 import style from './footer.module.css'
-import { RouteConstant } from '../../constants/RouteCostant';
+import { RouteConstant } from '../../constants/RouteCostant'
 
 function Footer() {
-
-
-    return (
-        <footer>
-            <p>&copy; All Rights Reserved from K.A.S.A. </p>
-            <div>
-                <NavLink className={style.link} to={RouteConstant.LoginPage}>Sign In</NavLink>
-                <NavLink className={style.link} to={RouteConstant.RegPage}>Sign Up</NavLink>
-            </div>
-        </footer>
-    )
+  return (
+    <footer>
+      <p>&copy; All Rights Reserved from K.A.S.A. </p>
+      <div>
+        <NavLink className={style.link} to={RouteConstant.LoginPage}>
+          Sign In
+        </NavLink>
+        <NavLink className={style.link} to={RouteConstant.RegPage}>
+          Sign Up
+        </NavLink>
+      </div>
+    </footer>
+  )
 }
 
-export default Footer;
+export default Footer

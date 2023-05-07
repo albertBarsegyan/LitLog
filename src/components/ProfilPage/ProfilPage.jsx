@@ -1,33 +1,39 @@
-import style from "./profil.module.css"
-import LeftSide from './LeftSide/LeftSide';
-import RightSide from './RightSide/RightSide';
-import CenterSite from './CenterSite/CenterSite';
-import PopUp from "./Modal/PopUp";
-import Books from "../Books/Books";
-
+import style from './profil.module.css'
+import LeftSide from './LeftSide/LeftSide'
+import RightSide from './RightSide/RightSide'
+import Books from '../Books/Books'
+import { useAuth } from '../../context/auth.context'
 
 const ProfilPage = () => {
+  const { editUser, user } = useAuth()
 
-    return (
-        <div className={style.side}>
+  const handleFile = (e) => {
+    const uploadFile = e.target.files[0]
+    editUser({ profilePhotoFile: uploadFile, fullName: 'fiki grace' })
+  }
 
-            <div>
-                <LeftSide />
-            </div>
-            <div>
+  return (
+    <div className={style.side}>
+      <div>
+        <LeftSide />
+      </div>
+      <div>
+        <input type="file" onChange={handleFile} />
+        <pre style={{ color: 'white' }}>{JSON.stringify(user, null, 2)}</pre>
+        <img src={user.photoURL} />
+      </div>
 
-            </div>
-            {/*<div>
+      {/*<div>
                 <RightSide />
                 <CenterSite />
                 </div>
             <PopUp /> */}
-            <div>
-                <RightSide />
-                <Books />
-            </div>
-        </div>
-    );
-};
+      <div>
+        <RightSide />
+        <Books />
+      </div>
+    </div>
+  )
+}
 
-export default ProfilPage;
+export default ProfilPage
