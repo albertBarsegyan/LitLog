@@ -6,9 +6,13 @@ import Icons from "../../../assets/images/icons/Icons";
 import { Icon } from "../../../constants/PropsIcon";
 import Modal from "./Modal";
 import { usePopUp } from "../../../context/popup";
+import { useAuth } from "../../../context/auth.context";
+import { firebaseUserDataFilter } from "../../../utils/firebase.utils";
 
 
 const PopUp = () => {
+
+    const { user } = useAuth()
 
     const {
         register,
@@ -30,13 +34,14 @@ const PopUp = () => {
     }
 
     const { modaleActive, setModaleActive } = usePopUp()
+    console.log(user);
 
     return (
         <Modal active={modaleActive} setActive={setModaleActive} >
 
             <div className={modal.modSpan}>
                 <span className={modal.name}>
-                    User Name
+                   
                     <Icons pen={Icon.pen} />
                 </span>
 

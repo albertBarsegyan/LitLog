@@ -28,7 +28,7 @@ function LoginPage() {
         }
     })
 
-    const onSubmit = async (data) => {
+    const onSubmit =  (data) => {
         reset()
         signIn(data)
         navigate(RouteConstant.ProfilPage)

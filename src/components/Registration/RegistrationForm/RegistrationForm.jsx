@@ -25,19 +25,19 @@ const RegistrationForm = () => {
             email: "", 
             password: "" 
         }
-    }
-    )
+    })
 
 
     const password = watch("password", "");
     const repeatPassword = watch("repeatPassword", "");
 
-    const onSubmit = data => {
+    const onSubmit = async data => {
         reset()
-        signUp(data)
+        await signUp(data)
         navigate(RouteConstant.ProfilPage)
     }
-    const handleGoogleSubmit = async (e) => {
+
+    const handleGoogleSubmit = async () => {
         await googleAuth(google)
         navigate(RouteConstant.ProfilPage)
     }
@@ -147,10 +147,10 @@ const RegistrationForm = () => {
                     />
                 </label>
 
-                <button disabled={isDisableSubmit} className={style.but} type="submit">
+                <button  className={style.but} type="submit">
                     Sign Up
                 </button>
-                {fireBaseError && <p>{fireBaseError}</p>}
+                {/* {fireBaseError && <p>{fireBaseError}</p>} */}
             </form>
         </div>
     );

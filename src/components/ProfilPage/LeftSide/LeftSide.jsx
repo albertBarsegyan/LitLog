@@ -1,21 +1,26 @@
 import style from './leftSide.module.css'
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 import Icons from "../../../assets/images/icons/Icons";
 import { Icon } from '../../../constants/PropsIcon';
 import { RouteConstant } from '../../../constants/RouteCostant';
 
-import { useModal, usePopUp } from '../../../context/popup';
+import { usePopUp } from '../../../context/popup';
+import { useAuth } from '../../../context/auth.context';
 
 
 const LeftSide = () => {
     const { setModaleActive } = usePopUp(false)
-    const { setModeActive } = useModal(false)
-
+    const { signOut } = useAuth();
+    const navigate = useNavigate()
+    const handleOutSubmit = () => {
+        signOut()
+        navigate(RouteConstant.LoginPage)
+    }
     return (
         <div className={style.leftSide}>
 
             <div className={style.header}>
-                <Link to={RouteConstant.PrifilPage} className={style.logo}>LitLog</Link>
+                <Link to={RouteConstant.ProfilPage} className={style.logo}>LitLog</Link>
             </div>
             <nav className={style.menu}>
 
@@ -73,7 +78,7 @@ const LeftSide = () => {
                 </button>
 
                 <button
-                    onClick={() => setModeActive(true)}
+                    onClick={handleOutSubmit}
                     className={style.btn}
                 >
                     <Icons singOut={Icon.singOut} />
