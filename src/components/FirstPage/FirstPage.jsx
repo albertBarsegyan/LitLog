@@ -1,18 +1,16 @@
-import Header from '../Header/Header'
+import Header from "../Header/Header";
 import HeadingPage from "../ContentHeadingPage/ContentHeadingPage";
-import Footer from '../Footer/Footer';
+import Footer from "../Footer/Footer";
 
 export function FirstPage() {
+  return (
+    <div>
+      <Header />
 
-    return (
-        <div>
-            <Header />
-
-            <div>
-                <HeadingPage />
-            </div>
-            <Footer />
-        </div>
-
-    )
+      <div>
+        <HeadingPage />
+      </div>
+      <Footer />
+    </div>
+  );
 }
