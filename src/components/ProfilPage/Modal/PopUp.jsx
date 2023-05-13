@@ -9,7 +9,7 @@ import { Icon } from '../../../constants/PropsIcon'
 import Icons from '../../../assets/images/icons/Icons'
 
 const PopUp = () => {
-  const { user, editUser } = useAuth()
+  const { user, editUser, error } = useAuth()
   const { modaleActive, setModaleActive } = usePopUp()
 
   const {
@@ -20,17 +20,20 @@ const PopUp = () => {
   } = useForm({
     mode: 'all',
   })
+
   const newPassword = watch('newPassword', '')
   const repeatPassword = watch('repeatPassword', '')
 
   const handlePhotoEdit = (e) => {
     e.preventDefault()
     const photo = e.target.files[0]
-    editUser({ profilePhotoFile: photo })
     console.log(photo)
+    editUser({ profilePhotoFile: photo })
   }
 
-  const fullName = user?.displayName.split(' ')
+  const fullName = user?.displayName.split(' ') || []
+
+  console.log('error', error)
 
   return (
     <Modal active={modaleActive} setActive={setModaleActive}>

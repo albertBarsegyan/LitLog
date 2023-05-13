@@ -26,7 +26,6 @@ function LoginPage() {
     },
   })
 
-
   const onSubmit = (data) => {
     reset()
     signIn(data)
@@ -75,7 +74,7 @@ function LoginPage() {
               />
               <br />
             </label>
-            
+
             <label>
               <div>
                 {errors?.password && (

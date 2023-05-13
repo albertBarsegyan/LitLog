@@ -1,7 +1,7 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { getAuth } from "firebase/auth";
-import { getStorage } from "@firebase/storage";
+import { getApps, initializeApp } from 'firebase/app'
+import { getFirestore } from 'firebase/firestore'
+import { getAuth } from 'firebase/auth'
+import { getStorage } from 'firebase/storage'
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -12,8 +12,19 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
-const firebaseApp = initializeApp(firebaseConfig);
+
+
+
+
+
+
+let firebaseApp = null;
+
+if (!getApps.length) {
+  firebaseApp = initializeApp(firebaseConfig)
+}
 
 export const firestoreApp = getFirestore(firebaseApp);
+
 export const firebaseAuth = getAuth(firebaseApp);
 export const firebaseCloudStorage = getStorage(firebaseApp);
