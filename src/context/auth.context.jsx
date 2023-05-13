@@ -6,7 +6,7 @@ import {
   registerService,
   signOutService,
 } from '../services/auth.services'
-import { onAuthStateChanged } from '@firebase/auth'
+import { onAuthStateChanged } from 'firebase/auth'
 import { firebaseAuth } from '../libs/firebase/firebase.config'
 import { firebaseUserDataFilter } from '../utils/firebase.utils'
 import { renameFile } from '../utils/file.utils'
@@ -72,6 +72,7 @@ export const AuthProvider = ({ children }) => {
 
   const editUser = async ({ fullName, profilePhotoFile }) => {
     const { uid } = user
+
     const { errorMessage, errorCode, data } = await editUserService({
       fullName,
       profilePhotoFile: renameFile({ file: profilePhotoFile, fileName: uid }),

@@ -26,7 +26,6 @@ function LoginPage() {
     },
   })
 
-
   const onSubmit = (data) => {
     reset()
     signIn(data)

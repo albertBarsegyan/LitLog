@@ -6,9 +6,7 @@ export const PopUpProvider = ({ children }) => {
   const [modaleActive, setModaleActive] = useState(false)
 
   return (
-    <PopUpContext.Provider
-      value={{ modaleActive, setModaleActive }}
-    >
+    <PopUpContext.Provider value={{ modaleActive, setModaleActive }}>
       {children}
     </PopUpContext.Provider>
   )
