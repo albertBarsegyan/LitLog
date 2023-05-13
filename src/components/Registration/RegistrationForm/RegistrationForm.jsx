@@ -22,22 +22,30 @@ const RegistrationForm = () => {
     reset,
   } = useForm({
     mode: 'all',
+    defaultValues: {
+      firstname: '',
+      lastname: '',
+      email: '',
+      password: '',
+      google: '',
+    },
   })
 
   const password = watch('password', '')
   const repeatPassword = watch('repeatPassword', '')
+  const isDisableSubmit = !isValid || !isDirty
 
   const onSubmit = async (data) => {
     reset()
     await signUp(data)
     navigate(RouteConstant.ProfilPage)
   }
+
   const handleGoogleSubmit = async (e) => {
+    e.preventDefault()
     await googleAuth(google)
     navigate(RouteConstant.ProfilPage)
   }
-
-  const isDisableSubmit = isValid || isDirty
 
   return (
     <div className={style.bigDiv}>
@@ -177,7 +185,7 @@ const RegistrationForm = () => {
           />
         </label>
 
-        <button className={style.but} type="submit">
+        <button disabled={isDisableSubmit} className={style.but} type="submit">
           Sign Up
         </button>
         {/* {fireBaseError && <p>{fireBaseError}</p>} */}

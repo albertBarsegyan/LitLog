@@ -16,7 +16,7 @@ const PopUp = () => {
     register,
     watch,
     formState: { errors },
-    handleSubmit,
+    // handleSubmit,
   } = useForm({
     mode: 'all',
   })
@@ -30,17 +30,17 @@ const PopUp = () => {
     console.log(photo)
   }
 
-  const fullName = user?.displayName.split(' ')
+  // const fullName = user?.displayName.split(' ')
 
   return (
     <Modal active={modaleActive} setActive={setModaleActive}>
       <div className={modal.modSpan}>
         <span className={modal.name}>
-          {fullName[0]}
+          {/* {fullName[0]} */}
           <Icons pen={Icon.pen} />
         </span>
         <span className={modal.name}>
-          {fullName[1]}
+          {/* {fullName[1]} */}
           <Icons pen={Icon.pen} />
         </span>
       </div>

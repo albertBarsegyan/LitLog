@@ -11,7 +11,7 @@ import { useAuth } from '../../context/auth.context'
 
 function LoginPage() {
   const navigate = useNavigate()
-  const { signIn, error: fireBaseError, googleAuth, user } = useAuth()
+  const { signIn, googleAuth } = useAuth()
 
   const {
     register,
@@ -23,9 +23,9 @@ function LoginPage() {
     defaultValues: {
       email: '',
       password: '',
+      google: '',
     },
   })
-
 
   const onSubmit = (data) => {
     reset()
@@ -75,7 +75,7 @@ function LoginPage() {
               />
               <br />
             </label>
-            
+
             <label>
               <div>
                 {errors?.password && (
