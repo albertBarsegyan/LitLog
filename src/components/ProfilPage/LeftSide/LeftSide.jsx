@@ -29,6 +29,7 @@ const LeftSide = () => {
             isActive ? style.activeLink : style.link
           }
         >
+
           <Icons book={Icon.book} />
 
           <span className={style.text}>Book</span>
