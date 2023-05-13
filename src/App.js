@@ -4,16 +4,16 @@ import UnauthenticatedApp from './routes/UnauthenticatedApp'
 
 function App() {
   const { user, isLoading } = useAuth()
- 
-    if (isLoading) {
-      return <h1>Loading...</h1>
-    }
 
-    if (!user) {
-      return <UnauthenticatedApp />
-    } 
+  if (isLoading) {
+    return <h1>Loading...</h1>
+  }
 
-    return <AuthenticatedApp />
+  if (!user) {
+    return <UnauthenticatedApp />
+  }
+
+  return <AuthenticatedApp />
 }
 
 export default App
