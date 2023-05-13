@@ -12,6 +12,7 @@ function Header() {
           <img className={style.logo} src={logo} alt="logo" />
         </NavLink>
       </div>
+
       <div className={style.button}>
         <Login />
         <RegIn />
