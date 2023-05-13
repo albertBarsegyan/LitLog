@@ -22,6 +22,4 @@ const ProfilPage = () => {
     </div>
   )
 }
-
 export default ProfilPage
-

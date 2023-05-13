@@ -33,7 +33,7 @@ const PopUp = () => {
 
   const fullName = user?.displayName.split(' ') || []
 
-  console.log('error', error)
+  // console.log('error', error)
 
   return (
     <Modal active={modaleActive} setActive={setModaleActive}>

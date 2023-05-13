@@ -11,9 +11,6 @@ function AuthenticatedApp() {
       <div>
         <span>{user.uid}</span>
       </div>
-      {/* <button onClick={() => signOut()}>
-        Log Out
-      </button> */}
       <ProfilPage />
     </>
   )

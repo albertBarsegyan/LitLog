@@ -41,7 +41,6 @@ const RegistrationForm = () => {
   }
 
   const handleGoogleSubmit = async () => {
-    // google.preventDefault()
     await googleAuth(google)
     navigate(RouteConstant.ProfilPage)
   }
