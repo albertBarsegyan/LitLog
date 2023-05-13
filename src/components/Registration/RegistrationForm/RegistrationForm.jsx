@@ -27,7 +27,6 @@ const RegistrationForm = () => {
       lastname: '',
       email: '',
       password: '',
-      google: '',
     },
   })
 
@@ -41,8 +40,8 @@ const RegistrationForm = () => {
     navigate(RouteConstant.ProfilPage)
   }
 
-  const handleGoogleSubmit = async (e) => {
-    e.preventDefault()
+  const handleGoogleSubmit = async () => {
+    // google.preventDefault()
     await googleAuth(google)
     navigate(RouteConstant.ProfilPage)
   }
@@ -72,6 +71,7 @@ const RegistrationForm = () => {
               </p>
             )}
           </div>
+
           <input
             className={errors.firstname ? style.erorrInp : style.inp}
             {...register('firstname', {
@@ -98,6 +98,7 @@ const RegistrationForm = () => {
               </p>
             )}
           </div>
+
           <input
             className={errors.lastname ? style.erorrInp : style.inp}
             {...register('lastname', {
@@ -124,6 +125,7 @@ const RegistrationForm = () => {
               </p>
             )}
           </div>
+
           <input
             className={errors.email ? style.erorrInp : style.inp}
             {...register('email', {
@@ -168,9 +170,11 @@ const RegistrationForm = () => {
               </p>
             )}
           </div>
+
           {password !== repeatPassword && (
             <p className={style.errormess}>{errorMes.passReap}</p>
           )}
+
           <input
             className={errors.repeatPassword ? style.erorrInp : style.inp}
             {...register('repeatPassword', {

@@ -3,7 +3,7 @@ import LeftSide from './LeftSide/LeftSide'
 import RightSide from './RightSide/RightSide'
 import CenterSite from './CenterSite/CenterSite'
 import PopUp from './Modal/PopUp'
-import FriendsPage from './FrindsPage/FriendsPage'
+// import FriendsPage from './FrindsPage/FriendsPage'
 
 const ProfilPage = () => {
   return (
@@ -15,7 +15,7 @@ const ProfilPage = () => {
       <div>
         <RightSide />
         <CenterSite />
-        <FriendsPage />
+        {/* <FriendsPage /> */}
         {/* <Books /> */}
       </div>
       <PopUp />
@@ -24,3 +24,4 @@ const ProfilPage = () => {
 }
 
 export default ProfilPage
+

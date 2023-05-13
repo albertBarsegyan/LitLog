@@ -1,8 +1,8 @@
 import ProfilPage from '../components/ProfilPage/ProfilPage'
-import { useAuth } from '../context/auth.context';
+import { useAuth } from '../context/auth.context'
 
 function AuthenticatedApp() {
-  const { user, signOut } = useAuth();
+  const { user } = useAuth()
 
   // console.log(user.uid);
 

@@ -23,7 +23,6 @@ function LoginPage() {
     defaultValues: {
       email: '',
       password: '',
-      google: '',
     },
   })
 
@@ -33,8 +32,7 @@ function LoginPage() {
     navigate(RouteConstant.ProfilPage)
   }
 
-  const googleWithAcount = async (e) => {
-    e.preventDefault()
+  const googleWithAcount = async () => {
     await googleAuth(google)
     navigate(RouteConstant.ProfilPage)
   }
