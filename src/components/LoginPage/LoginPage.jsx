@@ -11,7 +11,7 @@ import { useAuth } from '../../context/auth.context'
 
 function LoginPage() {
   const navigate = useNavigate()
-  const { signIn, error: fireBaseError, googleAuth } = useAuth()
+  const { signIn, error: fireBaseError, googleAuth, user } = useAuth()
 
   const {
     register,
@@ -25,6 +25,7 @@ function LoginPage() {
       password: '',
     },
   })
+
 
   const onSubmit = (data) => {
     reset()
@@ -74,6 +75,7 @@ function LoginPage() {
               />
               <br />
             </label>
+            
             <label>
               <div>
                 {errors?.password && (
@@ -100,6 +102,7 @@ function LoginPage() {
               >
                 Login
               </button>
+
               <span>OR</span>
 
               <button

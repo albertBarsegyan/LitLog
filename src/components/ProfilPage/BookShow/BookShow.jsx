@@ -1,14 +1,16 @@
 import style from './bookshow.module.css'
-import bookName from '../../../constants/bookName'
+import book from '../../../constants/books'
 import { Link } from 'react-router-dom'
 
 const BookShow = () => {
+  const bookFour = book.slice(0, 4)
+
   return (
     <div className={style.bookShowMain}>
       <h2 className={style.bookShow}>Top Rated Comics</h2>
 
       <div className={style.books}>
-        {bookName.map((item) => {
+        {bookFour.map((item) => {
           return (
             <div key={item.id}>
               <img className={style.img} src={item.img} alt="img" />

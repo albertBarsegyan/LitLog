@@ -1,27 +1,12 @@
-import './friends.module.css'
-import { useAuth } from '../../../context/auth.context'
-import friends from "../../../constants/friends"
-const FriendsPage = () => {
-  const { user } = useAuth()
+import style from "./friends.module.css"
+import { userAuth } from "../../../context/auth.context"
 
-  const x = user?.displayName.split(' ')
-  // console.log(x[0])
-  // console.log(x[1])
+const FriendsPage = () => {
   return (
     <div>
-      <p>My friends</p>
-      <div>
-        {friends.map((item) => {
-          return (
-            <div key={item.id}>
-              <p>{item.name}</p>
-              {/* <img src={item.img} alt="images" /> */}
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  )
-}
 
-export default FriendsPage
+    </div>
+  );
+};
+
+export default FriendsPage;

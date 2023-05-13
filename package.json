@@ -23,7 +23,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint:fix": "eslint 'src/**/*.{js,ts,tsx,jsx}' --fix"
-
   },
   "devDependencies": {
     "eslint": "^8.38.0",

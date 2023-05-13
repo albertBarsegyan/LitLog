@@ -1,16 +1,19 @@
 import ProfilPage from '../components/ProfilPage/ProfilPage'
-// import { useAuth } from '../context/auth.context';
+import { useAuth } from '../context/auth.context';
 
 function AuthenticatedApp() {
-  // const { user, signOut } = useAuth();
+  const { user, signOut } = useAuth();
 
   // console.log(user.uid);
 
   return (
     <>
-      {/* <button onClick={()=> signOut()}>
-                Log Out
-            </button> */}
+      <div>
+        <span>{user.uid}</span>
+      </div>
+      {/* <button onClick={() => signOut()}>
+        Log Out
+      </button> */}
       <ProfilPage />
     </>
   )

@@ -1,14 +1,16 @@
-// {
-//   "plugins": [
-//     "prettier"
-//   ],
-//   "extends": [
-//     "react-app",
-//     "prettier"
-//   ],
-//   "rules": {
-//     "prettier/prettier": [
-//       "error"
-//     ]
-//   }
-// }
+{
+    "extends": [
+        "react-app",
+        "prettier",
+        "eslint:recommended",
+        "eslint-config-prettier"
+    ],
+    "plugins": [
+        "prettier"
+    ],
+    "rules": {
+        "prettier/prettier": [
+            "error"
+        ]
+    }
+}
