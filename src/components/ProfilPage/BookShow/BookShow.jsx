@@ -3,8 +3,7 @@ import book from '../../../constants/books'
 import { Link } from 'react-router-dom'
 
 const BookShow = () => {
-
-  const bookFour = book.slice(0, 4);
+  const bookFour = book.slice(0, 4)
 
   return (
     <div className={style.bookShowMain}>

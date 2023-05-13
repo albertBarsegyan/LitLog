@@ -9,55 +9,32 @@ import { Icon } from '../../../constants/PropsIcon'
 import Icons from '../../../assets/images/icons/Icons'
 
 const PopUp = () => {
-  const { user } = useAuth()
+  const { user, editUser } = useAuth()
   const { modaleActive, setModaleActive } = usePopUp()
 
   const {
     register,
     watch,
     formState: { errors },
-    reset,
     handleSubmit,
   } = useForm({
     mode: 'all',
-    defaultValues: {
-      photo: '',
-    },
   })
   const newPassword = watch('newPassword', '')
   const repeatPassword = watch('repeatPassword', '')
 
-  const onSubmit = (e) => {
-    reset()
+  const handlePhotoEdit = (e) => {
+    e.preventDefault()
+    const photo = e.target.files[0]
+    editUser({ profilePhotoFile: photo })
+    console.log(photo)
   }
 
-  const fullName = user.displayName.split(' ')
+  const fullName = user?.displayName.split(' ')
 
   return (
     <Modal active={modaleActive} setActive={setModaleActive}>
-      {/* <form action="" className={modal.modSpan}>
-                <label htmlFor="firstName" className={modal.name}>
-                    <input type="text" id="firstName" placeholder="Change your name" />
-                    <Icons pen={Icon.pen} />
-                </label>
-                <label htmlFor="lastName" className={modal.name}>
-                    <input type="text" id="lastName" placeholder="Change your last name" />
-                    <Icons className={modal.pen} pen={Icon.pen} />
-                </label>
-            </form> */}
-
       <div className={modal.modSpan}>
-        {/* <label htmlFor="displayName">
-                    <span className={modal.name}>Change your name</span>
-                    <br />
-                    <input
-                        id="displayName"
-                        className={modal.modInp1}
-                        type="text"
-                        placeholder={user.displayName}
-                    />
-                    <Icons pen={Icon.pen} />
-                </label> */}
         <span className={modal.name}>
           {fullName[0]}
           <Icons pen={Icon.pen} />
@@ -68,18 +45,19 @@ const PopUp = () => {
         </span>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form>
         <div className={modal.modDiv}>
           <label className={modal.label} htmlFor="customFileInput">
             Add or edit your picture
             <br />
             <input
-              {...register('photo')}
               id="customFileInput"
-              className={modal.customFileInput}
               type="file"
+              className={modal.customFileInput}
+              onChange={handlePhotoEdit}
             />
           </label>
+          <img src={user?.profilePhotoFile?.name} alt="tgfds" />
         </div>
 
         <div className={modal.modDiv}>
