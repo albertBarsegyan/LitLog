@@ -5,13 +5,13 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   updateProfile,
-} from '@firebase/auth'
+} from 'firebase/auth'
 import {
   firebaseAuth,
   firebaseCloudStorage,
   firestoreApp,
 } from '../libs/firebase/firebase.config'
-import { collection, doc, getDoc, setDoc, updateDoc } from '@firebase/firestore'
+import { collection, doc, getDoc, setDoc, updateDoc } from 'firebase/firestore'
 import {
   FirebaseCloudStorages,
   FirebaseDocument,
@@ -22,7 +22,7 @@ import {
   getDownloadURL,
   ref,
   uploadBytesResumable,
-} from '@firebase/storage'
+} from 'firebase/storage'
 
 export const registerService = async ({
   email,
