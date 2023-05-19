@@ -28,9 +28,9 @@ const PopUp = () => {
     e.preventDefault()
     const photo = e.target.files[0]
     console.log(photo)
-    editUser({ profilePhotoFile: photo })
+    editUser({ profilePhotoFile: photo, fullName: user.uid })
   }
-
+  console.log(user)
   const fullName = user?.displayName.split(' ') || []
 
   // console.log('error', error)
@@ -39,11 +39,11 @@ const PopUp = () => {
     <Modal active={modaleActive} setActive={setModaleActive}>
       <div className={modal.modSpan}>
         <span className={modal.name}>
-          {/* {fullName[0]} */}
+          {fullName[0]}
           <Icons pen={Icon.pen} />
         </span>
         <span className={modal.name}>
-          {/* {fullName[1]} */}
+          {fullName[1]}
           <Icons pen={Icon.pen} />
         </span>
       </div>
@@ -60,7 +60,7 @@ const PopUp = () => {
               onChange={handlePhotoEdit}
             />
           </label>
-          <img src={user?.profilePhotoFile?.name} alt="tgfds" />
+          <img src={user?.photoURL?.uploadedFileUrl} alt="tgfds" />
         </div>
 
         <div className={modal.modDiv}>
