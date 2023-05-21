@@ -1,16 +1,15 @@
 import loginUser from '../../assets/images/loginUser.png'
 import style from './LoginPage.module.css'
-import { useForm } from 'react-hook-form'
-import { errorMes, requeridMes } from '../../constants/errorMessage'
 import google from '../../assets/images/google.png'
 import Footer from './Footer/Footer'
 import Header from './Header/Header'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { errorMes, requeridMes } from '../../constants/errorMessage'
+import { useForm } from 'react-hook-form'
+import { NavLink } from 'react-router-dom'
 import { RouteConstant } from '../../constants/RouteCostant'
 import { useAuth } from '../../context/auth.context'
 
 function LoginPage() {
-  const navigate = useNavigate()
   const { signIn, googleAuth } = useAuth()
 
   const {
@@ -29,12 +28,10 @@ function LoginPage() {
   const onSubmit = (data) => {
     reset()
     signIn(data)
-    navigate(RouteConstant.ProfilPage)
   }
 
-  const googleWithAcount = async () => {
-    await googleAuth(google)
-    navigate(RouteConstant.ProfilPage)
+  const googleWithAcount = () => {
+    googleAuth()
   }
 
   const isDisableSubmit = !isDirty || !isValid
@@ -102,18 +99,13 @@ function LoginPage() {
               </button>
 
               <span>OR</span>
-
-              <button
-                {...register('google')}
-                onClick={googleWithAcount}
-                className={style.googleBut}
-              >
-                <span>
-                  <img src={google} alt="" />
-                </span>
-              </button>
             </div>
           </form>
+          <button onClick={googleWithAcount} className={style.googleBut}>
+            <span>
+              <img src={google} alt="" />
+            </span>
+          </button>
           <div className={style.href}>
             <span className={style.span}>Not registred?</span>
             <NavLink to={RouteConstant.RegPage} className={style.link}>

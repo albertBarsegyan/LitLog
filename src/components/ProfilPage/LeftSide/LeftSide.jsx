@@ -3,17 +3,14 @@ import { NavLink, Link, useNavigate } from 'react-router-dom'
 import Icons from '../../../assets/images/icons/Icons'
 import { Icon } from '../../../constants/PropsIcon'
 import { RouteConstant } from '../../../constants/RouteCostant'
-
 import { usePopUp } from '../../../context/popup'
 import { useAuth } from '../../../context/auth.context'
 
 const LeftSide = () => {
   const { setModaleActive } = usePopUp(false)
   const { signOut } = useAuth()
-  const navigate = useNavigate()
   const handleOutSubmit = () => {
     signOut()
-    navigate(RouteConstant.LoginPage)
   }
   return (
     <div className={style.leftSide}>

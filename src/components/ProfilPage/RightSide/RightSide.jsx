@@ -16,8 +16,7 @@ const RightSide = () => {
         </label>
       </div>
       <div className={style.minDiv}>
-        <Icons bell={Icon.bell} />
-        <img className={style.userImg} src={user?.profilePhotoFile} alt="" />
+        <img className={style.userImg} src={user?.photoURl} alt="" />
       </div>
     </div>
   )

@@ -196,8 +196,9 @@ export const editUserService = ({ fullName, profilePhotoFile }) => {
               firebaseCloudStorage,
               user.photoURL
             )
-
-            await deleteObject(oldProfilePictureStorageRef)
+            if (oldProfilePictureStorageRef) {
+              await deleteObject(oldProfilePictureStorageRef)
+            }
 
             await updateProfile(user, {
               photoURL: uploadedFileUrl,

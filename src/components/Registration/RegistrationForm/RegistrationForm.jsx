@@ -7,11 +7,8 @@ import {
 } from '../../../constants/errorMessage'
 import style from './registrationForm.module.css'
 import { useAuth } from '../../../context/auth.context'
-import { useNavigate } from 'react-router'
-import { RouteConstant } from '../../../constants/RouteCostant'
 
 const RegistrationForm = () => {
-  const navigate = useNavigate()
   const { signUp, googleAuth } = useAuth()
 
   const {
@@ -37,21 +34,15 @@ const RegistrationForm = () => {
   const onSubmit = async (data) => {
     reset()
     await signUp(data)
-    navigate(RouteConstant.ProfilPage)
   }
 
   const handleGoogleSubmit = async () => {
-    await googleAuth(google)
-    navigate(RouteConstant.ProfilPage)
+    await googleAuth()
   }
 
   return (
     <div className={style.bigDiv}>
-      <button
-        onClick={handleGoogleSubmit}
-        {...register('google')}
-        className={style.googleBtn}
-      >
+      <button onClick={handleGoogleSubmit} className={style.googleBtn}>
         <img src={google} alt="" className={style.googleImg} /> Sign up with
         Google
       </button>
