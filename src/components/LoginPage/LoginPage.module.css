@@ -1,13 +1,14 @@
-.lol{
+.lol {
     background-color: var(--backGrey);
 }
+
 .form {
     background-color: var(--white);
     display: inline-block;
     padding: 35px;
     border-radius: 15px;
     font-family: "Poppins";
-    
+
     /* background-color: var(--backGrey); */
 }
 
@@ -48,22 +49,32 @@
 .loginButton {
     padding: 10px 20px;
     font-size: 16.5px;
+    width: 100%;
 }
 
 .span {
     font-size: 20px;
 }
 
-.but {
+.loginOr {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.but {
     align-items: center;
+    margin-bottom: 15px;
+}
+
+.googleBut {
+    width: 100%;
     margin-bottom: 15px;
 }
 
 .googleBut span img {
     padding: 1px 20px;
-    height: 30px;
+    height: 40px;
 }
 
 .href {

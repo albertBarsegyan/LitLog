@@ -31,7 +31,7 @@ const PopUp = () => {
       console.error('rtew ' + error)
     }
   }
-  console.log(user?.displayName)
+  // console.log(user?.displayName)
 
   return (
     <Modal active={modaleActive} setActive={setModaleActive}>

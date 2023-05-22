@@ -96,9 +96,8 @@ function LoginPage() {
                 className={style.loginButton}
               >
                 Login
-              </button>
-
-              <span>OR</span>
+              </button>{' '}
+              <span className={style.loginOr}>OR</span>
             </div>
           </form>
           <button onClick={googleWithAcount} className={style.googleBut}>
