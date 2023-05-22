@@ -1,8 +1,7 @@
 .side {
     display: flex;
-    background-color: #151524;
+    background-color: var(--profileColor);
 }
-
 .cen {
     display: flex;
     justify-content: center;
@@ -10,7 +9,6 @@
     flex-wrap: wrap;
 
 }
-
 .cont:first-child {
     font-size: 25px;
     margin-bottom: 40px;

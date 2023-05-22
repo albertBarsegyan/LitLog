@@ -7,8 +7,6 @@ const Icons = ({
   singIn,
   singUp,
   search,
-  bell,
-  pen,
 }) => {
   return (
     <>
@@ -20,8 +18,6 @@ const Icons = ({
       {singOut}
       {article}
       {search}
-      {bell}
-      {pen}
     </>
   )
 }

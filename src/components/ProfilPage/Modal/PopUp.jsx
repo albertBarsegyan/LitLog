@@ -8,7 +8,7 @@ import { useState } from 'react'
 const PopUp = () => {
   const { user, editUser } = useAuth()
   const { modaleActive, setModaleActive } = usePopUp()
-  const [fullName, setFullName] = useState(user?.displayName)
+  const [fullNameEdit, setFullNameEdit] = useState(user.displayName)
 
   const handlePhotoEdit = (e) => {
     // e.preventDefault()
@@ -16,32 +16,34 @@ const PopUp = () => {
     console.log(photo)
     editUser({ profilePhotoFile: photo })
   }
-  console.log(user)
   // const fullName = user?.displayName.split(' ') || []
 
-  // const handleChangeName = (e) => {
-  //   setFullName(e.target.value)
-  // }
+  const handleChangeName = (e) => {
+    setFullNameEdit(e.target.value)
+  }
 
-  // const handleEditFullName = async () => {
-  //   try {
-  //     await editUser({ fullName: fullName.displayName })
-  //     user.displayName = fullName
-  //     console.log('Edit yes ' + user?.displayName)
-  //   } catch (error) {
-  //     console.error('rtew ' + error)
-  //   }
-  // }
+  const handleEditFullName = () => {
+    try {
+      editUser({ fullName: fullNameEdit })
+      // user.displayName = fullName
+      console.log('Edit yes ' + fullNameEdit)
+    } catch (error) {
+      console.error('rtew ' + error)
+    }
+  }
+  console.log(user?.displayName)
 
   return (
     <Modal active={modaleActive} setActive={setModaleActive}>
       <div className={modal.modSpan}>
-        <input />
-        {/* // value={fullName} onChange={handleChangeName} */}
-        <button>
-          {/* // onClick={handleEditFullName} */}
-          Edit
-        </button>
+        <input
+          // value={user?.displayName}
+          // onChange={(e) => e.target.value}
+          className={modal.nameInput}
+          value={fullNameEdit}
+          onChange={handleChangeName}
+        />
+        <button onClick={handleEditFullName}>Edit</button>
       </div>
 
       <form>

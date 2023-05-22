@@ -3,6 +3,7 @@ import LeftSide from './LeftSide/LeftSide'
 import RightSide from './RightSide/RightSide'
 import CenterSite from './CenterSite/CenterSite'
 import PopUp from './Modal/PopUp'
+import NavBar from './RightSide/NavBar/Navbar'
 // import FriendsPage from './FrindsPage/FriendsPage'
 
 const ProfilPage = () => {
@@ -19,6 +20,7 @@ const ProfilPage = () => {
         {/* <Books /> */}
       </div>
       <PopUp />
+      {/* <NavBar /> */}
     </div>
   )
 }
