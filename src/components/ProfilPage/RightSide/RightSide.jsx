@@ -13,7 +13,7 @@ const RightSide = () => {
   const handleOutSubmit = () => signOut()
 
   return (
-    <div className={style.container}>
+    <div className={style.container} onClick={handleOpenDropDown}>
       <div className={style.rightDiv}>
         <div className={style.maxDiv}>
           <label className={style.labInp}>

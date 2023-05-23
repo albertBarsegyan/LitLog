@@ -12,7 +12,9 @@ const Modal = ({ active, setActive, children }) => {
         }
         onClick={(e) => e.stopPropagation()}
       >
+
         {children}
+        
       </div>
     </div>
   )

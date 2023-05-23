@@ -16,7 +16,6 @@ const PopUp = () => {
     console.log(photo)
     editUser({ profilePhotoFile: photo })
   }
-  // const fullName = user?.displayName.split(' ') || []
 
   const handleChangeName = (e) => {
     setFullNameEdit(e.target.value)
@@ -24,21 +23,18 @@ const PopUp = () => {
 
   const handleEditFullName = () => {
     try {
+      user.displayName = fullNameEdit
       editUser({ fullName: fullNameEdit })
-      // user.displayName = fullName
       console.log('Edit yes ' + fullNameEdit)
     } catch (error) {
       console.error('rtew ' + error)
     }
   }
-  // console.log(user?.displayName)
 
   return (
     <Modal active={modaleActive} setActive={setModaleActive}>
       <div className={modal.modSpan}>
         <input
-          // value={user?.displayName}
-          // onChange={(e) => e.target.value}
           className={modal.nameInput}
           value={fullNameEdit}
           onChange={handleChangeName}

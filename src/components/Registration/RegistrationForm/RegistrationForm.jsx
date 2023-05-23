@@ -20,10 +20,10 @@ const RegistrationForm = () => {
   } = useForm({
     mode: 'all',
     defaultValues: {
-      firstname: '',
-      lastname: '',
       email: '',
       password: '',
+      firstname: '',
+      lastname: '',
     },
   })
 
