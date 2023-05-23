@@ -7,7 +7,7 @@ import style from '../RightSide/rightSide.module.css'
 
 const RightSide = () => {
   const { user, signOut } = useAuth()
-  const { modaleActive, setModaleActive } = usePopUp()
+  const { setModaleActive } = usePopUp()
   const [openNav, setOpenNav] = useState(false)
   const handleOpenDropDown = () => setOpenNav(!openNav)
   const handleOutSubmit = () => signOut()
