@@ -11,7 +11,6 @@ const PopUp = () => {
   const [fullNameEdit, setFullNameEdit] = useState(user.displayName)
 
   const handlePhotoEdit = (e) => {
-    // e.preventDefault()
     const photo = e.target.files[0]
     console.log(photo)
     editUser({ profilePhotoFile: photo })
@@ -23,7 +22,6 @@ const PopUp = () => {
 
   const handleEditFullName = () => {
     try {
-      user.displayName = fullNameEdit
       editUser({ fullName: fullNameEdit })
       console.log('Edit yes ' + fullNameEdit)
     } catch (error) {
@@ -54,7 +52,7 @@ const PopUp = () => {
               onChange={handlePhotoEdit}
             />
           </label>
-          <img src={user?.photoURL?.uploadedFileUrl} alt="tgfds" />
+          <img src={user?.photoURL} alt="tgfds" />
         </div>
       </form>
       <EditModal />
