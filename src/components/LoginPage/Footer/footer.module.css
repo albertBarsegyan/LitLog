@@ -11,15 +11,3 @@ footer p {
     color: var(--white);
     font-family: "Poppins";
 }
-
-footer .link {
-    text-decoration: none;
-    font-size: 18px;
-    color: var(--white);
-    margin-right: 25px;
-    font-family: "Poppins";
-}
-
-footer .link:hover {
-    text-decoration: underline;
-}

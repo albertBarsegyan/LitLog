@@ -1,68 +1,37 @@
-/* .container{
-    max-width: 1300px;
-    padding: 35px;
-} */
 
 .inpSearch {
-    border: none;
-    outline: none;
-    background: none;
-    width: 600px;
-    font-size: 25px;
-    margin-top: 50px;
-    color:var(--white);    
+  border: none;
+  outline: none;
+  background: none;
+  width: 600px;
+  font-size: 25px;
+  margin-top: 50px;
+  color: var(--white);
 }
 
 .rightDiv {
-    display: flex;
+  display: flex;
 }
 
 .maxDiv {
-    margin-right: 180px;
+  margin-right: 180px;
 }
 
 .labInp {
-    border: 1px solid var(--white);
-    padding: 15px;
-    border-radius: 10px;
-    margin-left: 45px;
+  border: 1px solid var(--white);
+  padding: 15px;
+  border-radius: 10px;
+  margin-left: 45px;
 }
 
 .userImg {
-    width: 60px;
-    height: 60px;
-    margin-left: 47px;
-    margin-top: 35px;
-    cursor: pointer;
+  width: 60px;
+  height: 60px;
+  margin-left: 47px;
+  margin-top: 35px;
+  cursor: pointer;
+  border-radius: 50%;
 }
-
-.close{
-    visibility: hidden;
-    pointer-events: none;
-}
-
-.open{
-    pointer-events: all;
-    background-color: var(--white);
-    padding: 15px;
-    overflow: hidden;
-    visibility: visible;
-    z-index: 1000;
-    transition: .4s;
-    position: relative;
-    top: 100px;left: -8.2%;right:0;
-    border-radius: 15px;
-}
-
-.btn {
-    cursor: pointer;
-    width: 100%;
-    color: var(--lightBlack);
-    background-color: transparent;
-    font-family: "Poppins";
-    padding: 5px;
-    display: flex;
-    align-items:center;
-    justify-content: center;
-    border-radius: 15px;
+.minDiv{
+  position: relative;
 }

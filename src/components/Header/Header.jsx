@@ -1,8 +1,8 @@
 import { NavLink } from 'react-router-dom'
 import logo from '../../assets/images/logo.jpg'
 import style from './header.module.css'
-import Login from '../Button/LoginBut'
-import RegIn from '../Button/ReginBut'
+import HeaderButton from '../Button/Button2/HeaderButton'
+import { RouteConstant } from '../../constants/RouteCostant'
 
 function Header() {
   return (
@@ -14,8 +14,8 @@ function Header() {
       </div>
 
       <div className={style.button}>
-        <Login />
-        <RegIn />
+        <HeaderButton rout={RouteConstant.LoginPage}>Sign In</HeaderButton>
+        <HeaderButton rout={RouteConstant.RegPage}>Sign Up</HeaderButton>
       </div>
     </header>
   )

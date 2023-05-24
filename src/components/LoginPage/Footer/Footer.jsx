@@ -1,20 +1,18 @@
-import { Link } from 'react-router-dom'
-import style from './footer.module.css'
+import './footer.module.css'
 import { RouteConstant } from '../../../constants/RouteCostant'
+import HeaderButton from '../../Button/Button2/HeaderButton'
 
 const Footer = () => {
+  // const st = {
+  //   color: 'white',
+  // }
   return (
     <footer>
       <p>&copy; All Rights Reserved from K.A.S.A. </p>
       <div>
-        <Link
-          className={style.link}
-          to={{
-            pathname: RouteConstant.RegPage,
-          }}
-        >
+        <HeaderButton color={{ color: 'white' }} rout={RouteConstant.RegPage}>
           Sign Up
-        </Link>
+        </HeaderButton>
       </div>
     </footer>
   )

@@ -1,9 +1,9 @@
 import style from './header.module.css'
 import Logo from '../../../assets/images/logo.jpg'
-import Login from '../../Button/LoginBut'
 import { NavLink, Route, Routes } from 'react-router-dom'
 import { Registration } from '../Registration'
 import { RouteConstant } from '../../../constants/RouteCostant'
+import HeaderButton from '../../Button/Button2/HeaderButton'
 
 const Header = () => {
   return (
@@ -15,11 +15,8 @@ const Header = () => {
       </div>
 
       <div className={style.hrefs}>
-        <Login />
+        <HeaderButton rout={RouteConstant.LoginPage}>Sign In</HeaderButton>
       </div>
-      <Routes>
-        <Route path={RouteConstant.RegPage} element={<Registration />} />
-      </Routes>
     </header>
   )
 }

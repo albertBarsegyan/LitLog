@@ -1,15 +1,32 @@
-.box{
-    display: flex;
-    height: 80px;
+.close {
+  visibility: hidden;
+  pointer-events: none;
 }
-.closeAndOpen{
-    /* display: flex; */
-    /* align-items: center; */
-    font-size: 22px;
-    line-height: 28px;
-    display: none;
-}.active{
-    display: block;
-    font-size: 52px;
 
+.open {
+  pointer-events: all;
+  background-color: var(--white);
+  padding: 15px;
+  overflow: hidden;
+  visibility: visible;
+  z-index: 1000;
+  transition: 0.4s;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  border-radius: 15px;
+}
+
+.btn {
+  cursor: pointer;
+  width: 100%;
+  color: var(--lightBlack);
+  background-color: transparent;
+  font-family: 'Poppins';
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
 }
