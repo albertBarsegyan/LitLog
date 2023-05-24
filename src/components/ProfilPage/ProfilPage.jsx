@@ -17,7 +17,7 @@ const ProfilPage = () => {
       <div>
         <RightSide />
         <CenterSite />
-        <FriendsPage />
+        {/* <FriendsPage /> */}
         {/* <Books /> */}
       </div>
       <PopUp />

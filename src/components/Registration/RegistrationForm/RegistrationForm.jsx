@@ -20,10 +20,10 @@ const RegistrationForm = () => {
   } = useForm({
     mode: 'all',
     defaultValues: {
-      firstname: '',
-      lastname: '',
       email: '',
       password: '',
+      firstname: '',
+      lastname: '',
     },
   })
 
@@ -129,7 +129,6 @@ const RegistrationForm = () => {
             placeholder="Email"
           />
         </label>
-
         <div>
           {errors?.password && (
             <p className={style.errormess}>
