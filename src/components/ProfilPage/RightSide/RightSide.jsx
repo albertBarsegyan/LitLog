@@ -12,25 +12,27 @@ const RightSide = () => {
   const handleOpenDropDown = () => setOpenNav(!openNav)
 
   return (
-    <div className={style.container} onClick={handleOpenDropDown}>
-      <div className={style.rightDiv}>
-        <div className={style.maxDiv}>
-          <label className={style.labInp}>
-            <input className={style.inpSearch} type="text" />
-            <Icons search={Icon.search} />
-          </label>
-        </div>
-        <div className={style.minDiv}>
-          <img
-            onClick={handleOpenDropDown}
-            className={style.userImg}
-            src={user?.photoURl}
-            alt=""
-          />
+    <>
+      <div className={style.container} onClick={handleOpenDropDown}>
+        <div className={style.rightDiv}>
+          <div className={style.maxDiv}>
+            <label className={style.labInp}>
+              <input className={style.inpSearch} type="text" />
+              <Icons search={Icon.search} />
+            </label>
+          </div>
+          <div className={style.minDiv}>
+            <img
+              onClick={handleOpenDropDown}
+              className={style.userImg}
+              src={user?.photoURl}
+              alt=""
+            />
+          </div>
         </div>
       </div>
       <Navbar openNav={openNav} setOpenNav={setOpenNav} />
-    </div>
+    </>
   )
 }
 

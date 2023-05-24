@@ -1,4 +1,3 @@
-import EditModal from '../../Button/EditModal'
 import modal from './modal.module.css'
 import Modal from './Modal'
 import { usePopUp } from '../../../context/popup'
@@ -38,7 +37,6 @@ const PopUp = () => {
           onChange={handleChangeName}
         />
         <Button onClick={handleEditFullName}>Edit</Button>
-        {/* <button onClick={handleEditFullName}>Edit</button> */}
       </div>
 
       <form>
