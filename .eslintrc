@@ -1,18 +1,17 @@
- {
-     "extends": [
-         "react-app",
-         "prettier",
-         "eslint:recommended",
-         "eslint-config-prettier"
-     ],
-     "plugins": [
-         "prettier"
-     ],
-     "rules": {
-         "no-unused-vars": "off",
-         "prettier/prettier": [
-             "error"
-         ]
-     }
- }
-
+{
+    "extends": [
+        "react-app",
+        "prettier",
+        "eslint:recommended",
+        "eslint-config-prettier"
+    ],
+    "plugins": [
+        "prettier"
+    ],
+    "rules": {
+        "no-unused-vars": "off",
+        "prettier/prettier": [
+            "error"
+        ]
+    }
+}

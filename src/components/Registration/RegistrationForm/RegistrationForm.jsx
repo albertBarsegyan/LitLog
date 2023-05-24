@@ -129,7 +129,6 @@ const RegistrationForm = () => {
             placeholder="Email"
           />
         </label>
-
         <div>
           {errors?.password && (
             <p className={style.errormess}>
