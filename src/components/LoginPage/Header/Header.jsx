@@ -2,9 +2,9 @@
 import logo from '../../../assets/images/logo.jpg'
 import style from './header.module.css'
 import { NavLink, Route, Routes } from 'react-router-dom'
-import RegIn from '../../Button/ReginBut'
 import { RouteConstant } from '../../../constants/RouteCostant'
 import LoginPage from '../LoginPage'
+import HeaderButton from '../../Button/Button2/HeaderButton'
 
 const Header = () => {
   return (
@@ -16,11 +16,8 @@ const Header = () => {
       </div>
 
       <div>
-        <RegIn />
+        <HeaderButton rout={RouteConstant.RegPage}>Sign Up</HeaderButton>
       </div>
-      <Routes>
-        <Route path={RouteConstant.LoginPage} element={<LoginPage />} />
-      </Routes>
     </header>
   )
 }

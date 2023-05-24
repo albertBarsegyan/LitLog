@@ -4,13 +4,12 @@ import { Icon } from '../../../constants/PropsIcon'
 import { useAuth } from '../../../context/auth.context'
 import { usePopUp } from '../../../context/popup'
 import style from '../RightSide/rightSide.module.css'
+import Navbar from './NavBar/Navbar'
 
 const RightSide = () => {
-  const { user, signOut } = useAuth()
-  const { setModaleActive } = usePopUp()
+  const { user } = useAuth()
   const [openNav, setOpenNav] = useState(false)
   const handleOpenDropDown = () => setOpenNav(!openNav)
-  const handleOutSubmit = () => signOut()
 
   return (
     <div className={style.container} onClick={handleOpenDropDown}>
@@ -29,21 +28,8 @@ const RightSide = () => {
             alt=""
           />
         </div>
-        <div className={openNav ? `${style.open}` : `${style.close}`}>
-          <button
-            onClick={() => setModaleActive(true)}
-            style={{ marginBottom: 15 }}
-            className={style.btn}
-          >
-            <Icons setting={Icon.setting} />
-            <span style={{ paddingLeft: 10 }}>Settings</span>
-          </button>
-          <button onClick={handleOutSubmit} className={style.btn}>
-            <Icons singOut={Icon.singOut} />
-            <span style={{ paddingLeft: 10 }}>Log Out</span>
-          </button>
-        </div>
       </div>
+      <Navbar openNav={openNav} setOpenNav={setOpenNav} />
     </div>
   )
 }
