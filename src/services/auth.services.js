@@ -199,10 +199,11 @@ export const editUserService = ({ fullName, profilePhotoFile }) => {
             if (oldProfilePictureStorageRef) {
               await deleteObject(oldProfilePictureStorageRef)
             }
-
-            await updateProfile(user, {
-              photoURL: uploadedFileUrl,
-            })
+            if (user) {
+              await updateProfile(user, {
+                photoURL: uploadedFileUrl,
+              })
+            }
 
             await updateDoc(userDocumentReference, {
               photoURL: uploadedFileUrl,

@@ -1,19 +1,7 @@
-// import style from './friends.module.css'
-// import { userAuth } from '../../../context/auth.context'
-// import friends from '../../../constants/friends'
+import style from './friends.module.css'
 
-// const FriendsPage = () => {
-//     return (
-//         <div>
-//             {friends.map((item) => {
-//                 return (
-//                     <div key={item.id}>
-//                         <p>{item.name}</p>
-//                     </div>
-//                 )
-//             })}
-//         </div>
-//     )
-// }
+const FriendsPage = () => {
+  return <div>jhmgfdghjhgf</div>
+}
 
-// export default FriendsPage
+export default FriendsPage
