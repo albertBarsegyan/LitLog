@@ -3,7 +3,6 @@ import { NavLink, Link, Route, Routes } from 'react-router-dom'
 import Icons from '../../../assets/images/icons/Icons'
 import { Icon } from '../../../constants/PropsIcon'
 import { RouteConstant } from '../../../constants/RouteCostant'
-import Books from '../../Books/Books'
 
 const LeftSide = () => {
   return (

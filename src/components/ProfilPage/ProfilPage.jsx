@@ -15,8 +15,7 @@ const ProfilPage = () => {
         <div>
           <LeftSide />
         </div>
-        <div></div>
-        <div>
+        <div style={{ borderLeft: '1px solid' }}>
           <RightSide />
           <CenterSite />
         </div>
