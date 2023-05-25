@@ -5,3 +5,9 @@ export const firebaseUserDataFilter = (user) => ({
   displayName: user.displayName,
   photoURL: user.photoURL,
 })
+
+export const getStoragePathFromDownloadUrl = (downloadUrl) => {
+  const bucketUrl = 'https://storage.googleapis.com/'
+  const storagePath = downloadUrl.replace(bucketUrl, '')
+  return decodeURIComponent(storagePath)
+}
