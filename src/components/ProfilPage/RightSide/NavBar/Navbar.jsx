@@ -4,6 +4,7 @@ import { Icon } from '../../../../constants/PropsIcon'
 import Icons from '../../../../assets/images/icons/Icons'
 import { usePopUp } from '../../../../context/popup'
 import { useAuth } from '../../../../context/auth.context'
+import Button from '../../../Button/Button1/Button'
 
 const Navbar = ({ openNav }) => {
   const { signOut } = useAuth()
@@ -19,6 +20,7 @@ const Navbar = ({ openNav }) => {
         <Icons setting={Icon.setting} />
         <span style={{ paddingLeft: 10 }}>Settings</span>
       </button>
+
       <button onClick={handleOutSubmit} className={style.btn}>
         <Icons singOut={Icon.singOut} />
         <span style={{ paddingLeft: 10 }}>Log Out</span>
