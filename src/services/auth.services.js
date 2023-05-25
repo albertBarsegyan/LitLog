@@ -16,10 +16,14 @@ import {
   FirebaseCloudStorages,
   FirebaseDocument,
 } from '../constants/firebase.constants'
-import { firebaseUserDataFilter } from '../utils/firebase.utils'
+import {
+  firebaseUserDataFilter,
+  getStoragePathFromDownloadUrl,
+} from '../utils/firebase.utils'
 import {
   deleteObject,
   getDownloadURL,
+  getMetadata,
   ref,
   uploadBytesResumable,
 } from 'firebase/storage'
@@ -170,6 +174,29 @@ export const editUserService = ({ fullName, profilePhotoFile }) => {
     }
 
     if (profilePhotoFile) {
+      const oldProfilePictureStoragePath = getStoragePathFromDownloadUrl(
+        user.photoURL
+      )
+
+      const oldProfilePictureStorageRef = ref(
+        firebaseCloudStorage,
+        oldProfilePictureStoragePath
+      )
+
+      const oldProfilePictureStorageMetadata = getMetadata(
+        oldProfilePictureStorageRef
+      )
+
+      oldProfilePictureStorageMetadata.then(() => {
+        deleteObject(oldProfilePictureStorageRef).catch((error) => {
+          reject({
+            data: null,
+            errorCode: error.code,
+            errorMessage: error.message,
+          })
+        })
+      })
+
       const storageRef = ref(
         firebaseCloudStorage,
         `${FirebaseCloudStorages.ProfileImage}/${profilePhotoFile.name}`
@@ -192,18 +219,9 @@ export const editUserService = ({ fullName, profilePhotoFile }) => {
               uploadTask.snapshot.ref
             )
 
-            const oldProfilePictureStorageRef = ref(
-              firebaseCloudStorage,
-              user.photoURL
-            )
-            if (oldProfilePictureStorageRef) {
-              await deleteObject(oldProfilePictureStorageRef)
-            }
-            if (user) {
-              await updateProfile(user, {
-                photoURL: uploadedFileUrl,
-              })
-            }
+            await updateProfile(user, {
+              photoURL: uploadedFileUrl,
+            })
 
             await updateDoc(userDocumentReference, {
               photoURL: uploadedFileUrl,
