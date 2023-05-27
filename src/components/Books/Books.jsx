@@ -1,19 +1,16 @@
 import { Link } from 'react-router-dom'
 import books from '../../constants/books'
 import style from './book.module.css'
+import BooksFrom from './BooksForm/BooksFrom'
+import { useState } from 'react'
+import Button from '../Button/Button1/Button'
+import { styling } from '../../constants/style'
+
 const Books = () => {
+  const [openForm, setOpenForm] = useState(false)
+  const handleOpenForm = () => setOpenForm(!openForm)
   return (
     <div>
-      {/* <div className={style.bar}>
-        <LeftSide />
-        <RightSide />
-      </div> */}
-
-      <form>
-        <input type="text" placeholder="Book Name" />
-        <input type="text" placeholder="Author Name" />
-        <input type="file" />
-      </form>
       <div className={style.mainDin}>
         {books.map((item) => {
           return (
@@ -25,6 +22,12 @@ const Books = () => {
           )
         })}
       </div>
+      <div style={{ textAlign: 'center' }}>
+        <Button onClick={handleOpenForm} styles={styling}>
+          Add new book
+        </Button>
+      </div>
+      {openForm ? <BooksFrom /> : null}
     </div>
   )
 }

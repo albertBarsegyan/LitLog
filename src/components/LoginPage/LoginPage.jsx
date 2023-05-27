@@ -1,14 +1,13 @@
 import loginUser from '../../assets/images/loginUser.png'
 import style from './LoginPage.module.css'
 import google from '../../assets/images/google.png'
-import Footer from './Footer/Footer'
-import Header from './Header/Header'
 import { errorMes, requeridMes } from '../../constants/errorMessage'
 import { useForm } from 'react-hook-form'
 import { NavLink } from 'react-router-dom'
 import { RouteConstant } from '../../constants/RouteCostant'
 import { useAuth } from '../../context/auth.context'
-
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 function LoginPage() {
   const { signIn, googleAuth } = useAuth()
 

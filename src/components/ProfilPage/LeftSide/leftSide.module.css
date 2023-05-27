@@ -1,9 +1,7 @@
 .leftSide {
     max-width: 360px;
-    /* border-right: 1px solid #292938; */
     height: 100%;
     display: inline-block;
-    /* height: 100%; */
 }
 
 .logo {

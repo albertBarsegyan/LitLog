@@ -1,5 +1,6 @@
 import Books from '../Books/Books'
 import LeftSide from '../ProfilPage/LeftSide/LeftSide'
+import PopUp from '../ProfilPage/Modal/PopUp'
 import RightSide from '../ProfilPage/RightSide/RightSide'
 import style from './book.module.css'
 const Book = () => {
@@ -10,6 +11,7 @@ const Book = () => {
         <RightSide />
         <Books />
       </div>
+      <PopUp />
     </div>
   )
 }

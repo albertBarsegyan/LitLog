@@ -112,60 +112,6 @@ const books = [
     name: 'Suicide Squad #8',
     desc: 'Tom Taylor',
   },
-  {
-    id: 16,
-    img: books4,
-    name: 'Suicide Squad #8',
-    desc: 'Tom Taylor',
-  },
-  {
-    id: 17,
-    img: books1,
-    name: 'Suicide Squad #8',
-    desc: 'Tom Taylor',
-  },
-  {
-    id: 18,
-    img: books2,
-    name: 'Suicide Squad #8',
-    desc: 'Tom Taylor',
-  },
-  {
-    id: 16,
-    img: books4,
-    name: 'Suicide Squad #8',
-    desc: 'Tom Taylor',
-  },
-  {
-    id: 17,
-    img: books1,
-    name: 'Suicide Squad #8',
-    desc: 'Tom Taylor',
-  },
-  {
-    id: 18,
-    img: books2,
-    name: 'Suicide Squad #8',
-    desc: 'Tom Taylor',
-  },
-  {
-    id: 16,
-    img: books4,
-    name: 'Suicide Squad #8',
-    desc: 'Tom Taylor',
-  },
-  {
-    id: 17,
-    img: books1,
-    name: 'Suicide Squad #8',
-    desc: 'Tom Taylor',
-  },
-  {
-    id: 18,
-    img: books2,
-    name: 'Suicide Squad #8',
-    desc: 'Tom Taylor',
-  },
 ]
 
 export default books
