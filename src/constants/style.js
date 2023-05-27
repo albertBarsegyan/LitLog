@@ -12,4 +12,5 @@ export const styling = {
   boxShadow: '0 2px 4px rgba(0, 0, 0, 0.15)',
   transition: 'background-color 0.3s ease',
   cursor: 'pointer',
+  fontFamily: 'Poppins',
 }

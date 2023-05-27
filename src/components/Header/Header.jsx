@@ -8,11 +8,11 @@ function Header() {
   return (
     <header>
       <div>
-        <NavLink>
+        <NavLink to={RouteConstant.FirstPage}>
           <img className={style.logo} src={logo} alt="logo" />
         </NavLink>
       </div>
-
+      .
       <div className={style.button}>
         <HeaderButton rout={RouteConstant.LoginPage}>Sign In</HeaderButton>
         <HeaderButton rout={RouteConstant.RegPage}>Sign Up</HeaderButton>

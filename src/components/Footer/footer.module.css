@@ -4,21 +4,16 @@ footer {
     justify-content: space-between;
     align-items: center;
 }
-
-footer p {
+.copyRight{
     font-size: 20px;
-    padding: 25px;
+    padding: 25px 15px;
     color: var(--white);
     font-family: "Poppins";
+    text-align: center;
 }
-
-footer .link {
-    text-decoration: none;
-    font-size: 18px;
-    color: var(--white);
-    margin-right: 25px;
-    font-family: "Poppins";
+.socialMediaParagraph:nth-child(-n+3){
+    padding-right: 15px;
 }
-footer .link:hover{
-    text-decoration: underline;
+.socialMediaParagraph:hover{
+    opacity: .5;
 }

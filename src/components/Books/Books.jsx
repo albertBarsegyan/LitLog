@@ -22,7 +22,7 @@ const Books = () => {
           )
         })}
       </div>
-      <div style={{ textAlign: 'center' }}>
+      <div>
         <Button onClick={handleOpenForm} styles={styling}>
           Add new book
         </Button>
