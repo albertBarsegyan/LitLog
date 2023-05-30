@@ -9,11 +9,10 @@ function App() {
     return <h1>Loading...</h1>
   }
 
-  if (!user) {
-    return <UnauthenticatedApp />
+  if (user) {
+    return <AuthenticatedApp />
   }
-
-  return <AuthenticatedApp />
+  return <UnauthenticatedApp />
 }
 
 export default App

@@ -3,8 +3,10 @@ import { RouteConstant } from '../constants/RouteCostant'
 import { FirstPage } from '../components/FirstPage/FirstPage'
 import LoginPage from '../components/LoginPage/LoginPage'
 import { Registration } from '../components/Registration/Registration'
+import { useAuth } from '../context/auth.context'
 
 function UnauthenticatedApp() {
+  const { user } = useAuth()
   return (
     <>
       <Routes>

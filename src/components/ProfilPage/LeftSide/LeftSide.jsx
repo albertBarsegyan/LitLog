@@ -1,10 +1,12 @@
 import style from './leftSide.module.css'
-import { NavLink, Link, Route, Routes } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import Icons from '../../../assets/images/icons/Icons'
 import { Icon } from '../../../constants/PropsIcon'
 import { RouteConstant } from '../../../constants/RouteCostant'
 
 const LeftSide = () => {
+  // const handleActiveClass =
+
   return (
     <div className={style.leftSide}>
       <div className={style.header}>

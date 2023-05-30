@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom'
-import books from '../../constants/books'
+import books from '../../../constants/books'
 import style from './book.module.css'
 import BooksFrom from './BooksForm/BooksFrom'
 import { useState } from 'react'
-import Button from '../Button/Button1/Button'
-import { styling } from '../../constants/style'
+import Button from '../../Button/Button1/Button'
+import { styling } from '../../../constants/style'
 
 const Books = () => {
   const [openForm, setOpenForm] = useState(false)
@@ -22,12 +22,12 @@ const Books = () => {
           )
         })}
       </div>
-      <div>
+      <div style={{ marginLeft: 20 }}>
         <Button onClick={handleOpenForm} styles={styling}>
           Add new book
         </Button>
       </div>
-      {openForm ? <BooksFrom /> : null}
+      {openForm && <BooksFrom />}
     </div>
   )
 }

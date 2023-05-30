@@ -9,7 +9,6 @@ import { useAuth } from '../../../context/auth.context'
 
 function LoginPage() {
   const { signIn, googleAuth } = useAuth()
-
   const {
     register,
     formState: { errors, isDirty, isValid },
@@ -26,10 +25,6 @@ function LoginPage() {
   const onSubmit = (data) => {
     reset()
     signIn(data)
-  }
-
-  const googleWithAcount = () => {
-    googleAuth()
   }
 
   const isDisableSubmit = !isDirty || !isValid
@@ -97,7 +92,7 @@ function LoginPage() {
               <span className={style.loginOr}>OR</span>
             </div>
           </form>
-          <button onClick={googleWithAcount} className={style.googleBut}>
+          <button onClick={() => googleAuth()} className={style.googleBut}>
             <span>
               <img src={google} alt="" />
             </span>
