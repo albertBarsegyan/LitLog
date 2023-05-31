@@ -2,32 +2,23 @@ import { useState } from 'react'
 import style from './book.module.css'
 import { Link } from 'react-router-dom'
 import { RouteConstant } from '../../constants/RouteCostant'
-
-const RegEx = /^\d*$/
+import { numberRegEx } from '../../constants/RegExp'
 
 const BookCount = () => {
   const [number, setNumber] = useState('')
 
   const handleChange = (e) => {
     const value = e.target.value
-    if (RegEx.test(value) && value <= 365 && value >= 1) {
+    if (numberRegEx.test(value) && value <= 365 && value >= 1) {
       setNumber(value)
     }
   }
 
   return (
-    <div
-      style={{
-        height: '100vh',
-        color: 'white',
-        backgroundColor: '#151524',
-        display: 'flex',
-        flexDirection: 'column',
-      }}
-    >
-      <h1 className={style.wHead}> Welcome LitLog</h1>
-      <div className={style.parDiv}>
-        <p className={style.content}>
+    <div className={style.countDiv}>
+      <h1 className={style.countHeadDiv}> Welcome LitLog</h1>
+      <div className={style.countDiv2}>
+        <p className={style.countDivContent}>
           Welcome to LitLog, the online platform for all things literature!
           Here, you'll find a wealth of resources to help you deepen your
           understanding and appreciation of books, authors, and literary works
@@ -36,23 +27,21 @@ const BookCount = () => {
           explore and engage with the world of words.
         </p>
         <label>
-          <p className={style.lebPar}>
-            {' '}
-            <span className={style.lebSpan}>E</span>nter quantity to read books
+          <p className={style.countDivContent2}>
+            <span>E</span>nter quantity to read books
           </p>
           <input
-            className={style.inpNum}
-            placeholder="book count"
+            className={style.countDivInput}
+            placeholder="Book count"
             value={number}
             onChange={handleChange}
           />
         </label>
-        <Link to={RouteConstant.ProfilPage} className={style.btnN}>
+        <Link to={RouteConstant.ProfilPage} className={style.countDivButton}>
           Next
         </Link>
       </div>
     </div>
   )
 }
-
 export default BookCount
