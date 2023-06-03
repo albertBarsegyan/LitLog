@@ -25,7 +25,8 @@ const RightSide = () => {
             <img
               onClick={handleOpenDropDown}
               className={style.userImg}
-              src={user?.photoURl}
+              // src={user?.photoURL}
+              src="https://lh3.googleusercontent.com/a/AGNmyxZCFC2OpGuGMiJmyKeb_y8WbJHy4CyhWAuYtEWW=s96-c"
               alt=""
             />
           </div>

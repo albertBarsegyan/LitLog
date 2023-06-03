@@ -78,12 +78,12 @@ export const AuthProvider = ({ children }) => {
       profilePhotoFile: renameFile({ file: profilePhotoFile, fileName: uid }),
     })
 
-    setUser(data || null)
+    setUser(data || profilePhotoFile)
 
     setIsLoading(false)
     setError({
-      code: errorCode || null,
-      message: errorMessage || null,
+      code: errorCode || profilePhotoFile,
+      message: errorMessage || profilePhotoFile,
     })
   }
 

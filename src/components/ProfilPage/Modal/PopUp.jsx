@@ -16,6 +16,8 @@ const PopUp = () => {
     console.log(user?.photoURL)
   }
 
+  // console.log(user?.photoURL)
+
   const handleChangeName = (e) => {
     setFullNameEdit(e.target.value)
   }
