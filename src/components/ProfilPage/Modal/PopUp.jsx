@@ -16,6 +16,8 @@ const PopUp = () => {
     editUser({ profilePhotoFile: photo })
   }
 
+  // console.log(user?.photoURL)
+
   const handleChangeName = (e) => {
     setFullNameEdit(e.target.value)
   }
@@ -51,7 +53,11 @@ const PopUp = () => {
               onChange={handlePhotoEdit}
             />
           </label>
-          <img src={user?.photoURL} alt="tgfds" />
+          <img
+            // src={user?.photoURL}
+            src="https://lh3.googleusercontent.com/a/AGNmyxZCFC2OpGuGMiJmyKeb_y8WbJHy4CyhWAuYtEWW=s96-c"
+            alt="tgfds"
+          />
         </div>
       </form>
       <Button>Edit Profil Page</Button>
