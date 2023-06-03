@@ -45,12 +45,13 @@
 }
 .countDivButton{
     background: linear-gradient(to right, var(--lightBlack), var(--grey));
-    color: white;
-    border: none;
     padding: 10px 20px;
     border-radius: 5px;
     font-size: 16px;
+    color: white;
+    border: none;
     text-decoration: none;
+    font-family: 'Poppins';
 }
 
 .countBigDivInput{

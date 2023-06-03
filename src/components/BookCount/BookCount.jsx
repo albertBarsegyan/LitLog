@@ -37,6 +37,7 @@ const BookCount = () => {
                 placeholder="Book count"
                 value={number}
                 onChange={handleChange}
+                required
               />
               <div>
                 <Link

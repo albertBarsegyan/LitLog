@@ -4,7 +4,7 @@ function HeadingPage() {
   return (
     <div className={style.wrapper}>
       <div className={style.imgBack}>
-        <div style={{ marginRight: 100 }}>
+        <div className={style.content}>
           <h1>
             Lit<span style={{ color: 'var(--black)' }}>Log</span>
           </h1>
