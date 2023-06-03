@@ -28,21 +28,25 @@ const BookCount = () => {
           </p>
           <div className={style.countDivLabel}>
             <p className={style.countDivContent2}>
-              <span style={{ fontSize: '40px' }}>E</span>nter quantity to read
-              books
+              <span className={style.countDivContent2Span}>E</span>
+              nter quantity to read books
             </p>
-            <input
-              className={style.countDivInput}
-              placeholder="Book count"
-              value={number}
-              onChange={handleChange}
-            />
-            <Link
-              to={RouteConstant.ProfilPage}
-              className={style.countDivButton}
-            >
-              Next
-            </Link>
+            <div className={style.countBigDivInput}>
+              <input
+                className={style.countDivInput}
+                placeholder="Book count"
+                value={number}
+                onChange={handleChange}
+              />
+              <div>
+                <Link
+                  to={RouteConstant.ProfilPage}
+                  className={style.countDivButton}
+                >
+                  Next
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
