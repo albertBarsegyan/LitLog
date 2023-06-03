@@ -7,6 +7,7 @@ import {
 } from '../../../constants/errorMessage'
 import style from './registrationForm.module.css'
 import { useAuth } from '../../../context/auth.context'
+import { RegExp } from '../../../constants/RegExp'
 
 const RegistrationForm = () => {
   const { signUp, googleAuth } = useAuth()
@@ -49,7 +50,7 @@ const RegistrationForm = () => {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={style.border}>
           <div className={style.spBor}></div>
-          <span>or</span>
+          <span style={{ fontSize: '20px' }}>or</span>
           <div className={style.spBor}></div>
         </div>
 
@@ -121,7 +122,7 @@ const RegistrationForm = () => {
             {...register('email', {
               required: requeridMes.reqMes,
               pattern: {
-                value: /^([a-zA-Z0-9._%+-]+)@([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/,
+                value: RegExp.emailRegExp,
                 message: errorMes.Email,
               },
             })}
@@ -136,13 +137,14 @@ const RegistrationForm = () => {
             </p>
           )}
         </div>
+
         <label>
           <input
             className={errors.password ? style.erorrInp : style.inp}
             {...register('password', {
               required: requeridMes.reqMes,
               pattern: {
-                value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+                value: RegExp.passwordRegExp,
                 message: errorMes.Password,
               },
             })}
@@ -169,7 +171,7 @@ const RegistrationForm = () => {
             {...register('repeatPassword', {
               required: requeridMes.reqMes,
               pattern: {
-                value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
+                value: RegExp.passwordRegExp,
                 message: errorMes.Password,
               },
             })}
@@ -181,7 +183,6 @@ const RegistrationForm = () => {
         <button disabled={isDisableSubmit} className={style.but} type="submit">
           Sign Up
         </button>
-        {/* {fireBaseError && <p>{fireBaseError}</p>} */}
       </form>
     </div>
   )

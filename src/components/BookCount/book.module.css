@@ -1,0 +1,57 @@
+.countDiv{
+    background: var(--profileColor);
+    height: 100vh;
+}
+.countHeadDiv{
+    color: var(--white);
+    font-size: 4rem;
+    font-weight: 600;
+    font-family: "Poppins";
+    text-align: center;
+    padding-top: 25px;
+}
+.container{
+    max-width: 600px;
+    margin: auto;
+    padding-top: 25px;
+}
+.countDivContent{
+    color: var(--white);
+    margin: auto;
+    font-family: 'Poppins';
+    font-size: 30px;
+    line-height: 40px;
+    text-align: justify;
+}
+.countDivLabel{
+    padding-top: 40px;
+}
+
+.countDivContent2{
+    font-size: 25px;
+    letter-spacing: 8px;
+    padding-bottom: 40px;
+    font-family: 'Poppins';
+    color:var(--white)
+}
+.countDivInput{
+    width: 80%;
+    padding: 10px;
+    font-size: 20px;
+    margin-right: 20px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+}
+.countDivButton{
+    background: linear-gradient(to right, var(--lightBlack), var(--grey));
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+@media screen and (max-width:630px) {
+    
+}
