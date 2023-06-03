@@ -4,9 +4,9 @@ function HeadingPage() {
   return (
     <div className={style.wrapper}>
       <div className={style.imgBack}>
-        <div className={style.content}>
+        <div style={{ marginRight: 100 }}>
           <h1>
-            Lit<span>Log</span>
+            Lit<span style={{ color: 'var(--black)' }}>Log</span>
           </h1>
           <p>
             Are you dreaming of reading books but don't want <br />

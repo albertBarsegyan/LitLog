@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form'
 import { NavLink } from 'react-router-dom'
 import { RouteConstant } from '../../../constants/RouteCostant'
 import { useAuth } from '../../../context/auth.context'
+import { RegExp } from '../../../constants/RegExp'
 
 function LoginPage() {
   const { signIn, googleAuth } = useAuth()
@@ -30,11 +31,11 @@ function LoginPage() {
   const isDisableSubmit = !isDirty || !isValid
 
   return (
-    <div className={style.lol}>
+    <div style={{ backgroundColor: 'var(--profileColor)' }}>
       <div className={style.main}>
         <div className={style.form}>
-          <div className={style.userImg}>
-            <img src={loginUser} alt="loginUser" />
+          <div style={{ textAlign: 'center' }}>
+            <img width="100px" height="100px" src={loginUser} alt="loginUser" />
           </div>
 
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -52,8 +53,7 @@ function LoginPage() {
                 {...register('email', {
                   required: requeridMes.reqMes,
                   pattern: {
-                    value:
-                      /^([a-zA-Z0-9._%+-]+)@([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/,
+                    value: RegExp.emailRegExp,
                     message: errorMes.Email,
                   },
                 })}
@@ -97,8 +97,8 @@ function LoginPage() {
               <img src={google} alt="" />
             </span>
           </button>
-          <div className={style.href}>
-            <span className={style.span}>Not registred?</span>
+          <div style={{ textAlign: 'center' }}>
+            <span style={{ fontSize: '20px' }}>Not registred?</span>
             <NavLink to={RouteConstant.RegPage} className={style.link}>
               Create an account!
             </NavLink>

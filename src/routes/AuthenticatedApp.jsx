@@ -11,11 +11,11 @@ function AuthenticatedApp() {
 
   return (
     <>
-      <div>
+      {/* <div>
         <span>{user.uid}</span>
-      </div>
+      </div> */}
       <Routes>
-        <Route path="/bookcount" element={<BookCount />} />
+        <Route path={RouteConstant.BookCount} element={<BookCount />} />
         <Route path={RouteConstant.ProfilPage} element={<ProfilPage />} />
         <Route path={RouteConstant.BookPage} element={<Book />} />
         <Route path={RouteConstant.FriendPage} element={<FriendsPage />} />

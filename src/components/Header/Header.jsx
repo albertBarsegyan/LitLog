@@ -1,7 +1,7 @@
-import { NavLink } from 'react-router-dom'
+import './header.module.css'
 import logo from '../../assets/images/logo.jpg'
-import style from './header.module.css'
 import HeaderButton from '../Button/Button2/HeaderButton'
+import { NavLink } from 'react-router-dom'
 import { RouteConstant } from '../../constants/RouteCostant'
 
 function Header() {
@@ -9,11 +9,15 @@ function Header() {
     <header>
       <div>
         <NavLink to={RouteConstant.FirstPage}>
-          <img className={style.logo} src={logo} alt="logo" />
+          <img
+            style={{ width: '200px', marginLeft: '30px' }}
+            src={logo}
+            alt="logo"
+          />
         </NavLink>
       </div>
       .
-      <div className={style.button}>
+      <div style={{ marginRight: 50 }}>
         <HeaderButton rout={RouteConstant.LoginPage}>Sign In</HeaderButton>
         <HeaderButton rout={RouteConstant.RegPage}>Sign Up</HeaderButton>
       </div>
