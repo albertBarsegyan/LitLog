@@ -6,4 +6,5 @@ export const RouteConstant = {
   FriendPage: '/friends',
   ArticlePage: '/articles',
   ProfilPage: '/profile',
+  BookCount: '/bookcount',
 }

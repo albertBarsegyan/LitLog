@@ -71,7 +71,7 @@ const RegistrationForm = () => {
                 message: minMaxLengtMes.minName,
               },
               maxLength: {
-                value: 10,
+                value: 15,
                 message: minMaxLengtMes.maxName,
               },
             })}
@@ -98,7 +98,7 @@ const RegistrationForm = () => {
                 message: minMaxLengtMes.minName,
               },
               maxLength: {
-                value: 10,
+                value: 15,
                 message: minMaxLengtMes.maxName,
               },
             })}

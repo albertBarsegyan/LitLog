@@ -1,16 +1,7 @@
-/* body {
-    background-color: var(--backGrey);
-} */
-
-body {
-    background-color: var(--backGrey);
-}
-
-
-
 .bigDiv {
     background: var(--white);
     padding: 35px;
+    border-radius: 15px;
 }
 
 .inp {

@@ -7,7 +7,7 @@ const BookShow = () => {
 
   return (
     <div className={style.bookShowMain}>
-      <h2 className={style.bookShow}>Top Rated Comics</h2>
+      <h2 className={style.bookShow}>My Books</h2>
 
       <div className={style.books}>
         {bookFour.map((item) => {

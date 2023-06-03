@@ -5,6 +5,8 @@ import { Icon } from '../../../constants/PropsIcon'
 import { RouteConstant } from '../../../constants/RouteCostant'
 
 const LeftSide = () => {
+  // const handleActiveClass =
+
   return (
     <div className={style.leftSide}>
       <div className={style.header}>
@@ -20,7 +22,6 @@ const LeftSide = () => {
           }
         >
           <Icons book={Icon.book} />
-
           <span style={{ paddingLeft: 20 }}>Book</span>
         </NavLink>
 

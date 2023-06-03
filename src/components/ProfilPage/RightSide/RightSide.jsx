@@ -1,8 +1,8 @@
 import { useState } from 'react'
+
 import Icons from '../../../assets/images/icons/Icons'
 import { Icon } from '../../../constants/PropsIcon'
 import { useAuth } from '../../../context/auth.context'
-import { usePopUp } from '../../../context/popup'
 import style from '../RightSide/rightSide.module.css'
 import Navbar from './NavBar/Navbar'
 
@@ -13,7 +13,7 @@ const RightSide = () => {
 
   return (
     <>
-      <div className={style.container} onClick={handleOpenDropDown}>
+      <div className={style.container}>
         <div className={style.rightDiv}>
           <div className={style.maxDiv}>
             <label className={style.labInp}>

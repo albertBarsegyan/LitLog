@@ -1,6 +1,8 @@
 .main {
     display: flex;
     justify-content: space-around;
-    padding: 100px 0;
-    background-color: var(--backGrey);
+    align-items: center;
+    margin-top: 45px;
+    padding: 45px 0;
+    background-color: var(--profileColor);
 }

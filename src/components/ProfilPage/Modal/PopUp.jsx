@@ -12,8 +12,8 @@ const PopUp = () => {
 
   const handlePhotoEdit = (e) => {
     const photo = e.target.files[0]
-    console.log(photo)
     editUser({ profilePhotoFile: photo })
+    console.log(user?.photoURL)
   }
 
   // console.log(user?.photoURL)
@@ -41,25 +41,19 @@ const PopUp = () => {
         <Button onClick={handleEditFullName}>Edit</Button>
       </div>
 
-      <form>
-        <div className={modal.modDiv}>
-          <label className={modal.label} htmlFor="customFileInput">
-            Add or edit your picture
-            <br />
-            <input
-              id="customFileInput"
-              type="file"
-              className={modal.customFileInput}
-              onChange={handlePhotoEdit}
-            />
-          </label>
-          <img
-            // src={user?.photoURL}
-            src="https://lh3.googleusercontent.com/a/AGNmyxZCFC2OpGuGMiJmyKeb_y8WbJHy4CyhWAuYtEWW=s96-c"
-            alt="tgfds"
+      <div className={modal.modDiv}>
+        <label className={modal.label} htmlFor="customFileInput">
+          Add or edit your picture
+          <br />
+          <input
+            id="customFileInput"
+            type="file"
+            className={modal.customFileInput}
+            onChange={handlePhotoEdit}
           />
-        </div>
-      </form>
+        </label>
+        <img src={user?.photoURL} alt="tgfds" />
+      </div>
       <Button>Edit Profil Page</Button>
     </Modal>
   )
