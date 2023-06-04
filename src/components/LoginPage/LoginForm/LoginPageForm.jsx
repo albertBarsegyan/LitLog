@@ -98,7 +98,9 @@ function LoginPage() {
             </span>
           </button>
           <div style={{ textAlign: 'center' }}>
-            <span style={{ fontSize: '20px' }}>Not registred?</span>
+            <span className={style.spanbtn} style={{ fontSize: '20px' }}>
+              Not registred?
+            </span>
             <NavLink to={RouteConstant.RegPage} className={style.link}>
               Create an account!
             </NavLink>

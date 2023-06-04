@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 const Icons = ({
   setting,
@@ -11,6 +10,7 @@ const Icons = ({
   singUp,
   search,
   instagram,
+  bars,
 }) => {
   return (
     <>
@@ -23,6 +23,7 @@ const Icons = ({
       {article}
       {search}
       {instagram}
+      {bars}
     </>
   )
 }

@@ -13,7 +13,6 @@
     padding: 13% 0;
 }
 
-
 .formInput {
     height: 30px;
     margin-bottom: 15px;
@@ -63,11 +62,49 @@
     font-size: 18px;
     margin-bottom: 10px;
 }
-
 .errorInp {
     border-color: var(--red);
     height: 30px;
     margin-bottom: 15px;
     width: 100%;
     outline: none
+}
+
+
+@media screen and (max-width:930px) {
+    .main{
+        padding: 20% 0;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .main{
+        padding: 30% 0;
+    } 
+}
+
+@media screen and (max-width:500px) {
+    .main{
+        padding: 40% 0;
+    } 
+    .form div img {
+        width: 80px !important;
+        height: 80px !important;
+    }
+    .link,.spanbtn{
+        font-size: 16px !important;
+    }
+    .googleBut span img{
+        height: 25px;
+    }
+    .loginButton{
+        padding: 6px 10px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .main{
+        padding: 43% 30px;
+    } 
 }

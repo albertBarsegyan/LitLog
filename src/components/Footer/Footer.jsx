@@ -45,11 +45,17 @@ function Footer() {
         </Link>
       </div>
 
-      <div>
+      <div className={style.navigate}>
         <HeaderButton color={{ color: 'white' }} rout={RouteConstant.LoginPage}>
+          <span style={{ fill: 'white', paddingRight: 15 }}>
+            <Icons singIn={Icon.singIn} />
+          </span>
           Sign In
         </HeaderButton>
         <HeaderButton color={{ color: 'white' }} rout={RouteConstant.RegPage}>
+          <span style={{ fill: 'white', paddingRight: 15 }}>
+            <Icons singUp={Icon.singUp} />
+          </span>
           Sign Up
         </HeaderButton>
       </div>

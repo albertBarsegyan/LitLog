@@ -8,5 +8,78 @@ header {
     right: 0;
     background: var(--white);
     z-index: 999;
+    box-shadow: 0 4px 2px -2px var(--grey);
+}
+.logo{
+    width: 200px;
+    margin-left: 30px;
 }
 
+.bars{
+    font-size: 25px;
+    border: 2px solid black;
+    padding: 10px;
+    cursor: pointer;
+    display: none;
+}
+.navigate{
+    margin-right: 50px;
+    /* display: flex;
+    align-items: center; */
+}
+
+
+
+/* Media */
+
+
+
+@media screen and (max-width:650px) {
+    .navigate{
+       display: none;
+    }
+    .bars{
+        display: initial;
+        margin-right: 20px;
+    }
+    .active{
+        display: block;
+        position: absolute;
+        top: 100%; left: 50%; right: 0;
+        background-color: var(--grey);
+        margin-top: 10px;
+        text-align: center;
+    }
+    .active a:first-child {
+        padding-top: 10px !important;
+        display: block;
+        padding: 0 5px;
+        margin: 0;
+    }
+    .active a:last-child{
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
+        display: block;
+        padding: 0 5px;
+        margin: 0;
+    }
+}
+
+@media screen and (max-width:590px) {
+    .logo{
+        width: 150px;
+    }
+    .navigate{
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width:380px) {
+    .bars{
+        font-size: 16px;
+        padding: 5px;
+    }
+    .active a{
+        font-size: 17px;
+    }
+}

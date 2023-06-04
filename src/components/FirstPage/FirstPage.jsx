@@ -4,12 +4,12 @@ import Footer from '../Footer/Footer'
 
 export function FirstPage() {
   return (
-    <div>
+    <>
       <Header />
       <div>
         <HeadingPage />
       </div>
       <Footer />
-    </div>
+    </>
   )
 }

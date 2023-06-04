@@ -6,7 +6,8 @@ function HeadingPage() {
       <div className={style.imgBack}>
         <div className={style.content}>
           <h1>
-            Lit<span style={{ color: 'var(--black)' }}>Log</span>
+            Lit
+            <span className={style.contentH1}>Log</span>
           </h1>
           <p>
             Are you dreaming of reading books but don't want <br />
