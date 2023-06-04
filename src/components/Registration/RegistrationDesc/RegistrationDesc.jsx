@@ -1,11 +1,9 @@
-// import Rbook from "../../images/Rbook.png"
 import style from './registrationDesc.module.css'
 
 const RegistrationDesc = () => {
   return (
-    <div>
+    <div className={style.miniMainDiv}>
       <h1 className={style.heading}>LitLog register page</h1>
-      {/* <img className={style.imgbook} src={Rbook} alt="" /> */}
       <div className={style.textBox}>
         <p className={style.desc}>
           Welcome to our book reading website! <br />

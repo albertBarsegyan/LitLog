@@ -69,3 +69,20 @@ form .border {
     margin-bottom: 25px;
     outline: none;
 }
+
+@media screen and (max-width:450px) {
+    .bigDiv{
+        padding:30px 20px;
+    }
+}
+
+@media screen and (max-width:410px) {
+    
+    .bigDiv{
+        order: 0;
+    }
+    .googleBtn{
+        font-size: 16px;
+        padding: 10px 40px 15px 10px;
+    }
+}
