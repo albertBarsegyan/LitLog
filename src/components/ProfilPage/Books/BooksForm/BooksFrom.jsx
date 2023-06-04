@@ -1,7 +1,6 @@
 import { useForm } from 'react-hook-form'
 import style from './booksform.module.css'
 import { minMaxLengtMes, requeridMes } from '../../../../constants/errorMessage'
-// import Button from '../../Button/Button1/Button'
 
 const BooksFrom = () => {
   const {
@@ -13,7 +12,7 @@ const BooksFrom = () => {
     mode: 'all',
   })
   return (
-    <form>
+    <form className={style.bookForm}>
       <div>
         <p>{errors?.bookName && <span>{errors?.bookName?.message}</span>}</p>
         <input

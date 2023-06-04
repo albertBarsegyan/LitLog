@@ -1,4 +1,3 @@
-import CenterSite from '../CenterSite/CenterSite'
 import LeftSide from '../LeftSide/LeftSide'
 import RightSide from '../RightSide/RightSide'
 import style from './friends.module.css'
@@ -12,7 +11,6 @@ const FriendsPage = () => {
       <div className={style.bar}>
         <RightSide />
       </div>
-      jhmgfdghjhgf
     </div>
   )
 }
