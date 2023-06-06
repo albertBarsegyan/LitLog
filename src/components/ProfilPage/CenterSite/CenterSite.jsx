@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import batman from '../../../assets/images/batman.png'
 import bookimg2 from '../../../assets/images/bookimg2.png'
 import style from '../CenterSite/centerSite.module.css'
-import BookShow from '../BookShow/BookShow'
+import BookShow from '../BookShowProfile/BookShow'
 import ProgressBar from '../Progress/ProgressBar'
 
 const CenterSite = () => {

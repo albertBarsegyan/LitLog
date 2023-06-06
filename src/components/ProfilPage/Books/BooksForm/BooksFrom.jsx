@@ -1,19 +1,29 @@
-import { useForm } from 'react-hook-form'
+import Icons from '../../../../assets/images/icons/Icons'
+import Button from '../../../Button/Button1/Button'
 import style from './booksform.module.css'
+import { useForm } from 'react-hook-form'
 import { minMaxLengtMes, requeridMes } from '../../../../constants/errorMessage'
 import { Icon } from '../../../../constants/PropsIcon'
-import Icons from '../../../../assets/images/icons/Icons'
+import { styling } from '../../../../constants/style'
 
 const BooksFrom = ({ openForm, setOpenForm }) => {
   const {
     register,
     formState: { errors, isDirty, isValid },
+    reset,
   } = useForm({
     mode: 'all',
   })
+  const isButtonDisable = !isDirty && !isValid
+
+  const handleAddBookSubmit = (e) => {
+    e.preventDefault()
+    reset()
+  }
+
   return (
-    <div onClick={() => setOpenForm(!openForm)} className={style.bookFormDiv}>
-      <form className={style.bookForm}>
+    <div className={style.bookFormDiv}>
+      <form onSubmit={handleAddBookSubmit} className={style.bookForm}>
         <p onClick={() => setOpenForm(!openForm)} className={style.xMark}>
           <Icons xmark={Icon.xmark} />
         </p>
@@ -68,10 +78,17 @@ const BooksFrom = ({ openForm, setOpenForm }) => {
             placeholder="Genre"
           />
         </div>
+
         <div>
-          <p>Add book photo</p>
+          <p style={{ fontFamily: 'Poppins', textAlign: 'center' }}>
+            Add book photo
+          </p>
           <input className={style.inputBook} type="file" />
         </div>
+
+        <Button disable={isButtonDisable} styles={styling}>
+          Save
+        </Button>
       </form>
     </div>
   )

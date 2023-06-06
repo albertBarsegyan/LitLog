@@ -1,17 +1,17 @@
 import { Link } from 'react-router-dom'
+import { styling } from '../../../constants/style'
+import { useState } from 'react'
 import books from '../../../constants/books'
 import style from './book.module.css'
 import BooksFrom from './BooksForm/BooksFrom'
-import { useState } from 'react'
 import Button from '../../Button/Button1/Button'
-import { styling } from '../../../constants/style'
 
 const Books = () => {
   const [openForm, setOpenForm] = useState(false)
   const handleOpenForm = () => setOpenForm(!openForm)
   return (
-    <div>
-      <div style={{ marginLeft: 20 }}>
+    <>
+      <div style={{ textAlign: 'center' }}>
         <Button onClick={handleOpenForm} styles={styling}>
           Add new book
         </Button>
@@ -20,7 +20,7 @@ const Books = () => {
       <div className={style.mainDin}>
         {books.map((item) => {
           return (
-            <div className={style.q} key={item.id}>
+            <div style={{ padding: '0 20px' }} key={item.id}>
               <img className={style.img} src={item.img} alt="img" />
               <Link className={style.name}>{item.name}</Link>
               <p className={style.paragrap}>{item.desc}</p>
@@ -28,7 +28,7 @@ const Books = () => {
           )
         })}
       </div>
-    </div>
+    </>
   )
 }
 

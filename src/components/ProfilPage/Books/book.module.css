@@ -1,13 +1,9 @@
-.img:nth-child(-n+2) {
-    border-radius: 15px;
-}
-
-.mainDin {
+.mainDin{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
-    width: 75vw;
-    padding: 25px 30px;
+    max-width: 75vw;
+    padding: 20px 0px;
 }
 
 .name {
@@ -15,8 +11,8 @@
     font-size: 20px;
     line-height: 24px;
     color: var(--lightBlue);
+    padding: 10px 0;    
     display: inherit;
-    padding: 10px 0;
     text-decoration: none;
 }
 
@@ -26,10 +22,4 @@
     font-size: 18px;
     line-height: 21px;
     padding-bottom: 10px;
-}
-
-
-.bar{
-    display: flex;
-    justify-content: space-between;
 }

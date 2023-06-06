@@ -1,7 +1,7 @@
-.bookFormDiv {
+.bookFormDiv{
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, .6);
+    background-color: rgba(0, 0, 0, .7);
     border-radius: 5px;
     display: flex;
     align-items: center;
@@ -13,10 +13,12 @@
 
   .bookForm{
     width: 400px;
+    border-radius: 15px;
     background-color: white;
     padding: 20px 40px 30px;
+   
   }
-  
+
   .bookForm div {
     margin-bottom: 10px;
   }
