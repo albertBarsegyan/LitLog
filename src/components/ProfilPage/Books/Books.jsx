@@ -11,7 +11,13 @@ const Books = () => {
   const handleOpenForm = () => setOpenForm(!openForm)
   return (
     <div>
-      <div className={style.mainDin}>
+      <div style={{ marginLeft: 20 }}>
+        <Button onClick={handleOpenForm} styles={styling}>
+          Add new book
+        </Button>
+      </div>
+      {openForm && <BooksFrom />}
+      <div onClick={() => setOpenForm(false)} className={style.mainDin}>
         {books.map((item) => {
           return (
             <div className={style.booksDiv} key={item.id}>
@@ -22,12 +28,6 @@ const Books = () => {
           )
         })}
       </div>
-      <div style={{ marginLeft: 20 }}>
-        <Button onClick={handleOpenForm} styles={styling}>
-          Add new book
-        </Button>
-      </div>
-      {openForm && <BooksFrom />}
     </div>
   )
 }

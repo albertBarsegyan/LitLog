@@ -89,3 +89,12 @@
         background-color: var(--borderColor );
     }
 }
+
+@media screen and (max-width:310px) {
+    .content h1{
+        font-size: 4.7rem;
+        text-align: center;
+        margin-left: 0;
+        margin-top: 50px;
+    }
+}

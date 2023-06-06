@@ -13,23 +13,20 @@ const RightSide = () => {
 
   return (
     <>
-      <div className={style.container}>
-        <div className={style.rightDiv}>
-          <div className={style.maxDiv}>
-            <label className={style.labInp}>
-              <input className={style.inpSearch} type="text" />
-              <Icons search={Icon.search} />
-            </label>
-          </div>
-          <div className={style.minDiv}>
-            <img
-              onClick={handleOpenDropDown}
-              className={style.userImg}
-              // src={user?.photoURL}
-              src="https://lh3.googleusercontent.com/a/AGNmyxZCFC2OpGuGMiJmyKeb_y8WbJHy4CyhWAuYtEWW=s96-c"
-              alt=""
-            />
-          </div>
+      <div className={style.rightDiv}>
+        <div className={style.maxDiv}>
+          <label className={style.labInp}>
+            <input className={style.inpSearch} type="text" />
+            <Icons search={Icon.search} />
+          </label>
+        </div>
+        <div className={style.minDiv}>
+          <img
+            onClick={handleOpenDropDown}
+            className={style.userImg}
+            src={user?.photoURL}
+            alt=""
+          />
         </div>
       </div>
       <Navbar openNav={openNav} setOpenNav={setOpenNav} />
