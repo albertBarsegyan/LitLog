@@ -1,10 +1,8 @@
-import React from 'react'
 import style from './navbar.module.css'
 import { Icon } from '../../../../constants/PropsIcon'
 import Icons from '../../../../assets/images/icons/Icons'
 import { usePopUp } from '../../../../context/popup'
 import { useAuth } from '../../../../context/auth.context'
-import Button from '../../../Button/Button1/Button'
 
 const Navbar = ({ openNav }) => {
   const { signOut } = useAuth()

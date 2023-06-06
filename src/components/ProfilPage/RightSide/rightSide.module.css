@@ -32,3 +32,12 @@
   cursor: pointer;
   border-radius: 50%;
 }
+
+.rotate{
+  padding-left: 15px;
+  transition: 1s;
+}
+.rotate.active{
+  padding-left: 15px;
+  transform: rotate(180deg);
+}
