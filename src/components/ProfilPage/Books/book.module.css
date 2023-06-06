@@ -6,6 +6,8 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    width: 75vw;
+    padding: 25px 30px;
 }
 
 .name {
@@ -26,10 +28,6 @@
     padding-bottom: 10px;
 }
 
-.mainDin {
-    width: 75vw;
-    padding: 25px 10px;
-}
 
 .bar{
     display: flex;

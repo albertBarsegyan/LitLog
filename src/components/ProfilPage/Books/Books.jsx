@@ -16,11 +16,11 @@ const Books = () => {
           Add new book
         </Button>
       </div>
-      {openForm && <BooksFrom />}
-      <div onClick={() => setOpenForm(false)} className={style.mainDin}>
+      {openForm && <BooksFrom openForm={openForm} setOpenForm={setOpenForm} />}
+      <div className={style.mainDin}>
         {books.map((item) => {
           return (
-            <div className={style.booksDiv} key={item.id}>
+            <div className={style.q} key={item.id}>
               <img className={style.img} src={item.img} alt="img" />
               <Link className={style.name}>{item.name}</Link>
               <p className={style.paragrap}>{item.desc}</p>

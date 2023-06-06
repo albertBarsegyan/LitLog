@@ -11,6 +11,7 @@ const Icons = ({
   search,
   instagram,
   bars,
+  xmark,
 }) => {
   return (
     <>
@@ -24,6 +25,7 @@ const Icons = ({
       {search}
       {instagram}
       {bars}
+      {xmark}
     </>
   )
 }
