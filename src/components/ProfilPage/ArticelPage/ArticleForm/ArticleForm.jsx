@@ -1,12 +1,12 @@
 import Icons from '../../../../assets/images/icons/Icons'
 import Button from '../../../Button/Button1/Button'
-import style from './booksform.module.css'
+import style from './articleform.module.css'
 import { useForm } from 'react-hook-form'
 import { minMaxLengtMes, requeridMes } from '../../../../constants/errorMessage'
 import { Icon } from '../../../../constants/PropsIcon'
 import { styling } from '../../../../constants/style'
 
-const BooksFrom = ({ openForm, setOpenForm }) => {
+const ArticleForm = ({ openForm, setOpenForm }) => {
   const {
     register,
     formState: { errors, isDirty, isValid },
@@ -27,21 +27,6 @@ const BooksFrom = ({ openForm, setOpenForm }) => {
         <p onClick={() => setOpenForm(!openForm)} className={style.xMark}>
           <Icons xmark={Icon.xmark} />
         </p>
-        <div>
-          <p>{errors?.bookName && <span>{errors?.bookName?.message}</span>}</p>
-          <input
-            {...register('bookName', {
-              required: requeridMes.reqMes,
-              maxLength: {
-                value: 50,
-                message: minMaxLengtMes.maxBookName,
-              },
-            })}
-            className={style.inputBook}
-            type="text"
-            placeholder="Book Name"
-          />
-        </div>
         <div>
           <p>
             {errors?.authorName && <span>{errors?.authorName?.message}</span>}
@@ -99,4 +84,4 @@ const BooksFrom = ({ openForm, setOpenForm }) => {
   )
 }
 
-export default BooksFrom
+export default ArticleForm
