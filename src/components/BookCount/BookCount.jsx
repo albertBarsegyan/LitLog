@@ -1,16 +1,25 @@
 import style from './book.module.css'
-import { Link } from 'react-router-dom'
 import { useState } from 'react'
-import { RouteConstant } from '../../constants/RouteCostant'
 import { RegExp } from '../../constants/RegExp'
-const BookCount = () => {
+import { useAuth } from '../../context/auth.context'
+import { useNavigate } from 'react-router-dom'
+import { AuthenticatedRoutePath } from '../../constants/RouteCostant'
+
+export const BookCount = () => {
   const [number, setNumber] = useState('')
+  const { editUser } = useAuth()
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     const value = e.target.value
     if (RegExp.numberRegExp.test(value) && value <= 365 && value >= 1) {
       setNumber(value)
     }
+  }
+
+  const handleClick = () => {
+    editUser({ booksCount: number })
+    navigate(AuthenticatedRoutePath.Books())
   }
 
   return (
@@ -34,18 +43,19 @@ const BookCount = () => {
             <div className={style.countBigDivInput}>
               <input
                 className={style.countDivInput}
-                placeholder="Book count"
+                placeholder="BooksPage count"
                 value={number}
                 onChange={handleChange}
                 required
               />
               <div>
-                <Link
-                  to={RouteConstant.ProfilPage}
+                <button
+                  onClick={handleClick}
+                  type="button"
                   className={style.countDivButton}
                 >
                   Next
-                </Link>
+                </button>
               </div>
             </div>
           </div>
@@ -54,4 +64,3 @@ const BookCount = () => {
     </div>
   )
 }
-export default BookCount

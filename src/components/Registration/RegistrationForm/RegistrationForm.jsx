@@ -8,9 +8,12 @@ import {
 import style from './registrationForm.module.css'
 import { useAuth } from '../../../context/auth.context'
 import { RegExp } from '../../../constants/RegExp'
+import { useNavigate } from 'react-router-dom'
+import { AuthenticatedRoutePath } from '../../../constants/RouteCostant'
 
 const RegistrationForm = () => {
   const { signUp, googleAuth } = useAuth()
+  const navigate = useNavigate()
 
   const {
     register,
@@ -23,23 +26,24 @@ const RegistrationForm = () => {
     defaultValues: {
       email: '',
       password: '',
+      repeatPassword: '',
       firstname: '',
       lastname: '',
     },
   })
 
-  const password = watch('password', '')
-  const repeatPassword = watch('repeatPassword', '')
+  const password = watch('password')
+  const repeatPassword = watch('repeatPassword')
   const isDisableSubmit = !isValid || !isDirty
 
   const onSubmit = async (data) => {
     reset()
     await signUp(data)
+
+    navigate(AuthenticatedRoutePath.BooksInfo())
   }
 
-  const handleGoogleSubmit = async () => {
-    await googleAuth()
-  }
+  const handleGoogleSubmit = async () => await googleAuth()
 
   return (
     <div className={style.bigDiv}>
@@ -47,7 +51,7 @@ const RegistrationForm = () => {
         <img src={google} alt="" className={style.googleImg} /> Sign up with
         Google
       </button>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className={style.formWrapper}>
         <div className={style.border}>
           <div className={style.spBor}></div>
           <span style={{ fontSize: '20px' }}>or</span>

@@ -3,10 +3,10 @@ import { createContext, useContext, useState } from 'react'
 export const PopUpContext = createContext(null)
 
 export const PopUpProvider = ({ children }) => {
-  const [modaleActive, setModaleActive] = useState(false)
+  const [modalActive, setModalActive] = useState(false)
 
   return (
-    <PopUpContext.Provider value={{ modaleActive, setModaleActive }}>
+    <PopUpContext.Provider value={{ modalActive, setModalActive }}>
       {children}
     </PopUpContext.Provider>
   )

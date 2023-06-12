@@ -1,4 +1,4 @@
-import style from './modal.module.css'
+import style from '../../EditProfile/EditProfile.module.css'
 
 const Modal = ({ active, setActive, children }) => {
   return (

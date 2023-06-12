@@ -3,7 +3,7 @@ import LeftSide from '../../ProfilPage/LeftSide/LeftSide'
 import PopUp from '../../ProfilPage/Modal/PopUp'
 import RightSide from '../../ProfilPage/RightSide/RightSide'
 
-const Book = () => {
+const BooksPage = () => {
   return (
     <div style={{ display: 'flex', backgroundColor: 'var(--profileColor)' }}>
       <div>
@@ -18,4 +18,4 @@ const Book = () => {
   )
 }
 
-export default Book
+export default BooksPage

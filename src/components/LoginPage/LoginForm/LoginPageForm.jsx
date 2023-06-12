@@ -4,7 +4,7 @@ import google from '../../../assets/images/google.png'
 import { errorMes, requeridMes } from '../../../constants/errorMessage'
 import { useForm } from 'react-hook-form'
 import { NavLink } from 'react-router-dom'
-import { RouteConstant } from '../../../constants/RouteCostant'
+import { UnauthenticatedRoutePath } from '../../../constants/RouteCostant'
 import { useAuth } from '../../../context/auth.context'
 import { RegExp } from '../../../constants/RegExp'
 
@@ -88,20 +88,24 @@ function LoginPage() {
                 className={style.loginButton}
               >
                 Login
-              </button>{' '}
+              </button>
               <span className={style.loginOr}>OR</span>
             </div>
           </form>
-          <button onClick={() => googleAuth()} className={style.googleBut}>
-            <span>
-              <img src={google} alt="" />
-            </span>
-          </button>
+          <div className={style.googleButtonWrapper}>
+            <button onClick={() => googleAuth()} className={style.googleBut}>
+              <img src={google} alt="google auth" />
+            </button>
+          </div>
           <div style={{ textAlign: 'center' }}>
             <span className={style.spanbtn} style={{ fontSize: '20px' }}>
-              Not registred?
+              Not registered?
             </span>
-            <NavLink to={RouteConstant.RegPage} className={style.link}>
+
+            <NavLink
+              to={UnauthenticatedRoutePath.Registration()}
+              className={style.link}
+            >
               Create an account!
             </NavLink>
           </div>

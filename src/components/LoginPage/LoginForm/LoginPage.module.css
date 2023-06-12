@@ -2,7 +2,7 @@
     background-color: var(--white);
     display: inline-block;
     padding: 35px;
-    border-radius: 15px;
+    border-radius: 8px;
     font-family: "Poppins";
 }
 
@@ -17,7 +17,10 @@
     height: 30px;
     margin-bottom: 15px;
     width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #111111;
 }
+
 
 .link {
     text-decoration: none;
@@ -47,13 +50,25 @@
     margin-bottom: 15px;
 }
 
-.googleBut {
+.googleButtonWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    margin-bottom: 15px;
 }
 
-.googleBut span img {
-    padding: 0 20px;
+.googleBut {
+    width: auto;
+    margin-bottom: 15px;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    padding: 0;
+}
+
+
+.googleBut > img {
+    padding: 0;
     height: 40px;
 }
 
@@ -62,49 +77,57 @@
     font-size: 18px;
     margin-bottom: 10px;
 }
+
 .errorInp {
     border-color: var(--red);
     height: 30px;
     margin-bottom: 15px;
     width: 100%;
-    outline: none
+    outline: none;
+    box-sizing: border-box;
+
 }
 
 
-@media screen and (max-width:930px) {
-    .main{
+@media screen and (max-width: 930px) {
+    .main {
         padding: 20% 0;
     }
 }
 
-@media screen and (max-width:600px) {
-    .main{
+
+@media screen and (max-width: 600px) {
+    .main {
         padding: 30% 0;
-    } 
+    }
 }
 
-@media screen and (max-width:500px) {
-    .main{
+@media screen and (max-width: 500px) {
+    .main {
         padding: 40% 0;
-    } 
+    }
+
     .form div img {
         width: 80px !important;
         height: 80px !important;
     }
-    .link,.spanbtn{
+
+    .link, .spanbtn {
         font-size: 16px !important;
     }
-    .googleBut span img{
+
+    .googleBut span img {
         height: 25px;
     }
-    .loginButton{
+
+    .loginButton {
         padding: 6px 10px;
         font-size: 16px;
     }
 }
 
-@media screen and (max-width:400px) {
-    .main{
+@media screen and (max-width: 400px) {
+    .main {
         padding: 43% 30px;
-    } 
+    }
 }

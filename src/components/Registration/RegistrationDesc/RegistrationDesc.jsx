@@ -3,7 +3,7 @@ import style from './registrationDesc.module.css'
 const RegistrationDesc = () => {
   return (
     <div className={style.miniMainDiv}>
-      <h1 className={style.heading}>LitLog register page</h1>
+      <h1 className={style.heading}>LitLog registration page</h1>
       <div className={style.textBox}>
         <p className={style.desc}>
           Welcome to our book reading website! <br />

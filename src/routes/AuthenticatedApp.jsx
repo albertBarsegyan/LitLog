@@ -1,29 +1,44 @@
-import { Routes, Route } from 'react-router-dom'
-import ProfilPage from '../components/ProfilPage/ProfilPage'
-import { useAuth } from '../context/auth.context'
-import { RouteConstant } from '../constants/RouteCostant'
-import Book from '../components/ProfilPage/Book/Book'
-import FriendsPage from '../components/ProfilPage/FrindsPage/FriendsPage'
-import BookCount from '../components/BookCount/BookCount'
+import { createBrowserRouter, Navigate } from 'react-router-dom'
+import { BookCount } from '../components/BookCount/BookCount'
+import { AuthenticatedRoutePath } from '../constants/RouteCostant'
+import BooksPage from '../components/ProfilPage/BooksPage/BooksPage'
 import ArticlePage from '../components/ProfilPage/ArticelPage/ArticlePage'
+import FriendsPage from '../components/ProfilPage/FrindsPage/FriendsPage'
+import { EditProfile } from '../components/EditProfile/EditProfile'
 
-function AuthenticatedApp() {
-  const { user } = useAuth()
-
-  return (
-    <>
-      {/* <div>
-        <span>{user.uid}</span>
-      </div> */}
-      <Routes>
-        <Route path={RouteConstant.BookCount} element={<BookCount />} />
-        <Route path={RouteConstant.ProfilPage} element={<ProfilPage />} />
-        <Route path={RouteConstant.BookPage} element={<Book />} />
-        <Route path={RouteConstant.ArticlePage} element={<ArticlePage />} />
-        <Route path={RouteConstant.FriendPage} element={<FriendsPage />} />
-      </Routes>
-    </>
-  )
-}
-
-export default AuthenticatedApp
+export const AuthenticatedRoutes = createBrowserRouter([
+  {
+    path: AuthenticatedRoutePath.BooksInfo(),
+    element: <BookCount />,
+    errorElement: <div>Error happened</div>,
+    loader: () => <div>Loading</div>,
+  },
+  {
+    path: AuthenticatedRoutePath.Books(),
+    element: <BooksPage />,
+    errorElement: <div>Error happened</div>,
+    loader: () => <div>Loading</div>,
+  },
+  {
+    path: AuthenticatedRoutePath.Articles(),
+    element: <ArticlePage />,
+    errorElement: <div>Error happened</div>,
+    loader: () => <div>Loading</div>,
+  },
+  {
+    path: AuthenticatedRoutePath.EditProfile(),
+    element: <EditProfile />,
+    errorElement: <div>Error happened</div>,
+    loader: () => <div>Loading</div>,
+  },
+  {
+    path: AuthenticatedRoutePath.Friends(),
+    element: <FriendsPage />,
+    errorElement: <div>Error happened</div>,
+    loader: () => <div>Loading</div>,
+  },
+  {
+    path: AuthenticatedRoutePath.Navigate(),
+    element: <Navigate to={AuthenticatedRoutePath.Books()} />,
+  },
+])

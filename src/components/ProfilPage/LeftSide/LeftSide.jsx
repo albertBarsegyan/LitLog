@@ -1,22 +1,20 @@
 import style from './leftSide.module.css'
-import { NavLink, Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import Icons from '../../../assets/images/icons/Icons'
 import { Icon } from '../../../constants/PropsIcon'
-import { RouteConstant } from '../../../constants/RouteCostant'
+import { AuthenticatedRoutePath } from '../../../constants/RouteCostant'
 
 const LeftSide = () => {
-  // const handleActiveClass =
-
   return (
     <div className={style.leftSide}>
       <div className={style.header}>
-        <Link to={RouteConstant.ProfilPage} className={style.logo}>
+        <Link to={AuthenticatedRoutePath.Books()} className={style.logo}>
           LitLog
         </Link>
       </div>
       <nav className={style.menu}>
         <NavLink
-          to={RouteConstant.BookPage}
+          to={AuthenticatedRoutePath.Books()}
           className={({ isActive }) =>
             isActive ? style.activeLink : style.link
           }
@@ -26,7 +24,7 @@ const LeftSide = () => {
         </NavLink>
 
         <NavLink
-          to={RouteConstant.ArticlePage}
+          to={AuthenticatedRoutePath.Articles()}
           className={({ isActive }) =>
             isActive ? style.activeLink : style.link
           }
@@ -37,7 +35,7 @@ const LeftSide = () => {
         </NavLink>
 
         <NavLink
-          to={RouteConstant.FriendPage}
+          to={AuthenticatedRoutePath.Friends()}
           className={({ isActive }) =>
             isActive ? style.activeLink : style.link
           }

@@ -5,32 +5,50 @@ import { useForm } from 'react-hook-form'
 import { minMaxLengtMes, requeridMes } from '../../../../constants/errorMessage'
 import { Icon } from '../../../../constants/PropsIcon'
 import { styling } from '../../../../constants/style'
+import { addBook } from '../../../../services/book.services'
+import { useAuth } from '../../../../context/auth.context'
+
+const defaultValues = {
+  headline: '',
+  author: '',
+  genre: '',
+  url: '',
+}
 
 const BooksFrom = ({ openForm, setOpenForm }) => {
+  const { user } = useAuth()
   const {
     register,
+    handleSubmit,
     formState: { errors, isDirty, isValid },
     reset,
   } = useForm({
     mode: 'all',
+    defaultValues,
   })
+
   const isButtonDisable = !isDirty && !isValid
 
-  const handleAddBookSubmit = (e) => {
-    e.preventDefault()
+  const handleAddBookSubmit = async (data) => {
+    const { errorCode } = await addBook(data, user?.uid)
+    console.log({ errorCode })
+
     reset()
   }
 
   return (
     <div className={style.bookFormDiv}>
-      <form onSubmit={handleAddBookSubmit} className={style.bookForm}>
+      <form
+        onSubmit={handleSubmit(handleAddBookSubmit)}
+        className={style.bookForm}
+      >
         <p onClick={() => setOpenForm(!openForm)} className={style.xMark}>
           <Icons xmark={Icon.xmark} />
         </p>
         <div>
           <p>{errors?.bookName && <span>{errors?.bookName?.message}</span>}</p>
           <input
-            {...register('bookName', {
+            {...register('headline', {
               required: requeridMes.reqMes,
               maxLength: {
                 value: 50,
@@ -39,7 +57,7 @@ const BooksFrom = ({ openForm, setOpenForm }) => {
             })}
             className={style.inputBook}
             type="text"
-            placeholder="Book Name"
+            placeholder="Headline"
           />
         </div>
         <div>
@@ -47,7 +65,7 @@ const BooksFrom = ({ openForm, setOpenForm }) => {
             {errors?.authorName && <span>{errors?.authorName?.message}</span>}
           </p>
           <input
-            {...register('authorName', {
+            {...register('author', {
               required: requeridMes.reqMes,
               maxLength: {
                 value: 15,
@@ -91,8 +109,8 @@ const BooksFrom = ({ openForm, setOpenForm }) => {
           />
         </div>
 
-        <Button disable={isButtonDisable} styles={styling}>
-          Save
+        <Button type={'submit'} disable={isButtonDisable} styles={styling}>
+          Create book
         </Button>
       </form>
     </div>

@@ -52,12 +52,15 @@ export const registerService = async ({
       FirebaseDocument.Users,
       newUserCredential.user.uid
     )
+
     await setDoc(userDocumentReference, {
       email,
       displayName: `${firstname} ${lastname}`,
       emailVerified: false,
+      booksCount: 0,
       photoURL: null,
     })
+
     return {
       data: firebaseUserDataFilter(newUserCredential.user),
       errorCode: null,
@@ -77,8 +80,13 @@ export const loginService = async ({ email, password }) => {
       email,
       password
     )
+
+    const userDoc = await getDoc(
+      doc(collection(firestoreApp, FirebaseDocument.Users), response.user.uid)
+    )
+
     return {
-      data: firebaseUserDataFilter(response.user),
+      data: firebaseUserDataFilter(response.user, userDoc.data()),
       errorCode: null,
       errorMessage: null,
     }
@@ -113,7 +121,7 @@ export const googleAuthService = async () => {
 
     if (userDoc.exists()) {
       return {
-        data: firebaseUserDataFilter(result.user),
+        data: firebaseUserDataFilter(result.user, userDoc.data()),
         errorCode: null,
         errorMessage: null,
       }
@@ -139,7 +147,7 @@ export const googleAuthService = async () => {
   }
 }
 
-export const editUserService = ({ fullName, profilePhotoFile }) => {
+export const editUserService = ({ fullName, profilePhotoFile, booksCount }) => {
   return new Promise((resolve, reject) => {
     const user = getAuth().currentUser
 
@@ -148,6 +156,18 @@ export const editUserService = ({ fullName, profilePhotoFile }) => {
       FirebaseDocument.Users,
       user.uid
     )
+
+    if (booksCount) {
+      updateDoc(userDocumentReference, {
+        booksCount,
+      }).catch((error) => {
+        reject({
+          data: null,
+          errorCode: error.code,
+          errorMessage: error.message,
+        })
+      })
+    }
 
     if (fullName) {
       updateProfile(user, {

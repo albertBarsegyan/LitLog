@@ -11,7 +11,7 @@
 .bookImg {
     width: 700px;
     height: 453px;
-    border-radius: 15px;
+    border-radius: 8px;
 }
 
 .imageText {
@@ -65,7 +65,7 @@
 }
 
 .redingImages {
-    border-radius: 15px;
+    border-radius: 8px;
 }
 
 .redingBookName {

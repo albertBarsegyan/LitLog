@@ -70,12 +70,13 @@ export const AuthProvider = ({ children }) => {
     })
   }
 
-  const editUser = async ({ fullName, profilePhotoFile }) => {
+  const editUser = async ({ fullName, profilePhotoFile, booksCount }) => {
     const { uid } = user
 
     const { errorMessage, errorCode, data } = await editUserService({
       fullName,
       profilePhotoFile: renameFile({ file: profilePhotoFile, fileName: uid }),
+      booksCount,
     })
 
     setUser(data || profilePhotoFile)

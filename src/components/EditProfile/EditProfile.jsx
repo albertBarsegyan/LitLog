@@ -1,43 +1,35 @@
-import modal from '../../EditProfile/EditProfile.module.css'
-import Modal from './Modal'
-import { usePopUp } from '../../../context/popup'
-import { useAuth } from '../../../context/auth.context'
-import { useState } from 'react'
-import Button from '../../Button/Button1/Button'
+import modal from './EditProfile.module.css'
 
-const PopUp = () => {
+import { useState } from 'react'
+
+import { useAuth } from '../../context/auth.context'
+import Button from '../Button/Button1/Button'
+
+export const EditProfile = () => {
   const { user, editUser } = useAuth()
-  const { modaleActive, setModaleActive } = usePopUp()
-  const [fullNameEdit, setFullNameEdit] = useState(user?.displayName)
+  const [fullName, setFullName] = useState(user?.displayName ?? '')
 
   const handlePhotoEdit = (e) => {
     const photo = e.target.files[0]
     editUser({ profilePhotoFile: photo })
-    console.log(user?.photoURL)
   }
-
-  // console.log(user?.photoURL)
 
   const handleChangeName = (e) => {
-    setFullNameEdit(e.target.value)
+    setFullName(e.target.value)
   }
   const handleEditFullName = () => {
-    try {
-      editUser({ fullName: fullNameEdit })
-      console.log('Edit yes ' + fullNameEdit)
-    } catch (error) {
-      console.error('rtew ' + error)
-    }
+    editUser({ fullName: fullName })
   }
 
   return (
-    <Modal active={modaleActive} setActive={setModaleActive}>
+    <div>
       <div className={modal.modSpan}>
         <input
           className={modal.nameInput}
-          value={fullNameEdit}
+          value={fullName}
           onChange={handleChangeName}
         />
+
         <Button onClick={handleEditFullName}>Edit</Button>
       </div>
 
@@ -54,9 +46,8 @@ const PopUp = () => {
         </label>
         <img src={user?.photoURL} alt="tgfds" />
       </div>
-      <Button>Edit Profil Page</Button>
-    </Modal>
+
+      <Button>Edit Profile Page</Button>
+    </div>
   )
 }
-
-export default PopUp

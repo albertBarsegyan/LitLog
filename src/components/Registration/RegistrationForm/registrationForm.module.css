@@ -1,7 +1,10 @@
 .bigDiv {
     background: var(--white);
     padding: 35px;
-    border-radius: 15px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+    margin: 0 20px;
 }
 
 .inp {
@@ -23,9 +26,9 @@
 .googleBtn {
     display: flex;
     align-items: center;
-    padding: 10px 110px 15px 10px;
     margin-bottom: 25px;
-    background: var(--white);
+    background: transparent;
+    border: 0;
     font-size: 20px;
     cursor: pointer;
 }
@@ -40,6 +43,10 @@
     display: flex;
     justify-content: space-around;
     padding: 100px 0;
+}
+
+.formWrapper {
+    width: 100%;
 }
 
 form .border {
@@ -70,18 +77,19 @@ form .border {
     outline: none;
 }
 
-@media screen and (max-width:450px) {
-    .bigDiv{
-        padding:30px 20px;
+@media screen and (max-width: 450px) {
+    .bigDiv {
+        padding: 30px 20px;
     }
 }
 
-@media screen and (max-width:410px) {
-    
-    .bigDiv{
+@media screen and (max-width: 410px) {
+
+    .bigDiv {
         order: 0;
     }
-    .googleBtn{
+
+    .googleBtn {
         font-size: 16px;
         padding: 10px 40px 15px 10px;
     }

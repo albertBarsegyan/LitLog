@@ -1,6 +1,7 @@
 import { useAuth } from './context/auth.context'
-import AuthenticatedApp from './routes/AuthenticatedApp'
-import UnauthenticatedApp from './routes/UnauthenticatedApp'
+import { AuthenticatedRoutes } from './routes/AuthenticatedApp'
+import { UnauthenticatedRoutes } from './routes/UnauthenticatedRoutes'
+import { RouterProvider } from 'react-router-dom'
 
 function App() {
   const { user, isLoading } = useAuth()
@@ -9,10 +10,11 @@ function App() {
     return <h1>Loading...</h1>
   }
 
-  if (user) {
-    return <AuthenticatedApp />
-  }
-  return <UnauthenticatedApp />
+  return (
+    <RouterProvider
+      router={user ? AuthenticatedRoutes : UnauthenticatedRoutes}
+    />
+  )
 }
 
 export default App
