@@ -6,11 +6,12 @@ import ArticleForm from '../ArticleForm/ArticleForm'
 const Article = () => {
   const [openForm, setOpenForm] = useState(false)
   const handleOpenForm = () => setOpenForm(!openForm)
+
   return (
     <>
       <div style={{ textAlign: 'center' }}>
         <Button onClick={handleOpenForm} styles={styling}>
-          Add new book
+          Add new article
         </Button>
       </div>
       {openForm && (

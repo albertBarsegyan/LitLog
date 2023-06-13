@@ -109,7 +109,7 @@ const BooksFrom = ({ openForm, setOpenForm }) => {
           />
         </div>
 
-        <Button type={'submit'} disable={isButtonDisable} styles={styling}>
+        <Button type="submit" disable={isButtonDisable} styles={styling}>
           Create book
         </Button>
       </form>

@@ -5,34 +5,69 @@ import { useForm } from 'react-hook-form'
 import { minMaxLengtMes, requeridMes } from '../../../../constants/errorMessage'
 import { Icon } from '../../../../constants/PropsIcon'
 import { styling } from '../../../../constants/style'
+import { useAuth } from '../../../../context/auth.context'
+import { addArticle } from '../../../../services/article.services'
+
+const defaultValues = {
+  headline: '',
+  author: '',
+  url: '',
+}
 
 const ArticleForm = ({ openForm, setOpenForm }) => {
+  const { user } = useAuth()
   const {
     register,
+    handleSubmit,
     formState: { errors, isDirty, isValid },
     reset,
   } = useForm({
     mode: 'all',
+    defaultValues,
   })
+
   const isButtonDisable = !isDirty && !isValid
 
-  const handleAddBookSubmit = (e) => {
-    e.preventDefault()
+  const handleAddArticleSubmit = async (data) => {
+    const { errorCode } = await addArticle(data, user.uid)
+    console.log('[handleAddArticleSubmit]', { errorCode })
+    if (!errorCode) setOpenForm(false)
+
     reset()
   }
 
   return (
     <div className={style.bookFormDiv}>
-      <form onSubmit={handleAddBookSubmit} className={style.bookForm}>
+      <form
+        onSubmit={handleSubmit(handleAddArticleSubmit)}
+        className={style.bookForm}
+      >
         <p onClick={() => setOpenForm(!openForm)} className={style.xMark}>
           <Icons xmark={Icon.xmark} />
         </p>
+
         <div>
-          <p>
-            {errors?.authorName && <span>{errors?.authorName?.message}</span>}
-          </p>
           <input
-            {...register('authorName', {
+            {...register('headline', {
+              required: requeridMes.reqMes,
+              maxLength: {
+                value: 15,
+                message: minMaxLengtMes.maxName,
+              },
+              minLength: {
+                value: 3,
+                message: minMaxLengtMes.minName,
+              },
+            })}
+            className={style.inputBook}
+            type="text"
+            placeholder="Headline"
+          />
+          <p>{errors?.headline && <span>{errors?.headline?.message}</span>}</p>
+        </div>
+        <div>
+          <input
+            {...register('author', {
               required: requeridMes.reqMes,
               maxLength: {
                 value: 15,
@@ -47,25 +82,10 @@ const ArticleForm = ({ openForm, setOpenForm }) => {
             type="text"
             placeholder="Author Name"
           />
-        </div>
-        <div>
-          <p>{errors?.genre && <span>{errors?.genre?.message}</span>}</p>
-          <input
-            {...register('genre', {
-              required: requeridMes.reqMes,
-              minLength: {
-                value: 3,
-                message: minMaxLengtMes.minName,
-              },
-            })}
-            className={style.inputBook}
-            type="text"
-            placeholder="Genre"
-          />
+          <p>{errors?.author && <span>{errors?.author?.message}</span>}</p>
         </div>
 
         <div>
-          <p>{errors?.url && <span>{errors?.url?.message}</span>}</p>
           <input
             {...register('url', {
               required: requeridMes.reqMes,
@@ -74,10 +94,11 @@ const ArticleForm = ({ openForm, setOpenForm }) => {
             type="text"
             placeholder="Add url"
           />
+          <p>{errors?.url && <span>{errors?.url?.message}</span>}</p>
         </div>
 
-        <Button disable={isButtonDisable} styles={styling}>
-          Save
+        <Button type="submit" disable={isButtonDisable} styles={styling}>
+          Add article
         </Button>
       </form>
     </div>
