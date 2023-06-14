@@ -1,35 +1,20 @@
-import { useAuth } from './context/auth.context';
+import { useAuth } from './context/auth.context'
+import { AuthenticatedRoutes } from './routes/AuthenticatedApp'
+import { UnauthenticatedRoutes } from './routes/UnauthenticatedRoutes'
+import { RouterProvider } from 'react-router-dom'
 
 function App() {
-  const { googleAuth, isLoading, user, signOut, error, signIn, signUp } = useAuth();
+  const { user, isLoading } = useAuth()
 
-  const handleGoogleAuth = () => googleAuth();
-
-  const handleSignOut = () => signOut();
-
-  const handleLogin = () => signIn({ email: 'albertbarsegyan6@gmail.com', password: 'ajdkfjaksjdkjf' });
-
-  const handleSignUp = () =>
-    signUp({
-      email: 'test2000@mailinator.com',
-      password: 'ajdkfjaksjdkjf',
-      firstname: 'Micki',
-      lastname: 'jimmiy',
-    });
+  if (isLoading) {
+    return <h1>Loading...</h1>
+  }
 
   return (
-    <div className="App">
-      <p>code => {error.code}</p>
-      <p>message => {error.message}</p>
-      <pre>user => {JSON.stringify(user, null, 2)}</pre>
-      <span>{isLoading ? 'loading' : 'not loading'}</span>
-      <button onClick={handleGoogleAuth}>Google</button>
-      <button onClick={handleSignOut}>Sign out</button>
-      <button onClick={handleLogin}>Login</button>
-      <button onClick={handleSignUp}>Sign up</button>
-      {/*<Registration />*/}
-    </div>
-  );
+    <RouterProvider
+      router={user ? AuthenticatedRoutes : UnauthenticatedRoutes}
+    />
+  )
 }
 
-export default App;
+export default App

@@ -1,35 +1,100 @@
 .imgBack {
-    background-image: url("../FirstPage/images/bkimg.jpg");
-    height: 100vh;
+    background-image: url("../../assets/images/bkimg.jpg");
     background-size: cover;
+    display: flex;
+    justify-content: end;
+    align-items: center;
     filter: grayscale(100%);
-    opacity: .7 ;
+    height: 100vh;
 }
-
 .content{
-    position: absolute;
-    top:200px;
-    right:100px
+    margin-right: 50px;
 }
+
 .content h1 {
-    font-size: 90px;
-    font-weight: bold;
     font-family: "Poppins";
+    font-weight: bold;
+    font-size: 6rem;
     padding-bottom: 30px;
-    color: white;
+    color: var(--white);
 }
 
-.content h1 span{
-    color: black;
-}
-
-.content p{
-    background-color: gray;
+.content p {
     padding: 25px;
     border-radius: 25px;
     font-size: 20px;
     line-height: 30px;
+    color: var(--white);
+    background: var(--grey);
     font-family: "Poppins";
-    color: white;
+}
+.contentH1{
+    color: var(--black);
+}
 
+
+@media screen and (max-width:770px) {
+    .content{
+        margin-right: 0;
+    }
+    .imgBack{
+        justify-content: center;
+    }
+    .content h1{
+        color: var(--black);
+    }
+    .contentH1{
+        color: var(--white);
+    }
+}
+
+@media screen and (max-width:680px) {
+    .content h1 {
+        font-size: 5.5rem;
+    }
+    .content p{
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width:620px) {
+    .content h1 {
+        font-size: 5.2rem;
+    }
+    .content p{
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width:570px) {
+    .content p{
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width:504px) {
+    .content h1 {
+        margin-left:15px;
+    }
+    .content p{
+        padding: 15px;
+        line-height: 25px;
+        margin: 0 15px;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .imgBack{
+        background-image: none;
+        background-color: var(--borderColor );
+    }
+}
+
+@media screen and (max-width:310px) {
+    .content h1{
+        font-size: 4.7rem;
+        text-align: center;
+        margin-left: 0;
+        margin-top: 50px;
+    }
 }

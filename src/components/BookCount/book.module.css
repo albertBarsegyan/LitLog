@@ -1,0 +1,213 @@
+.countDiv {
+    background: var(--profileColor);
+    min-height: 100vh;
+}
+
+
+.countHeadDiv {
+    color: var(--white);
+    font-size: 4rem;
+    font-weight: 600;
+    font-family: "Poppins";
+    text-align: center;
+    padding-top: 25px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding-top: 25px;
+}
+
+.countDivContent {
+    color: var(--white);
+    margin: auto;
+    font-family: 'Poppins';
+    font-size: 30px;
+    line-height: 40px;
+    text-align: justify;
+}
+
+.countDivLabel {
+    padding-top: 40px;
+}
+
+.countDivContent2 {
+    font-size: 25px;
+    letter-spacing: 8px;
+    padding-bottom: 40px;
+    font-family: 'Poppins';
+    color: var(--white)
+}
+
+.countDivInput {
+    width: 80%;
+    padding: 10px;
+    font-size: 20px;
+    margin-right: 20px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.countDivButton {
+    background: linear-gradient(to right, var(--lightBlack), var(--grey));
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.countBigDivInput {
+    display: flex;
+    align-items: center;
+}
+
+.countDivContent2Span {
+    font-size: 40px;
+}
+
+
+/* media */
+
+@media screen and (max-width: 630px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    .countDivContent {
+        padding-top: 20px;
+        font-size: 25px;
+    }
+
+    .countDivInput {
+        width: 95%;
+        margin-bottom: 30px;
+    }
+
+    .countBigDivInput {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 595px) {
+    .countDivContent {
+        line-height: 40px;
+    }
+
+    .countDivContent2 {
+        letter-spacing: 2px;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .countDivInput {
+        margin-right: 0;
+    }
+
+    .countHeadDiv {
+        padding-bottom: 15px;
+    }
+}
+
+@media screen and (max-width: 521px) {
+    .countDivContent {
+        line-height: 45px;
+    }
+
+    .countDivContent {
+        font-size: 20px;
+    }
+
+    .countHeadDiv {
+        font-size: 3.5rem;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .countHeadDiv {
+        font-size: 3rem;
+    }
+
+    .countDivContent {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 447px) {
+    .countDivLabel {
+        padding-top: 25px;
+    }
+
+    .countDivContent {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 404px) {
+    .countHeadDiv {
+        font-size: 2.8rem;
+    }
+
+    .countDivContent {
+        line-height: 40px;
+    }
+
+    .countDivInput {
+        margin-bottom: 50px
+    }
+}
+
+@media screen and (max-width: 384px) {
+    .countDivInput {
+        margin-bottom: 35px
+    }
+
+    .countDivLabel {
+        font-size: 20px;
+    }
+
+    .countHeadDiv {
+        font-size: 2.5rem;
+    }
+
+    .countDivContent {
+        line-height: 35px;
+    }
+
+    .countDivContent {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .countDivContent {
+        line-height: 30px;
+    }
+
+    .countDivContent {
+        font-size: 20px;
+    }
+
+    .countDivContent2 {
+        font-size: 17px;
+    }
+
+    .countDivContent2Span {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 340px) {
+    .countDivContent {
+        line-height: 32px;
+        font-size: 18px;
+    }
+
+    .countHeadDiv {
+        font-size: 2.3rem;
+    }
+}

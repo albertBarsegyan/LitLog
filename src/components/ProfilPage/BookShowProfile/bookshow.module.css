@@ -1,0 +1,35 @@
+.bookShow {
+    font-size: 29px;
+    color: var(--white);
+    font-weight: bold;
+    margin: 30px 0;
+    font-family: "Poppins";
+}
+
+.img:nth-child(-n+2) {
+    border-radius: 8px;
+}
+
+.books {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.name {
+    font-family: 'Poppins';
+    font-size: 20px;
+    line-height: 24px;
+    color: var(--lightBlue);
+    display: inherit;
+    padding: 10px 0;
+    text-decoration: none;
+}
+
+.paragrap {
+    color: var(--white);
+    font-family: 'Poppins';
+    font-size: 18px;
+    line-height: 21px;
+    padding-bottom: 10px;
+}

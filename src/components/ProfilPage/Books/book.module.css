@@ -1,0 +1,71 @@
+.booksWrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    gap: 20px;
+}
+
+
+.name {
+    font-size: 20px;
+    line-height: 24px;
+    color: var(--lightBlue);
+    padding: 10px 0;
+    display: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.paragrap {
+    color: white;
+    font-size: 18px;
+    line-height: 21px;
+    padding-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.bookWrapper {
+    border: 1px solid white;
+    border-radius: 8px;
+    padding: 20px 40px;
+    width: 250px;
+    background: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+}
+
+
+.bookIconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.editButtonWrapper {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.editButtonWrapper > button {
+    border: 1px solid white;
+    color: white;
+    background: transparent;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 8px;
+
+}
+
+.bookWrapper:hover .editButtonWrapper {
+    z-index: 99;
+    display: block;
+}
