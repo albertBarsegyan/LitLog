@@ -7,7 +7,7 @@ export function EmptyState() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <rect width="250" height="200" fill="white" />
+      <rect width="250" height="200" fill="transparent" />
       <path
         fillRule="evenodd"
         clipRule="evenodd"

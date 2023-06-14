@@ -1,8 +1,9 @@
 .mainDiv {
     display: flex;
     background-color: var(--profileColor);
-    height: 100vh;
+    min-height: 100vh;
 }
+
 
 .bar {
     border-left: 1px solid var(--borderColor);

@@ -1,7 +1,7 @@
 .mainDiv {
     display: flex;
     background-color: var(--profileColor);
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .bar {

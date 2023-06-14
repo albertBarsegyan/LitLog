@@ -50,3 +50,13 @@
     bottom: 10px;
     left: 20px
 }
+
+.selectWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px 0;
+}
+
+.select {
+    width: 50%;
+}

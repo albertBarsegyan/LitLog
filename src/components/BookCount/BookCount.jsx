@@ -3,12 +3,13 @@ import { useState } from 'react'
 import { RegExp } from '../../constants/RegExp'
 import { useAuth } from '../../context/auth.context'
 import { useNavigate } from 'react-router-dom'
-import { AuthenticatedRoutePath } from '../../constants/RouteCostant'
 
 export const BookCount = () => {
   const [number, setNumber] = useState('')
   const { editUser } = useAuth()
   const navigate = useNavigate()
+
+  const currentYear = new Date().getFullYear()
 
   const handleChange = (e) => {
     const value = e.target.value
@@ -19,7 +20,6 @@ export const BookCount = () => {
 
   const handleClick = () => {
     editUser({ booksCount: number })
-    navigate(AuthenticatedRoutePath.Books())
   }
 
   return (
@@ -38,7 +38,7 @@ export const BookCount = () => {
           <div className={style.countDivLabel}>
             <p className={style.countDivContent2}>
               <span className={style.countDivContent2Span}>E</span>
-              nter quantity to read books
+              nter quantity to read books in {currentYear}
             </p>
             <div className={style.countBigDivInput}>
               <input

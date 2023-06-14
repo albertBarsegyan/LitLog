@@ -7,9 +7,11 @@ import {
   signOutService,
 } from '../services/auth.services'
 import { onAuthStateChanged } from 'firebase/auth'
-import { firebaseAuth } from '../libs/firebase/firebase.config'
+import { firebaseAuth, firestoreApp } from '../libs/firebase/firebase.config'
 import { firebaseUserDataFilter } from '../utils/firebase.utils'
 import { renameFile } from '../utils/file.utils'
+import { collection, doc, getDoc } from 'firebase/firestore'
+import { FirebaseDocument } from '../constants/firebase.constants'
 
 export const AuthContext = createContext(null)
 
@@ -89,8 +91,12 @@ export const AuthProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(firebaseAuth, (user) => {
-      if (user) setUser(firebaseUserDataFilter(user))
+    const unsubscribe = onAuthStateChanged(firebaseAuth, async (user) => {
+      const userDoc = await getDoc(
+        doc(collection(firestoreApp, FirebaseDocument.Users), user.uid)
+      )
+
+      if (user) setUser(firebaseUserDataFilter(user, userDoc.data()))
       setIsLoading(false)
     })
 

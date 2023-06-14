@@ -15,7 +15,9 @@ export const ProfilePage = () => {
         <div>
           <LeftSide />
         </div>
-        <div style={{ borderLeft: '1px solid var(--borderColor)' }}>
+        <div
+          style={{ borderLeft: '1px solid var(--borderColor)', width: '100%' }}
+        >
           <RightSide />
           <CenterSite />
         </div>

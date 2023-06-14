@@ -10,15 +10,20 @@ import { firestoreApp } from '../libs/firebase/firebase.config'
 import { FirebaseDocument } from '../constants/firebase.constants'
 import { generateUuid } from '../utils/string.utils'
 
-export const addBook = async ({ headline, author, genre, url }, userUid) => {
+export const addBook = async (
+  { headline, author, genre, url, readingStatus },
+  userUid
+) => {
   const documentUuid = generateUuid(16)
 
   try {
     await setDoc(doc(firestoreApp, FirebaseDocument.Books, documentUuid), {
+      id: documentUuid,
       headline,
       author,
       genre,
       url,
+      readingStatus,
       ownerUid: userUid,
       createdAt: serverTimestamp(),
     })

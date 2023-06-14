@@ -7,25 +7,28 @@ export function useFirebaseData({ collectionName, queryArray }) {
   const [error, setError] = useState(null)
 
   useEffect(() => {
-    const collectionRef = collection(firestoreApp, collectionName)
-    let queryResult
-    if (queryArray) {
-      queryResult = query(collectionRef, where(...queryArray))
-    }
+    const fetchData = async () => {
+      try {
+        const collectionRef = collection(firestoreApp, collectionName)
+        let queryResult = collectionRef
 
-    const unsubscribe = onSnapshot(
-      queryArray ? queryResult : collectionRef,
-      (snapshot) => {
-        const updatedData = snapshot.docs.map((doc) => doc.data())
-        setData(updatedData)
-        setError(null)
-      },
-      (error) => {
+        if (queryArray) {
+          queryResult = query(collectionRef, where(...queryArray))
+        }
+
+        const unsubscribe = onSnapshot(queryResult, (snapshot) => {
+          const updatedData = snapshot.docs.map((doc) => doc.data())
+          setData(updatedData)
+          setError(null)
+        })
+
+        return () => unsubscribe()
+      } catch (error) {
         setError(error)
       }
-    )
+    }
 
-    return () => unsubscribe()
+    fetchData()
   }, [collectionName, queryArray])
 
   return {

@@ -35,12 +35,14 @@
     margin-top: 20px;
     margin-bottom: 35px;
 }
-.nameInput{
+
+.nameInput {
     padding: 15px;
     font-size: 2rem;
     margin-bottom: 50px;
     width: 100%;
 }
+
 .label {
     font-size: 3rem;
     font-family: "Poppins";

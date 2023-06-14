@@ -85,6 +85,8 @@ export const loginService = async ({ email, password }) => {
       doc(collection(firestoreApp, FirebaseDocument.Users), response.user.uid)
     )
 
+    console.log('doc', userDoc.data())
+
     return {
       data: firebaseUserDataFilter(response.user, userDoc.data()),
       errorCode: null,
@@ -147,8 +149,12 @@ export const googleAuthService = async () => {
   }
 }
 
-export const editUserService = ({ fullName, profilePhotoFile, booksCount }) => {
-  return new Promise((resolve, reject) => {
+export const editUserService = async ({
+  fullName,
+  profilePhotoFile,
+  booksCount,
+}) => {
+  try {
     const user = getAuth().currentUser
 
     const userDocumentReference = doc(
@@ -158,39 +164,19 @@ export const editUserService = ({ fullName, profilePhotoFile, booksCount }) => {
     )
 
     if (booksCount) {
-      updateDoc(userDocumentReference, {
+      await updateDoc(userDocumentReference, {
         booksCount,
-      }).catch((error) => {
-        reject({
-          data: null,
-          errorCode: error.code,
-          errorMessage: error.message,
-        })
       })
     }
 
     if (fullName) {
-      updateProfile(user, {
+      await updateProfile(user, {
         displayName: fullName,
       })
-        .then(() => {
-          updateDoc(userDocumentReference, {
-            displayName: fullName,
-          }).catch((error) => {
-            reject({
-              data: null,
-              errorCode: error.code,
-              errorMessage: error.message,
-            })
-          })
-        })
-        .catch((error) => {
-          reject({
-            data: null,
-            errorCode: error.code,
-            errorMessage: error.message,
-          })
-        })
+
+      await updateDoc(userDocumentReference, {
+        displayName: fullName,
+      })
     }
 
     if (profilePhotoFile) {
@@ -203,64 +189,44 @@ export const editUserService = ({ fullName, profilePhotoFile, booksCount }) => {
         oldProfilePictureStoragePath
       )
 
-      const oldProfilePictureStorageMetadata = getMetadata(
+      const oldProfilePictureStorageMetadata = await getMetadata(
         oldProfilePictureStorageRef
       )
 
-      oldProfilePictureStorageMetadata.then(() => {
-        deleteObject(oldProfilePictureStorageRef).catch((error) => {
-          reject({
-            data: null,
-            errorCode: error.code,
-            errorMessage: error.message,
-          })
-        })
-      })
+      if (oldProfilePictureStorageMetadata) {
+        await deleteObject(oldProfilePictureStorageRef)
+      }
 
       const storageRef = ref(
         firebaseCloudStorage,
         `${FirebaseCloudStorages.ProfileImage}/${profilePhotoFile.name}`
       )
+
       const uploadTask = uploadBytesResumable(storageRef, profilePhotoFile)
 
-      uploadTask.on(
-        'state_changed',
-        null,
-        (error) => {
-          reject({
-            data: null,
-            errorCode: error.code,
-            errorMessage: error.message,
-          })
-        },
-        async () => {
-          try {
-            const uploadedFileUrl = await getDownloadURL(
-              uploadTask.snapshot.ref
-            )
+      const uploadedFileUrl = await getDownloadURL(uploadTask.snapshot.ref)
 
-            await updateProfile(user, {
-              photoURL: uploadedFileUrl,
-            })
+      await updateProfile(user, {
+        photoURL: uploadedFileUrl,
+      })
 
-            await updateDoc(userDocumentReference, {
-              photoURL: uploadedFileUrl,
-            })
-
-            resolve({
-              data: firebaseUserDataFilter(getAuth().currentUser),
-              errorCode: null,
-              errorMessage: null,
-            })
-          } catch (error) {
-            reject({
-              data: null,
-              errorCode: error.code,
-              errorMessage: error.message,
-            })
-          }
-        }
-      )
+      await updateDoc(userDocumentReference, {
+        photoURL: uploadedFileUrl,
+      })
     }
-  })
+
+    const updatedUser = getAuth().currentUser
+
+    const userDocument = (await getDoc(userDocumentReference)).data()
+
+    return {
+      data: firebaseUserDataFilter(updatedUser, userDocument),
+      errorCode: null,
+      errorMessage: null,
+    }
+  } catch (error) {
+    const errorCode = error.code
+    const errorMessage = error.message
+    return { data: null, errorCode, errorMessage }
+  }
 }

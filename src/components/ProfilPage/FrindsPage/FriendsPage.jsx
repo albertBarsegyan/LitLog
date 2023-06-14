@@ -4,6 +4,8 @@ import style from './friends.module.css'
 import { useFirebaseData } from '../../../context/use-firebase-data'
 import { FirebaseDocument } from '../../../constants/firebase.constants'
 import profileImage from '../../../assets/images/loginUser.png'
+import { useAuth } from '../../../context/auth.context'
+import { EmptyState } from '../../icons/EmptyState'
 
 const FriendRenderer = ({ data }) => {
   return (
@@ -20,8 +22,10 @@ const FriendRenderer = ({ data }) => {
 }
 
 const FriendsPage = () => {
+  const { user } = useAuth()
   const { data: friends, error } = useFirebaseData({
     collectionName: FirebaseDocument.Users,
+    queryArray: ['email', '!=', user.email],
   })
 
   return (
@@ -37,6 +41,8 @@ const FriendsPage = () => {
           {friends.map((friend) => (
             <FriendRenderer key={friend.id} data={friend} />
           ))}
+
+          {!friends?.length && <EmptyState />}
         </div>
       </div>
     </div>

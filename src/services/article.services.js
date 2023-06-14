@@ -12,6 +12,7 @@ export const addArticle = async ({ headline, author, url }, userUid) => {
       author,
       url,
       ownerUid: userUid,
+      id: documentUuid,
       createdAt: serverTimestamp(),
     })
 

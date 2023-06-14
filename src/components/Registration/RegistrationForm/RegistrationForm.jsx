@@ -9,7 +9,6 @@ import style from './registrationForm.module.css'
 import { useAuth } from '../../../context/auth.context'
 import { RegExp } from '../../../constants/RegExp'
 import { useNavigate } from 'react-router-dom'
-import { AuthenticatedRoutePath } from '../../../constants/RouteCostant'
 
 const RegistrationForm = () => {
   const { signUp, googleAuth } = useAuth()
@@ -39,8 +38,6 @@ const RegistrationForm = () => {
   const onSubmit = async (data) => {
     reset()
     await signUp(data)
-
-    navigate(AuthenticatedRoutePath.BooksInfo())
   }
 
   const handleGoogleSubmit = async () => await googleAuth()
