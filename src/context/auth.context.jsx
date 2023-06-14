@@ -92,11 +92,14 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(firebaseAuth, async (user) => {
-      const userDoc = await getDoc(
-        doc(collection(firestoreApp, FirebaseDocument.Users), user.uid)
-      )
+      if (user) {
+        const userDoc = await getDoc(
+          doc(collection(firestoreApp, FirebaseDocument.Users), user.uid)
+        )
 
-      if (user) setUser(firebaseUserDataFilter(user, userDoc.data()))
+        setUser(firebaseUserDataFilter(user, userDoc.data()))
+      }
+
       setIsLoading(false)
     })
 

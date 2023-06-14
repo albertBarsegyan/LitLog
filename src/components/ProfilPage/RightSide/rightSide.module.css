@@ -39,13 +39,16 @@
     border-radius: 50%;
     margin-right: 16px;
     background: transparent;
-    border: 1px solid white;
+    padding: 0;
+    border: 0;
 }
 
 
 .userImg {
     width: inherit;
     height: inherit;
+    border-radius: 100%;
+    display: block;
 }
 
 .rotate {
