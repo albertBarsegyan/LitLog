@@ -10,9 +10,10 @@ import style from './article.module.css'
 import { EmptyState } from '../../../icons/EmptyState'
 import { ArticleIcon } from '../../../icons/Article.icon'
 
-const ArticleRenderer = ({ article }) => {
-  const handleEdit = (event) => {
+const ArticleRenderer = ({ article, handleEdit }) => {
+  const handleEditInner = (event) => {
     event.stopPropagation()
+    handleEdit(article)
   }
 
   const handleNavigate = () => {
@@ -39,7 +40,7 @@ const ArticleRenderer = ({ article }) => {
       </p>
 
       <div className={style.editButtonWrapper}>
-        <button onClick={handleEdit}>Edit</button>
+        <button onClick={handleEditInner}>Edit</button>
       </div>
     </button>
   )
@@ -47,12 +48,18 @@ const ArticleRenderer = ({ article }) => {
 
 const Article = () => {
   const { user } = useAuth()
+  const [editArticleValue, setEditArticleValue] = useState(null)
   const { data: articles } = useFirebaseData({
     collectionName: FirebaseDocument.Articles,
     queryArray: ['ownerUid', '==', user.uid],
   })
   const [openForm, setOpenForm] = useState(false)
   const handleOpenForm = () => setOpenForm(!openForm)
+
+  const handleEditArticle = (article) => {
+    setEditArticleValue(article)
+    setOpenForm(true)
+  }
 
   return (
     <>
@@ -62,12 +69,20 @@ const Article = () => {
         </Button>
       </div>
       {openForm && (
-        <ArticleForm openForm={openForm} setOpenForm={setOpenForm} />
+        <ArticleForm
+          providedDefaultValue={editArticleValue}
+          openForm={openForm}
+          setOpenForm={setOpenForm}
+        />
       )}
 
       <div className={style.articlesWrapper}>
         {articles.map((article) => (
-          <ArticleRenderer key={article?.id} article={article} />
+          <ArticleRenderer
+            handleEdit={handleEditArticle}
+            key={article?.id}
+            article={article}
+          />
         ))}
 
         {!articles.length && <EmptyState />}

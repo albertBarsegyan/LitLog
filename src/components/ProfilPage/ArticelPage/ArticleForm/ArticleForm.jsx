@@ -6,7 +6,7 @@ import { minMaxLengtMes, requeridMes } from '../../../../constants/errorMessage'
 import { Icon } from '../../../../constants/PropsIcon'
 import { styling } from '../../../../constants/style'
 import { useAuth } from '../../../../context/auth.context'
-import { addArticle } from '../../../../services/article.services'
+import { addArticle, editArticle } from '../../../../services/article.services'
 
 const defaultValues = {
   headline: '',
@@ -14,7 +14,7 @@ const defaultValues = {
   url: '',
 }
 
-const ArticleForm = ({ openForm, setOpenForm }) => {
+const ArticleForm = ({ openForm, setOpenForm, providedDefaultValue }) => {
   const { user } = useAuth()
   const {
     register,
@@ -23,14 +23,22 @@ const ArticleForm = ({ openForm, setOpenForm }) => {
     reset,
   } = useForm({
     mode: 'all',
-    defaultValues,
+    defaultValues: providedDefaultValue ?? defaultValues,
   })
 
   const isButtonDisable = !isDirty && !isValid
 
-  const handleAddArticleSubmit = async (data) => {
+  const handleSubmitArticleAction = async (data) => {
+    if (providedDefaultValue) {
+      console.log({ data })
+      const { errorCode } = await editArticle(data)
+      if (!errorCode) setOpenForm(false)
+      reset()
+      return
+    }
+
     const { errorCode } = await addArticle(data, user.uid)
-    console.log('[handleAddArticleSubmit]', { errorCode })
+
     if (!errorCode) setOpenForm(false)
 
     reset()
@@ -39,7 +47,7 @@ const ArticleForm = ({ openForm, setOpenForm }) => {
   return (
     <div className={style.bookFormDiv}>
       <form
-        onSubmit={handleSubmit(handleAddArticleSubmit)}
+        onSubmit={handleSubmit(handleSubmitArticleAction)}
         className={style.bookForm}
       >
         <p onClick={() => setOpenForm(!openForm)} className={style.xMark}>
@@ -98,7 +106,7 @@ const ArticleForm = ({ openForm, setOpenForm }) => {
         </div>
 
         <Button type="submit" disable={isButtonDisable} styles={styling}>
-          Add article
+          {providedDefaultValue ? 'Edit' : 'Add'} article
         </Button>
       </form>
     </div>

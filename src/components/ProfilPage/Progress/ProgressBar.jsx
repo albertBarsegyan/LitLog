@@ -1,27 +1,27 @@
-import { useState } from 'react'
-import style from '../Progress/progressBar.module.css'
+import styles from './progressBar.module.css'
 
-const ProgressBar = () => {
-  const [count, setCount] = useState(0)
+export const getReadPercent = (readBooksCount, booksCount) =>
+  ((readBooksCount / booksCount) * 100).toFixed(2)
 
-  const handleClick = () => {
-    setCount(count + 20)
-  }
+export default function ProgressBar({ booksCount = 1, readBooksCount = 0 }) {
+  const readBooksPercent = getReadPercent(readBooksCount, booksCount)
 
   return (
-    <div>
-      <div className={style.progresDiv}>
-        <progress
-          className={style.progres}
-          min={0}
-          max={100}
-          value={count}
-        ></progress>{' '}
-        <br />
-        <button onClick={handleClick}>Click me</button>
+    <div className={styles.progressbarWrapper}>
+      <div style={{ width: '50%' }}>
+        <div className={styles.percentWrapper}>
+          <span>{readBooksPercent}%</span>
+        </div>
+        <div className={styles.indicator}>
+          <div style={{ width: `${readBooksPercent}%` }}></div>
+        </div>
+
+        <div style={{ marginTop: '24px', color: 'white' }}>
+          <p>
+            In {new Date().getFullYear()} must read {booksCount} books
+          </p>
+        </div>
       </div>
     </div>
   )
 }
-
-export default ProgressBar

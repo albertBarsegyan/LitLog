@@ -6,7 +6,7 @@ import { minMaxLengtMes, requeridMes } from '../../../../constants/errorMessage'
 import { Icon } from '../../../../constants/PropsIcon'
 import { styling } from '../../../../constants/style'
 import { useAuth } from '../../../../context/auth.context'
-import { addBook } from '../../../../services/book.services'
+import { addBook, editBook } from '../../../../services/book.services'
 
 const defaultValues = {
   headline: '',
@@ -36,7 +36,7 @@ const BookGenresList = [
   { value: 'Travel', id: 16 },
 ]
 
-const BooksForm = ({ openForm, setOpenForm }) => {
+const BooksForm = ({ openForm, setOpenForm, providedDefaultValues }) => {
   const { user } = useAuth()
   const {
     register,
@@ -46,12 +46,18 @@ const BooksForm = ({ openForm, setOpenForm }) => {
     reset,
   } = useForm({
     mode: 'all',
-    defaultValues,
+    defaultValues: providedDefaultValues ?? defaultValues,
   })
 
   const isButtonDisable = !isDirty && !isValid
 
-  const handleAddBookSubmit = async (data) => {
+  const handleBookSubmit = async (data) => {
+    if (providedDefaultValues) {
+      const { errorCode } = await editBook(data)
+      if (!errorCode) setOpenForm(false)
+      return
+    }
+
     const { errorCode } = await addBook(data, user?.uid)
 
     if (!errorCode) setOpenForm(false)
@@ -62,7 +68,7 @@ const BooksForm = ({ openForm, setOpenForm }) => {
   return (
     <div className={style.bookFormDiv}>
       <form
-        onSubmit={handleSubmit(handleAddBookSubmit)}
+        onSubmit={handleSubmit(handleBookSubmit)}
         className={style.bookForm}
       >
         <p onClick={() => setOpenForm(!openForm)} className={style.xMark}>
@@ -155,7 +161,7 @@ const BooksForm = ({ openForm, setOpenForm }) => {
         </div>
 
         <Button type="submit" disable={isButtonDisable} styles={styling}>
-          Create book
+          {providedDefaultValues ? 'Edit' : 'Create'} book
         </Button>
       </form>
     </div>

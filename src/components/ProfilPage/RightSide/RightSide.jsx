@@ -2,6 +2,7 @@ import { useAuth } from '../../../context/auth.context'
 import style from '../RightSide/rightSide.module.css'
 import Navbar from './NavBar/Navbar'
 import { usePopUp } from '../../../context/popup'
+import { ProfileIcon } from '../../icons/Profile.icon'
 
 const RightSide = () => {
   const { user } = useAuth()
@@ -13,12 +14,16 @@ const RightSide = () => {
     <div style={{ width: '100%' }}>
       <div className={style.rightDiv}>
         <div className={style.minDiv}>
-          <img
+          <button
+            className={style.profileImageButton}
             onClick={handleOpenDropDown}
-            className={style.userImg}
-            src={user?.photoURL}
-            alt=""
-          />
+          >
+            {user?.photoURL ? (
+              <img className={style.userImg} src={user?.photoURL} alt="" />
+            ) : (
+              <ProfileIcon />
+            )}
+          </button>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="1em"

@@ -2,7 +2,11 @@ import { useEffect, useState } from 'react'
 import { collection, onSnapshot, query, where } from 'firebase/firestore'
 import { firestoreApp } from '../libs/firebase/firebase.config'
 
-export function useFirebaseData({ collectionName, queryArray }) {
+export function useFirebaseData({
+  collectionName,
+  queryArray,
+  otherConditions,
+}) {
   const [data, setData] = useState([])
   const [error, setError] = useState(null)
 
@@ -12,7 +16,15 @@ export function useFirebaseData({ collectionName, queryArray }) {
         const collectionRef = collection(firestoreApp, collectionName)
         let queryResult = collectionRef
 
-        if (queryArray) {
+        if (queryArray && otherConditions) {
+          queryResult = query(
+            collectionRef,
+            where(...queryArray),
+            where(...otherConditions)
+          )
+        }
+
+        if (queryArray && !otherConditions) {
           queryResult = query(collectionRef, where(...queryArray))
         }
 
@@ -29,7 +41,7 @@ export function useFirebaseData({ collectionName, queryArray }) {
     }
 
     fetchData()
-  }, [collectionName, queryArray])
+  }, [collectionName, otherConditions, queryArray])
 
   return {
     data,

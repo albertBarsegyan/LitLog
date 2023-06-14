@@ -9,10 +9,12 @@ import { FirebaseDocument } from '../../../constants/firebase.constants'
 import { useAuth } from '../../../context/auth.context'
 import { BookIcon } from '../../icons/Book.icon'
 import { EmptyState } from '../../icons/EmptyState'
+import ProgressBar from '../Progress/ProgressBar'
 
-const Book = ({ book }) => {
-  const handleEdit = (event) => {
+const Book = ({ book, handleEdit }) => {
+  const handleEditInner = (event) => {
     event.stopPropagation()
+    handleEdit(book)
   }
 
   const handleNavigate = () => {
@@ -37,7 +39,7 @@ const Book = ({ book }) => {
       </p>
 
       <div className={style.editButtonWrapper}>
-        <button onClick={handleEdit}>Edit</button>
+        <button onClick={handleEditInner}>Edit</button>
       </div>
     </button>
   )
@@ -46,6 +48,7 @@ const Book = ({ book }) => {
 const Books = () => {
   const { user } = useAuth()
   const [openForm, setOpenForm] = useState(false)
+  const [editButtonValues, setEditButtonValues] = useState(null)
   const handleOpenForm = () => setOpenForm(!openForm)
 
   const { data: books } = useFirebaseData({
@@ -53,18 +56,43 @@ const Books = () => {
     queryArray: ['ownerUid', '==', user?.uid],
   })
 
+  const { data: finishedBooks } = useFirebaseData({
+    collectionName: FirebaseDocument.Books,
+    queryArray: ['ownerUid', '==', user?.uid],
+    otherConditions: ['readingStatus', '==', 'finished'],
+  })
+
+  const handleEditBook = (book) => {
+    setOpenForm(true)
+    setEditButtonValues(book)
+  }
+
   return (
     <>
       <div style={{ textAlign: 'center' }}>
+        <div>
+          <ProgressBar
+            booksCount={user?.booksCount}
+            readBooksCount={finishedBooks.length ?? 1}
+          />
+        </div>
+
         <Button onClick={handleOpenForm} styles={styling}>
           Add new book
         </Button>
       </div>
 
-      {openForm && <BooksForm openForm={openForm} setOpenForm={setOpenForm} />}
+      {openForm && (
+        <BooksForm
+          providedDefaultValues={editButtonValues}
+          openForm={openForm}
+          setOpenForm={setOpenForm}
+        />
+      )}
+
       <div className={style.booksWrapper}>
         {books.map((book) => (
-          <Book book={book} key={book.id} />
+          <Book handleEdit={handleEditBook} book={book} key={book.id} />
         ))}
 
         {!books.length && <EmptyState />}

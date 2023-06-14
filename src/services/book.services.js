@@ -1,14 +1,8 @@
-import {
-  collection,
-  doc,
-  query,
-  serverTimestamp,
-  setDoc,
-  where,
-} from 'firebase/firestore'
+import { doc, serverTimestamp, setDoc, updateDoc } from 'firebase/firestore'
 import { firestoreApp } from '../libs/firebase/firebase.config'
 import { FirebaseDocument } from '../constants/firebase.constants'
 import { generateUuid } from '../utils/string.utils'
+import { filterObjectFields } from '../utils/object.utils'
 
 export const addBook = async (
   { headline, author, genre, url, readingStatus },
@@ -36,13 +30,27 @@ export const addBook = async (
   }
 }
 
-export const getBooks = (uid) => {
+export const editBook = async ({
+  headline,
+  author,
+  genre,
+  url,
+  readingStatus,
+  id,
+}) => {
   try {
-    const booksRef = collection(firestoreApp, FirebaseDocument.Books)
+    await updateDoc(
+      doc(firestoreApp, FirebaseDocument.Books, id),
+      filterObjectFields({
+        headline,
+        author,
+        genre,
+        url,
+        readingStatus,
+      })
+    )
 
-    const queryResult = query(booksRef, where('ownerUid', '==', uid))
-
-    return { data: queryResult, errorCode: null, errorMessage: null }
+    return { data: null, errorCode: null, errorMessage: null }
   } catch (error) {
     const errorCode = error.code
     const errorMessage = error.message
