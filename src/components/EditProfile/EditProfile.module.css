@@ -37,22 +37,88 @@
 }
 
 .nameInput {
-    padding: 15px;
-    font-size: 2rem;
-    margin-bottom: 50px;
+    /*padding: 15px;*/
+    /*font-size: 2rem;*/
     width: 100%;
+    max-width: 300px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 0;
 }
 
 .label {
-    font-size: 3rem;
-    font-family: "Poppins";
-    color: var(--lightBlue);
+    font-size: 18px;
+    color: white;
+}
+
+.uploadedImageWrapper {
+    margin: 10px 0;
+}
+
+.imageUploadButton {
+    border: 1px solid white;
+    padding: 10px 20px;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    margin: 0;
+    font-size: 16px;
+}
+
+.uploadedImage {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
 }
 
 .customFileInput {
-    font-size: 2.5rem;
-    cursor: pointer;
-    margin-top: 15px;
-    color: var(--black);
+    display: none;
 }
 
+.mainDiv {
+    display: flex;
+    background-color: var(--profileColor);
+    min-height: 100vh;
+}
+
+
+.bar {
+    border-right: 1px solid var(--borderColor);
+}
+
+.rightSideWrapper {
+    width: 100%;
+    margin: 0 15px;
+}
+
+.img {
+    width: 150px;
+    height: 150px;
+}
+
+.friendsWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.contentWrapper {
+    width: 50%;
+}
+
+
+.name, .email {
+    margin-top: 10px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.modSpan {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0 10px;
+}

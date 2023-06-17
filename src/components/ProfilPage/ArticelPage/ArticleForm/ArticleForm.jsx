@@ -30,7 +30,6 @@ const ArticleForm = ({ openForm, setOpenForm, providedDefaultValue }) => {
 
   const handleSubmitArticleAction = async (data) => {
     if (providedDefaultValue) {
-      console.log({ data })
       const { errorCode } = await editArticle(data)
       if (!errorCode) setOpenForm(false)
       reset()

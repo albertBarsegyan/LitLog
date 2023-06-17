@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import { collection, onSnapshot, query, where } from 'firebase/firestore'
 import { firestoreApp } from '../libs/firebase/firebase.config'
 
+let count = 0
+
 export function useFirebaseData({
   collectionName,
   queryArray,
@@ -41,7 +43,7 @@ export function useFirebaseData({
     }
 
     fetchData()
-  }, [collectionName, otherConditions, queryArray])
+  }, [])
 
   return {
     data,

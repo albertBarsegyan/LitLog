@@ -13,7 +13,6 @@ const PopUp = () => {
   const handlePhotoEdit = (e) => {
     const photo = e.target.files[0]
     editUser({ profilePhotoFile: photo })
-    console.log(user?.photoURL)
   }
 
   // console.log(user?.photoURL)
@@ -21,13 +20,9 @@ const PopUp = () => {
   const handleChangeName = (e) => {
     setFullNameEdit(e.target.value)
   }
-  const handleEditFullName = () => {
-    try {
-      editUser({ fullName: fullNameEdit })
-      console.log('Edit yes ' + fullNameEdit)
-    } catch (error) {
-      console.error('rtew ' + error)
-    }
+  const handleEditFullName = async () => {
+    const { error } = await editUser({ fullName: fullNameEdit })
+    console.log({ error })
   }
 
   return (

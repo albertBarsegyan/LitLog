@@ -81,12 +81,12 @@ export const AuthProvider = ({ children }) => {
       booksCount,
     })
 
-    setUser(data || profilePhotoFile)
+    setUser((prev) => data || prev)
 
     setIsLoading(false)
     setError({
-      code: errorCode || profilePhotoFile,
-      message: errorMessage || profilePhotoFile,
+      code: errorCode,
+      message: errorMessage,
     })
   }
 

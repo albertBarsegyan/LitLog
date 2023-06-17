@@ -3,18 +3,19 @@ import RightSide from '../RightSide/RightSide'
 import style from './friends.module.css'
 import { useFirebaseData } from '../../../context/use-firebase-data'
 import { FirebaseDocument } from '../../../constants/firebase.constants'
-import profileImage from '../../../assets/images/loginUser.png'
 import { useAuth } from '../../../context/auth.context'
 import { EmptyState } from '../../icons/EmptyState'
+import { ProfileIcon } from '../../icons/Profile.icon'
 
 const FriendRenderer = ({ data }) => {
   return (
     <div className={style.friendWrapper}>
-      <img
-        className={style.img}
-        src={data.photoURL ?? profileImage}
-        alt="img"
-      />
+      {data.photoURL ? (
+        <img src={data.photoURL} className={style.img} />
+      ) : (
+        <ProfileIcon width={150} height={150} />
+      )}
+
       <p className={style.name}>{data.displayName}</p>
       <p className={style.email}>{data.email}</p>
     </div>

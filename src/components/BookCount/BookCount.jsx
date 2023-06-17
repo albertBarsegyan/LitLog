@@ -13,6 +13,12 @@ export const BookCount = () => {
 
   const handleChange = (e) => {
     const value = e.target.value
+
+    if (value === '') {
+      setNumber('')
+      return
+    }
+
     if (RegExp.numberRegExp.test(value) && value <= 365 && value >= 1) {
       setNumber(value)
     }

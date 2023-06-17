@@ -25,7 +25,7 @@ import {
   getDownloadURL,
   getMetadata,
   ref,
-  uploadBytesResumable,
+  uploadBytes,
 } from 'firebase/storage'
 
 export const registerService = async ({
@@ -84,8 +84,6 @@ export const loginService = async ({ email, password }) => {
     const userDoc = await getDoc(
       doc(collection(firestoreApp, FirebaseDocument.Users), response.user.uid)
     )
-
-    console.log('doc', userDoc.data())
 
     return {
       data: firebaseUserDataFilter(response.user, userDoc.data()),
@@ -184,17 +182,14 @@ export const editUserService = async ({
         user.photoURL
       )
 
-      const oldProfilePictureStorageRef = ref(
-        firebaseCloudStorage,
-        oldProfilePictureStoragePath
-      )
+      if (oldProfilePictureStoragePath) {
+        const oldProfilePictureStorageRef = ref(
+          firebaseCloudStorage,
+          oldProfilePictureStoragePath
+        )
 
-      const oldProfilePictureStorageMetadata = await getMetadata(
-        oldProfilePictureStorageRef
-      )
-
-      if (oldProfilePictureStorageMetadata) {
-        await deleteObject(oldProfilePictureStorageRef)
+        const imageMetadata = await getMetadata(oldProfilePictureStorageRef)
+        imageMetadata && (await deleteObject(oldProfilePictureStorageRef))
       }
 
       const storageRef = ref(
@@ -202,10 +197,14 @@ export const editUserService = async ({
         `${FirebaseCloudStorages.ProfileImage}/${profilePhotoFile.name}`
       )
 
-      const uploadTask = uploadBytesResumable(storageRef, profilePhotoFile)
+      await uploadBytes(storageRef, profilePhotoFile)
+      let uploadedFileUrl
 
-      const uploadedFileUrl = await getDownloadURL(uploadTask.snapshot.ref)
-
+      try {
+        uploadedFileUrl = await getDownloadURL(storageRef)
+      } catch (e) {
+        uploadedFileUrl = null
+      }
       await updateProfile(user, {
         photoURL: uploadedFileUrl,
       })

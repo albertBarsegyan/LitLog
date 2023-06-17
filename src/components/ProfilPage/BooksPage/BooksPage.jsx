@@ -8,7 +8,7 @@ import { BookCount } from '../../BookCount/BookCount'
 const BooksPage = () => {
   const { user } = useAuth()
 
-  if (Number(user.booksCount) < 1) {
+  if (user && Number(user.booksCount) < 1) {
     return <BookCount />
   }
 

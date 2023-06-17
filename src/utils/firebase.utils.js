@@ -7,8 +7,18 @@ export const firebaseUserDataFilter = (user, dbUser = {}) => ({
   booksCount: dbUser?.booksCount ?? 0,
 })
 
-export const getStoragePathFromDownloadUrl = (downloadUrl) => {
-  const bucketUrl = 'https://storage.googleapis.com/'
-  const storagePath = downloadUrl.replace(bucketUrl, '')
-  return decodeURIComponent(storagePath)
+export function getStoragePathFromDownloadUrl(downloadUrl) {
+  if (!downloadUrl) return null
+
+  const storageRootPath = 'https://firebasestorage.googleapis.com/v0/b/'
+  const isFirebaseDownloadUrl = downloadUrl.startsWith(storageRootPath)
+
+  if (!isFirebaseDownloadUrl) {
+    return null
+  }
+
+  const decodedStoragePath = decodeURIComponent(downloadUrl)
+  const urlObj = new URL(decodedStoragePath)
+  urlObj.search = ''
+  return urlObj.toString().split('/o/')[1]
 }

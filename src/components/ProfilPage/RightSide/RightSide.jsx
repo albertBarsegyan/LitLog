@@ -19,7 +19,11 @@ const RightSide = () => {
             onClick={handleOpenDropDown}
           >
             {user?.photoURL ? (
-              <img className={style.userImg} src={user?.photoURL} alt="" />
+              <img
+                className={style.userImg}
+                src={user?.photoURL}
+                alt="profile picture"
+              />
             ) : (
               <ProfileIcon />
             )}

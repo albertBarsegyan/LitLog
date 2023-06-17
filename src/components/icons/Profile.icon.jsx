@@ -1,9 +1,9 @@
-export function ProfileIcon() {
+export function ProfileIcon({ width = 40, height = 40 }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      height="40"
-      width="40"
+      height={width}
+      width={width}
       viewBox="0 0 448 512"
     >
       <path
