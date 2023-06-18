@@ -3,15 +3,15 @@
 }
 
 .open {
+    padding: 10px;
     pointer-events: all;
     background-color: var(--white);
-    padding: 15px 10px;
+    padding: 15px 30px;
     display: block;
     position: absolute;
-    top: 100px;
-    right: 8.5%;
+    top: 12%;
+    right: 2.5%;
     border-radius: 8px;
-    width: 200px;
     z-index: 99;
 }
 
@@ -26,4 +26,9 @@
     justify-content: center;
     border: 1px solid #111;
     border-radius: 8px;
+    text-decoration: none;
+}
+
+.btn:last-child{
+    margin-top: 10px;
 }
