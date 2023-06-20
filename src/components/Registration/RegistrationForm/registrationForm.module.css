@@ -1,96 +1,50 @@
-.bigDiv {
+.registerForm{
+    padding: 4% 60px;
     background: var(--white);
-    padding: 35px;
-    border-radius: 8px;
-    max-width: 400px;
-    width: 100%;
-    margin: 0 20px;
+    border: 5px solid var(--grey)
 }
-
-.inp {
-    display: block;
-    margin-bottom: 25px;
-    border: 1px solid;
-    width: 98%;
-    padding: 10px 3px;
-}
-
-.but {
-    padding: 10px 40px;
-    background-color: var(--black);
-    color: var(--white);
-    border: 1px solid var(--white);
+.regiterBtn{
     cursor: pointer;
-}
-
-.googleBtn {
-    display: flex;
-    align-items: center;
-    margin-bottom: 25px;
-    background: transparent;
-    border: 0;
     font-size: 20px;
-    cursor: pointer;
+    line-height: 24px;
+    letter-spacing: 0.175em;
+    padding: 15px 60px;
+    color: var(--white);
+    background: var(--lightBlue);
+    border: none;
+    border-radius: 5px;
 }
-
-.googleImg {
-    width: 30px;
-    height: 30px;
-    background: transparent;
+.signup{
+    font-size: 3rem;
+    line-height: 39px;
+    letter-spacing: 0.175em;
+    padding-bottom: 40px;
+    text-align: center;
 }
-
-.main {
-    display: flex;
-    justify-content: space-around;
-    padding: 100px 0;
-}
-
-.formWrapper {
-    width: 100%;
-}
-
-form .border {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-}
-
-.spBor {
-    border-bottom: 3px solid;
-    width: 46%;
-    height: 1px;
-}
-
-.errormess {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: var(--red);
-}
-
-.erorrInp {
-    border-color: var(--red);
-    display: block;
-    width: 98%;
-    padding: 10px 3px;
-    margin-bottom: 25px;
+.regiterInput{
+    padding: 10px;
+    width: 450px;
     outline: none;
+    border: 2px solid #929292;
+    border-radius:5px;
+    background: transparent;
+    font-size: 18px;
+    margin-bottom: 30px;
 }
 
-@media screen and (max-width: 450px) {
-    .bigDiv {
-        padding: 30px 20px;
-    }
+.registerImg{
+    position: absolute;
+    right: 15px;
+    width: 100px;
+    bottom: -2%;
+}
+.displayImg{
+    display: none;
 }
 
-@media screen and (max-width: 410px) {
-
-    .bigDiv {
-        order: 0;
-    }
-
-    .googleBtn {
-        font-size: 16px;
-        padding: 10px 40px 15px 10px;
-    }
+.errormess{
+    color: var(--red);
+    font-size: 20px;
+    text-align: center;
+    padding-bottom: 20px;
 }

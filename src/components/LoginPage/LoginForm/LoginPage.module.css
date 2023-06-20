@@ -1,133 +1,96 @@
-.form {
-    background-color: var(--white);
-    display: inline-block;
-    padding: 35px;
-    border-radius: 8px;
-    font-family: "Poppins";
+.loginPageForm{
+    margin-top: 70px;
+    background: var(--profileColor);
+    padding: 4% 0;
 }
-
-.main {
+.formDiv{
+    margin: 0 auto;
+    width: 600px;
+    border: 5px solid var(--grey);
+    background: var(--white);
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 13% 0;
+    flex-direction: column;
+    padding: 40px 0;
 }
 
-.formInput {
-    height: 30px;
-    margin-bottom: 15px;
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid #111111;
-}
-
-
-.link {
-    text-decoration: none;
-    color: var(--blue);
-    font-size: 20px;
-    margin-left: 15px;
-}
-
-.link:hover {
-    text-decoration: underline;
-}
-
-.loginButton {
-    padding: 10px 20px;
-    font-size: 16.5px;
-    width: 100%;
-}
-
-.loginOr {
-    display: flex;
-    justify-content: center;
-    margin: 15px 0;
-}
-
-.but {
-    align-items: center;
-    margin-bottom: 15px;
-}
-
-.googleButtonWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-}
-
-.googleBut {
-    width: auto;
-    margin-bottom: 15px;
-    background: transparent;
-    border: 0;
-    cursor: pointer;
-    padding: 0;
-}
-
-
-.googleBut > img {
-    padding: 0;
-    height: 40px;
-}
-
-.errormess {
-    color: var(--red);
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.errorInp {
-    border-color: var(--red);
-    height: 30px;
-    margin-bottom: 15px;
-    width: 100%;
+.input{
+    padding: 20px;
+    width: 475px;
     outline: none;
-    box-sizing: border-box;
-
+    border: 2px solid #929292;
+    border-radius:5px;
+    background: transparent;
+    font-size: 20px;
 }
 
-
-@media screen and (max-width: 930px) {
-    .main {
-        padding: 20% 0;
-    }
+.input:last-child{
+    margin-top: 30px;
 }
 
-
-@media screen and (max-width: 600px) {
-    .main {
-        padding: 30% 0;
-    }
+.signin{
+    font-size: 3rem;
+    line-height: 39px;
+    letter-spacing: 0.175em;
+    padding-bottom: 40px;
+    text-align: center;
+}
+.createAccount{
+    text-align: start;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+.openRegisterPage{
+    text-decoration: none;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0.175em;
+    color: var(--lightBlue);
+    padding-left: 15px;
 }
 
-@media screen and (max-width: 500px) {
-    .main {
-        padding: 40% 0;
-    }
-
-    .form div img {
-        width: 80px !important;
-        height: 80px !important;
-    }
-
-    .link, .spanbtn {
-        font-size: 16px !important;
-    }
-
-    .googleBut span img {
-        height: 25px;
-    }
-
-    .loginButton {
-        padding: 6px 10px;
-        font-size: 16px;
-    }
+.loginBtn{
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.175em;
+    padding: 15px 60px;
+    color: var(--white);
+    background: var(--lightBlue);
+    border: none;
+    border-radius: 5px;
+}
+.divBtn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-@media screen and (max-width: 400px) {
-    .main {
-        padding: 43% 30px;
-    }
+.loginImg{
+    height:330px;
+    position: absolute;
+    right: 26.2%;
+    bottom: -50px;
+}
+.loginImg2{
+    display: none;
+}
+.borderOR{
+    display: flex;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.border{
+    width: 150px;
+    border-bottom: 2px solid;
+}
+
+.errormess{
+    color: var(--red);
+    font-size: 20px;
+    text-align: center;
+    padding-top: 20px;
 }
