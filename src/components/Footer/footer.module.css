@@ -4,6 +4,13 @@ footer {
     justify-content: space-between;
     align-items: center;
 }
+
+.logo{
+    color: var(--white);
+    font-size: 30px;
+    padding-left: 25px;
+}
+
 .copyRight{
     font-size: 20px;
     padding: 25px 15px;
@@ -11,25 +18,26 @@ footer {
     font-family: "Poppins";
     text-align: center;
 }
-.socialMediaParagraph:nth-child(-n+3){
-    padding-right: 15px;
-}
-.socialMediaParagraph:hover{
-    opacity: .5;
-}
 
+.instagram{
+    margin-right: 15px;
+}
 
 
 
 
 /* Media */
 
-@media screen and (max-width:900px) {
-    .navigate{
-        display: none;
-    }
+
+@media screen and (max-width:475px) {
     .socialMedia{
-        margin-right: 15px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin-left: 25px;
+    }
+    .instagram{
+        width: 30%;
     }
 }
 
@@ -37,26 +45,5 @@ footer {
     .copyRight{
         font-size: 16px;
     }
-    .socialMediaParagraph svg{
-        width: 20px !important;
-        height: 20px !important;
-    }
 }
 
-@media screen and (max-width:460px) {
-    .socialMediaParagraph:nth-child(-n+3){
-        padding-right: 3px;
-    }
-}
-
-@media screen and (max-width:420px) {
-    .socialMedia{
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        margin-right: 10px;
-    }
-    .socialMediaParagraph{
-        width: 40%;
-    }
-}

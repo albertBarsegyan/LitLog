@@ -1,15 +1,15 @@
-import loginUser from '../../../assets/images/loginUser.png'
+import loginUser from '../../../assets/images/login.png'
 import style from './LoginPage.module.css'
-import google from '../../../assets/images/google.png'
 import { errorMes, requeridMes } from '../../../constants/errorMessage'
 import { useForm } from 'react-hook-form'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { UnauthenticatedRoutePath } from '../../../constants/RouteCostant'
 import { useAuth } from '../../../context/auth.context'
 import { RegExp } from '../../../constants/RegExp'
 
 function LoginPage() {
   const { signIn, googleAuth } = useAuth()
+
   const {
     register,
     formState: { errors, isDirty, isValid },
@@ -27,89 +27,87 @@ function LoginPage() {
     reset()
     signIn(data)
   }
-
   const isDisableSubmit = !isDirty || !isValid
 
   return (
-    <div style={{ backgroundColor: 'var(--profileColor)' }}>
-      <div className={style.main}>
-        <div className={style.form}>
-          <div style={{ textAlign: 'center' }}>
-            <img width="100px" height="100px" src={loginUser} alt="loginUser" />
-          </div>
-
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <label>
-              <div>
-                {errors?.email && (
-                  <p className={style.errormess}>
-                    {errors?.email?.message || 'Error!'}
-                  </p>
-                )}
-              </div>
-
-              <input
-                className={errors.email ? style.errorInp : style.formInput}
-                {...register('email', {
-                  required: requeridMes.reqMes,
-                  pattern: {
-                    value: RegExp.emailRegExp,
-                    message: errorMes.Email,
-                  },
-                })}
-                type="email"
-                placeholder="Email"
-              />
-              <br />
-            </label>
-
-            <label>
-              <div>
-                {errors?.password && (
-                  <p className={style.errormess}>
-                    {errors?.password?.message || 'Error!'}
-                  </p>
-                )}
-              </div>
-
-              <input
-                className={errors.password ? style.errorInp : style.formInput}
-                {...register('password', {
-                  required: requeridMes.reqMes,
-                })}
-                type="password"
-                placeholder="Password"
-              />
-            </label>
-            <div className={style.but}>
-              <button
-                disabled={isDisableSubmit}
-                type="submit"
-                className={style.loginButton}
-              >
-                Login
-              </button>
-              <span className={style.loginOr}>OR</span>
+    <div className={style.loginPageForm}>
+      <div className={style.formDiv}>
+        <form onSubmit={handleSubmit(onSubmit)} className={style.loginForm}>
+          <p className={style.signin}>Sign In</p>
+          <div>
+            <div>
+              {errors?.email && (
+                <p style={{ paddingBottom: 30 }} className={style.errormess}>
+                  {errors?.email?.message || 'Error!'}
+                </p>
+              )}
             </div>
-          </form>
-          <div className={style.googleButtonWrapper}>
-            <button onClick={() => googleAuth()} className={style.googleBut}>
-              <img src={google} alt="google auth" />
+            <input
+              {...register('email', {
+                required: requeridMes.reqMes,
+                pattern: {
+                  value: RegExp.emailRegExp,
+                  message: errorMes.Email,
+                },
+              })}
+              className={style.input}
+              type="email"
+              placeholder="Email adress"
+            />
+          </div>
+          <div>
+            <div>
+              {errors?.password && (
+                <p className={style.errormess}>
+                  {errors?.password?.message || 'Error!'}
+                </p>
+              )}
+            </div>
+            <input
+              {...register('password', {
+                required: requeridMes.reqMes,
+              })}
+              className={style.input}
+              type="password"
+              placeholder="Passowrd"
+            />
+          </div>
+          <p className={style.createAccount}>
+            Don't have an account?
+            <Link
+              to={UnauthenticatedRoutePath.Registration()}
+              className={style.openRegisterPage}
+            >
+              Create An account here
+            </Link>
+          </p>
+          <img
+            className={
+              errors?.email || errors?.password
+                ? `${style.loginImg2}`
+                : `${style.loginImg}`
+            }
+            src={loginUser}
+            alt=""
+          />
+          <div className={style.divBtn}>
+            <button disabled={isDisableSubmit} className={style.loginBtn}>
+              Login
             </button>
           </div>
-          <div style={{ textAlign: 'center' }}>
-            <span className={style.spanbtn} style={{ fontSize: '20px' }}>
-              Not registered?
-            </span>
-
-            <NavLink
-              to={UnauthenticatedRoutePath.Registration()}
-              className={style.link}
-            >
-              Create an account!
-            </NavLink>
-          </div>
+        </form>
+        <div className={style.borderOR}>
+          <div className={style.border}></div>
+          <p style={{ margin: 10 }}>OR</p>
+          <div className={style.border}></div>
         </div>
+        <button
+          style={{ marginTop: 25 }}
+          onClick={() => googleAuth()}
+          className={style.loginBtn}
+        >
+          Login with Google
+        </button>
       </div>
     </div>
   )
